@@ -120,6 +120,8 @@
     .title{
       color: #ffffff;
       font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 20px;
     }
     .col-input{
       width: 250px;
@@ -140,10 +142,6 @@
     }
     .col-submit:hover{
       opacity: 0.85;
-    }
-    .title{
-      font-size: 20px;
-      margin-bottom: 20px;
     }
   </style>
 </head>
