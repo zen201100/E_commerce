@@ -58,6 +58,7 @@
             border: none;
             background: transparent;
             color: #fff;
+            font-size: 15px;
         }
         .search input::placeholder {
             color: #ffffff;

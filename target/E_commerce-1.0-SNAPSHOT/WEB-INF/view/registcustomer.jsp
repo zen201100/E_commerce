@@ -57,6 +57,7 @@
       border: none;
       background: transparent;
       color: #fff;
+      font-size: 15px;
     }
     .search input::placeholder {
       color: #ffffff;
@@ -109,7 +110,7 @@
     }
     .regist{
       border: 1px solid black;
-      width: 30%;
+      width: 33%;
       float: right;
       background: #6e7781;
     }
@@ -124,24 +125,26 @@
       margin-bottom: 20px;
     }
     .col-input{
-      width: 250px;
-      margin-bottom: 15px;
-      padding: 8px;
+      width: 280px;
+      margin-bottom: 20px;
+      padding: 15px;
       background: rgba(0,0,0,0.8);
       color: #ffffff;
+      font-size: 15px;
     }
     .col-input::placeholder{
       color: #ffffff;
     }
     .col-submit{
       border: 1px solid #1a73e8;
-      padding: 8px;
-      width: 250px;
+      padding: 15px;
+      width: 280px;
       background: #1a73e8;
       color: #ffffff;
+      border-radius:2px ;
     }
     .col-submit:hover{
-      opacity: 0.85;
+      box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
     }
   </style>
 </head>
@@ -196,12 +199,12 @@
           <div class="title">Đăng ký</div>
           <form method="" action="">
             <input class="col-input" type="email" name="email" placeholder="Email">
-            <input class="col-input" type="text" name="username" placeholder="User name">
-            <input class="col-input" type="password" name="password" placeholder="Password">
-            <input class="col-input" type="password" name="password" placeholder="Confirm password">
-            <input class="col-input" type="number" name="phone" placeholder="Phone">
+            <input class="col-input" type="text" name="username" placeholder="Tên đăng nhập">
+            <input class="col-input" type="password" name="password" placeholder="Mật khẩu">
+            <input class="col-input" type="password" name="password" placeholder="Xác nhận mật khẩu">
+            <input class="col-input" type="number" name="phone" placeholder="Số điện thoại">
             <br>
-            <input class="col-submit" type="button" value="Rigest">
+            <input class="col-submit" type="submit" value="Đăng ký">
           </form>
         </div>
       </div>
