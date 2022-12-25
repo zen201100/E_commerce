@@ -125,6 +125,7 @@
       border: 1px solid black;
       width: 33%;
       background: #6e7781;
+      box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
     }
     .row-f{
       padding: 20px 0;
@@ -222,7 +223,7 @@
                 <input class="col-input" type="password" name="password" placeholder="Xác nhận mật khẩu">
                 <input class="col-input" type="number" name="phone" placeholder="Số điện thoại">
                 <br>
-                <input class="col-submit" type="submit" value="Đăng ký">
+                <input class="col-submit" type="submit" value="ĐĂNG KÝ">
               </form>
             </div>
           </div>

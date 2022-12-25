@@ -225,7 +225,7 @@
                                 <input class="col-input" type="text" name="username" placeholder="Tên đăng nhập">
                                 <input class="col-input" type="password" name="password" placeholder="Mật khẩu">
                                 <br>
-                                <input class="col-submit" type="submit" value="Đăng nhập">
+                                <input class="col-submit" type="submit" value="ĐĂMG NHẬP">
                             </form>
                         </div>
                     </div>
