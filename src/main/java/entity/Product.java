@@ -7,25 +7,25 @@ import javax.persistence.*;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int productID;
+    private int id;
     private String name;
     private int quantity;
 
     public Product() {
     }
 
-    public Product(int productID, String name, int quantity) {
-        this.productID = productID;
+    public Product(int id, String name, int quantity) {
+        this.id = id;
         this.name = name;
         this.quantity = quantity;
     }
 
-    public int getProductID() {
-        return productID;
+    public int getId() {
+        return id;
     }
 
-    public void setProductID(int productID) {
-        this.productID = productID;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

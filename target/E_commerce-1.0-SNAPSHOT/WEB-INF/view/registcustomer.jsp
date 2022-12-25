@@ -14,7 +14,10 @@
       padding: 0;
       margin: 0;
     }
+    body{
+      background: #B6E3FF;
 
+    }
     .head-top{
       padding: 15px 0;
       background: rgba(0,0,0,0.8);
@@ -100,35 +103,43 @@
       text-align: center;
     }
     #regist-customer{
-      background: #B6E3FF;
-
-    }
-    .regist{
+      padding-top:40px ;
       width: 1080px;
       margin: 0 auto;
-
     }
-    /*.regist-c{*/
-    /*  border: 1px solid black;*/
-    /*  width: 280px;*/
-    /*  float: right;*/
-    /*  margin-top: 30px;*/
-    /*}*/
-    .row-l{
-      width: 69.66669%;
-    }
-    .row-r{
+    .regist{
       border: 1px solid black;
       width: 30%;
+      float: right;
+      background: #6e7781;
+    }
+    .row-r{
+      padding: 20px 0;
+      text-align: center;
+    }
+    .title{
+      color: #ffffff;
+      font-weight: bold;
     }
     .col-input{
-      width: 200px;
-      margin-bottom: 10px;
-      padding: 6px;
+      width: 250px;
+      margin-bottom: 15px;
+      padding: 8px;
+      background: rgba(0,0,0,0.8);
+      color: #ffffff;
+    }
+    .col-input::placeholder{
+      color: #ffffff;
     }
     .col-submit{
-      padding: 6px;
-      width: 200px;
+      border: 1px solid #1a73e8;
+      padding: 8px;
+      width: 250px;
+      background: #1a73e8;
+      color: #ffffff;
+    }
+    .col-submit:hover{
+      opacity: 0.85;
     }
     .title{
       font-size: 20px;
@@ -142,7 +153,7 @@
       <div class="container">
         <div class="row-cs">
           <div class="logo">
-            <a style="color: #ffffff" href="">PHUCTAI</a>
+            <a style="color: #ffffff" href="home">PHUCTAI</a>
           </div>
 
           <div class="col-cs">
@@ -183,17 +194,14 @@
   <div id="regist-customer">
     <div class="regist">
       <div class="regist-c">
-        <div class="row-l">
-        </div>
-
         <div class="row-r">
           <div class="title">Đăng ký</div>
           <form method="" action="">
             <input class="col-input" type="email" name="email" placeholder="Email">
             <input class="col-input" type="text" name="username" placeholder="User name">
-            <input class="col-input" type="text" name="password" placeholder="Password">
-            <input class="col-input" type="text" name="password" placeholder="Confirm password">
-            <input class="col-input" type="text" name="email" placeholder="Phone">
+            <input class="col-input" type="password" name="password" placeholder="Password">
+            <input class="col-input" type="password" name="password" placeholder="Confirm password">
+            <input class="col-input" type="number" name="phone" placeholder="Phone">
             <br>
             <input class="col-submit" type="button" value="Rigest">
           </form>

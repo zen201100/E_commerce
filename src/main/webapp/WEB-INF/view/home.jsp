@@ -15,7 +15,10 @@
             padding: 0;
             margin: 0;
         }
+        body{
+            background: #B6E3FF;
 
+        }
         .head-top{
             padding: 15px 0;
             background: rgba(0,0,0,0.8);
@@ -129,7 +132,7 @@
             <div class="container">
                 <div class="row-cs">
                     <div class="logo">
-                        <a style="color: #ffffff" href="">PHUCTAI</a>
+                        <a style="color: #ffffff" href="home">PHUCTAI</a>
                     </div>
 
                     <div class="col-cs">
@@ -174,7 +177,7 @@
                     <img src="">
                     <div class="product-name">${p.name}</div>
                 </a>
-                <div class="price">So luong: ${p.quantity}</div>
+                <div class="quantity">So luong: ${p.quantity}</div>
             </div>
         </c:forEach>
     </div>

@@ -7,8 +7,8 @@ import java.time.LocalDate;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int orderID;
+    private int Id;
     private LocalDate date;
     private String note;
-    private double toltalPrice;
+    private double totalPrice;
 }
