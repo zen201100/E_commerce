@@ -16,4 +16,9 @@ public class ProductController {
         model.addAttribute("product",productService.getAllProduct());
         return "home";
     }
+
+    @GetMapping(value = "registCustomer")
+    public String getRegistCustomer(Model model){
+        return "registcustomer";
+    }
 }

@@ -72,7 +72,7 @@
             color: #ffffff;
         }
         .dn-dk a:hover{
-            text-decoration:underline;
+            opacity: 0.85;
         }
         .chan{
             margin-right: 5px;
@@ -96,6 +96,30 @@
             text-decoration: none;
             justify-content: space-between;
             padding: 5px;
+            flex-basis: 16.6666667%;
+            border-right: 1px solid #ffffff;
+            text-align: center;
+        }
+        #product{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 1080px;
+            margin: 0 auto;
+        }
+        .product-item{
+            padding-right: 15px;
+            padding-left: 15px;
+            box-sizing: border-box;
+            flex-basis: 25%;
+        }
+        .product-item a{
+            text-decoration: none;
+        }
+        .product-name{
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -112,7 +136,7 @@
                         <div class="search">
                             <form action="" method="">
                                 <input class="search-control" type="text" name="search" placeholder="Search..." >
-                                <input style="margin: 8px" type="submit">
+                                <input style="padding: 0 5px" type="submit">
                             </form>
                         </div>
                     </div>
@@ -121,7 +145,7 @@
                         <div class="dn-dk">
                             <a class="dn" href="">Đăng nhập</a>
                             <div class="chan">|</div>
-                            <a class="dk" href="">Đăng ký</a>
+                            <a class="dk" href="registCustomer">Đăng ký</a>
                         </div>
                     </div>
                 </div>
@@ -132,11 +156,27 @@
         <div class="head-dow">
             <div class="row-dow">
                 <div class="row-cd">
-                    <a href="">Dien Thoai</a>
-                    <a href="">Ho tro</a>
+                    <a href="">Hang</a>
+                    <a href="">Gia</a>
+                    <a href="">Loai dien thoai</a>
+                    <a href="">RAM</a>
+                    <a href="">Dung luong</a>
+                    <a href="">Pin</a>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="product">
+        <c:forEach var="p" items="${product}">
+            <div class="product-item">
+                <a href="">
+                    <img src="">
+                    <div class="product-name">${p.name}</div>
+                </a>
+                <div class="price">So luong: ${p.quantity}</div>
+            </div>
+        </c:forEach>
     </div>
 </body>
 </html>
