@@ -21,4 +21,9 @@ public class ProductController {
     public String getRegistCustomer(Model model){
         return "registcustomer";
     }
+
+    @GetMapping(value = "login")
+    public String getLogin(){
+        return "login";
+    }
 }

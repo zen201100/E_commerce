@@ -76,7 +76,7 @@
             color: #ffffff;
         }
         .dn-dk a:hover{
-            opacity: 0.85;
+            box-shadow: 0 0 20px rgba(255, 255, 255, .5);
         }
         .chan{
             margin-right: 5px;
@@ -147,7 +147,7 @@
 
                     <div class="col-dndk">
                         <div class="dn-dk">
-                            <a class="dn" href="">Đăng nhập</a>
+                            <a class="dn" href="login">Đăng nhập</a>
                             <div class="chan">|</div>
                             <a class="dk" href="registCustomer">Đăng ký</a>
                         </div>

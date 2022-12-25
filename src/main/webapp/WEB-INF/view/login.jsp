@@ -1,15 +1,14 @@
 <%--
   Created by IntelliJ IDEA.
   User: Phuc Lee
-  Date: 12/24/22
-  Time: 11:34 AM
+  Date: 12/25/22
+  Time: 11:14 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Home</title>
+    <title>Login</title>
     <style>
         *{
             padding: 0;
@@ -84,7 +83,7 @@
             color: #ffffff;
         }
         .head-dow{
-            background: #6e7781
+            background: #6e7781;
         }
         .row-dow{
             width: 1080px;
@@ -104,26 +103,66 @@
             border-right: 1px solid #ffffff;
             text-align: center;
         }
-        #product{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+        #form-login{
+            width: 100%;
+        }
+        .login{
+            padding: 40px 0;
+        }
+        .login-c{
             width: 1080px;
             margin: 0 auto;
+            display: flex;
         }
-        .product-item{
-            padding-right: 15px;
-            padding-left: 15px;
-            box-sizing: border-box;
-            flex-basis: 25%;
+        .login-t{
+            width: 100%;
+            display: flex;
         }
-        .product-item a{
-            text-decoration: none;
+        .login-l{
+            width: 67%;
         }
-        .product-name{
-            color: black;
-            font-size: 20px;
+        .login-r{
+            width: 33%;
+            background: rgba(0,0,0,0.8);
+            box-shadow: 0 0 20px rgba(255, 255, 255, .5);
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
+        }
+        .row-f{
+            padding: 20px 0;
+            text-align: center;
+        }
+        .title{
+            color: #ffffff;
             font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .col-input{
+            width: 280px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: transparent;
+            color: #ffffff;
+            font-size: 15px;
+            outline: 0;
+            border: 0;
+            border-bottom: 1px solid #ffffff;
+        }
+        .col-input::placeholder{
+            color: #ffffff;
+        }
+        .col-submit{
+            border: 1px solid #ffffff;
+            padding: 15px;
+            width: 280px;
+            background: transparent;
+            color: #ffffff;
+            border-radius:2px ;
+            transition: 0.25s ease-in-out;
+        }
+        .col-submit:hover{
+            border: 1px solid #54a0ff;
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
         }
     </style>
 </head>
@@ -171,16 +210,28 @@
         </div>
     </div>
 
-    <div id="product">
-        <c:forEach var="p" items="${product}">
-            <div class="product-item">
-                <a href="">
-                    <img src="">
-                    <div class="product-name">${p.name}</div>
-                </a>
-                <div class="quantity">So luong: ${p.quantity}</div>
+    <div id="form-login">
+        <div class="login">
+            <div class="login-c">
+                <div class="login-t">
+                    <div class="login-l">
+
+                    </div>
+
+                    <div class="login-r">
+                        <div class="row-f">
+                            <div class="title">Đăng nhập</div>
+                            <form method="" action="">
+                                <input class="col-input" type="text" name="username" placeholder="Tên đăng nhập">
+                                <input class="col-input" type="password" name="password" placeholder="Mật khẩu">
+                                <br>
+                                <input class="col-submit" type="submit" value="Đăng nhập">
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </c:forEach>
+        </div>
     </div>
 </body>
 </html>

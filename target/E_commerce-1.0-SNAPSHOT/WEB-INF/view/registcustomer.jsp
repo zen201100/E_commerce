@@ -75,7 +75,7 @@
       color: #ffffff;
     }
     .dn-dk a:hover{
-      opacity: 0.85;
+      box-shadow: 0 0 20px rgba(255, 255, 255, .5);
     }
     .chan{
       margin-right: 5px;
@@ -104,17 +104,29 @@
       text-align: center;
     }
     #regist-customer{
-      padding-top:40px ;
-      width: 1080px;
-      margin: 0 auto;
+      width: 100%;
     }
     .regist{
+      padding: 40px 0;
+    }
+    .regist-c{
+      width: 1080px;
+      margin: 0 auto;
+      display: flex;
+    }
+    .regist-t{
+      width: 100%;
+      display: flex;
+    }
+    .regist-l{
+      width: 67%;
+    }
+    .regist-r{
       border: 1px solid black;
       width: 33%;
-      float: right;
       background: #6e7781;
     }
-    .row-r{
+    .row-f{
       padding: 20px 0;
       text-align: center;
     }
@@ -168,7 +180,7 @@
 
           <div class="col-dndk">
             <div class="dn-dk">
-              <a class="dn" href="">Đăng nhập</a>
+              <a class="dn" href="login">Đăng nhập</a>
               <div class="chan">|</div>
               <a class="dk" href="registCustomer">Đăng ký</a>
             </div>
@@ -195,17 +207,25 @@
   <div id="regist-customer">
     <div class="regist">
       <div class="regist-c">
-        <div class="row-r">
-          <div class="title">Đăng ký</div>
-          <form method="" action="">
-            <input class="col-input" type="email" name="email" placeholder="Email">
-            <input class="col-input" type="text" name="username" placeholder="Tên đăng nhập">
-            <input class="col-input" type="password" name="password" placeholder="Mật khẩu">
-            <input class="col-input" type="password" name="password" placeholder="Xác nhận mật khẩu">
-            <input class="col-input" type="number" name="phone" placeholder="Số điện thoại">
-            <br>
-            <input class="col-submit" type="submit" value="Đăng ký">
-          </form>
+        <div class="regist-t">
+          <div class="regist-l">
+
+          </div>
+
+          <div class="regist-r">
+            <div class="row-f">
+              <div class="title">Đăng ký</div>
+              <form method="" action="">
+                <input class="col-input" type="email" name="email" placeholder="Email">
+                <input class="col-input" type="text" name="username" placeholder="Tên đăng nhập">
+                <input class="col-input" type="password" name="password" placeholder="Mật khẩu">
+                <input class="col-input" type="password" name="password" placeholder="Xác nhận mật khẩu">
+                <input class="col-input" type="number" name="phone" placeholder="Số điện thoại">
+                <br>
+                <input class="col-submit" type="submit" value="Đăng ký">
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
