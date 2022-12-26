@@ -1,15 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: Phuc Lee
-  Date: 12/24/22
-  Time: 11:34 AM
+  Date: 12/26/22
+  Time: 10:36 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Home</title>
+    <title>Customer</title>
+    <title>Login</title>
     <style>
         *{
             padding: 0;
@@ -62,13 +62,12 @@
         .search input::placeholder {
             color: #ffffff;
         }
-        .col-dndk{
+        .col-acc{
             width: 40%;
         }
-        .dn-dk{
+        .row-acc{
             display: flex;
             float: right;
-            margin-top: 10px;
         }
         .dn-dk a{
             text-decoration: none;
@@ -77,13 +76,8 @@
         .dn-dk a:hover{
             opacity: 0.85;
         }
-        .chan{
-            margin-right: 5px;
-            margin-left: 5px;
-            color: #ffffff;
-        }
         .head-dow{
-            background: #6e7781
+            background: #6e7781;
         }
         .row-dow{
             width: 1080px;
@@ -93,7 +87,7 @@
         .row-cd{
             display: flex;
         }
-        .row-cd a{
+        .row-cd a {
             font-size: 16px;
             color: #ffffff;
             text-decoration: none;
@@ -103,26 +97,25 @@
             border-right: 1px solid #ffffff;
             text-align: center;
         }
-        #product{
+        .col-cart{
+            margin-right: 40px;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            width: 1080px;
-            margin: 0 auto;
         }
-        .product-item{
-            padding-right: 15px;
-            padding-left: 15px;
-            box-sizing: border-box;
-            flex-basis: 25%;
+        .col-cart a{
+            width: 20px;
+            height: 20px;
+            background: #54a0ff;
+            margin-right: 20px;
+            margin-left: 20px;
+            margin-top: 13px;
         }
-        .product-item a{
-            text-decoration: none;
-        }
-        .product-name{
-            color: black;
-            font-size: 20px;
-            font-weight: bold;
+        .avata-lg{
+            width: 44px;
+            height: 44px;
+            border-radius:50%;
+            background: #ffffff;
+            position: relative;
+            display: block;
         }
     </style>
 </head>
@@ -132,7 +125,7 @@
             <div class="container">
                 <div class="row-cs">
                     <div class="logo">
-                        <a style="color: #ffffff" href="home">PHUCTAI</a>
+                        <a style="color: #ffffff" href="loginAccount?username=${customer.userName}&password=${customer.password}">PHUCTAI</a>
                     </div>
 
                     <div class="col-cs">
@@ -144,11 +137,15 @@
                         </div>
                     </div>
 
-                    <div class="col-dndk">
-                        <div class="dn-dk">
-                            <a class="dn" href="login">Đăng nhập</a>
-                            <div class="chan">|</div>
-                            <a class="dk" href="registCustomer">Đăng ký</a>
+                    <div class="col-acc">
+                        <div class="row-acc">
+                            <div class="col-cart">
+                                <a class="tb" href=""></a>
+                                <a class="gh" href=""></a>
+                            </div>
+                            <div class="avata-lg">
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -168,18 +165,6 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div id="product">
-        <c:forEach var="p" items="${product}">
-            <div class="product-item">
-                <a href="">
-                    <img src="">
-                    <div class="product-name">${p.name}</div>
-                </a>
-                <div class="quantity">So luong: ${p.quantity}</div>
-            </div>
-        </c:forEach>
     </div>
 </body>
 </html>

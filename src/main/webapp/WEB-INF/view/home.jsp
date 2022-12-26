@@ -17,7 +17,6 @@
         }
         body{
             background: #B6E3FF;
-
         }
         .head-top{
             padding: 15px 0;
@@ -76,7 +75,7 @@
             color: #ffffff;
         }
         .dn-dk a:hover{
-            box-shadow: 0 0 20px rgba(255, 255, 255, .5);
+            opacity: 0.85;
         }
         .chan{
             margin-right: 5px;

@@ -16,7 +16,6 @@
         }
         body{
             background: #B6E3FF;
-
         }
         .head-top{
             padding: 15px 0;
@@ -75,7 +74,7 @@
             color: #ffffff;
         }
         .dn-dk a:hover{
-            box-shadow: 0 0 20px rgba(255, 255, 255, .5);
+            opacity: 0.85;
         }
         .chan{
             margin-right: 5px;
@@ -221,7 +220,7 @@
                     <div class="login-r">
                         <div class="row-f">
                             <div class="title">Đăng nhập</div>
-                            <form method="" action="">
+                            <form method="get" action="loginAccount">
                                 <input class="col-input" type="text" name="username" placeholder="Tên đăng nhập">
                                 <input class="col-input" type="password" name="password" placeholder="Mật khẩu">
                                 <br>
