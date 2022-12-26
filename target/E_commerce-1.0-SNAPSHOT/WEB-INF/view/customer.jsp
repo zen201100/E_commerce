@@ -125,7 +125,7 @@
             <div class="container">
                 <div class="row-cs">
                     <div class="logo">
-                        <a style="color: #ffffff" href="loginAccount?username=${customer.userName}&password=${customer.password}">PHUCTAI</a>
+                        <a style="color: #ffffff" href="loginAccount?userName=${customer.userName}&password=${customer.password}">PHUCTAI</a>
                     </div>
 
                     <div class="col-cs">

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Login</title>
@@ -220,12 +221,11 @@
                     <div class="login-r">
                         <div class="row-f">
                             <div class="title">Đăng nhập</div>
-                            <form method="get" action="loginAccount">
-                                <input class="col-input" type="text" name="username" placeholder="Tên đăng nhập">
-                                <input class="col-input" type="password" name="password" placeholder="Mật khẩu">
-                                <br>
+                            <form:form modelAttribute="customer" method="get" action="loginAccount">
+                                <form:input class="col-input" type="text" path="userName" placeholder="Tên đăng nhập"></form:input>
+                                <form:input class="col-input" type="password" path="password" placeholder="Mật khẩu"></form:input>
                                 <input class="col-submit" type="submit" value="ĐĂMG NHẬP">
-                            </form>
+                            </form:form>
                         </div>
                     </div>
                 </div>

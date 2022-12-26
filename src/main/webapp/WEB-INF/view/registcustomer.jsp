@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Register</title>
@@ -215,15 +216,15 @@
           <div class="regist-r">
             <div class="row-f">
               <div class="title">Đăng ký</div>
-              <form method="" action="">
-                <input class="col-input" type="email" name="email" placeholder="Email">
-                <input class="col-input" type="text" name="username" placeholder="Tên đăng nhập">
-                <input class="col-input" type="password" name="password" placeholder="Mật khẩu">
+
+              <form:form modelAttribute="customer" method="post" action="">
+                <form:input class="col-input" type="email" path="email" placeholder="Email"></form:input>
+                <form:input class="col-input" type="text" path="userName" placeholder="Tên đăng nhập"></form:input>
+                <form:input class="col-input" type="password" path="password" placeholder="Mật khẩu"></form:input>
                 <input class="col-input" type="password" name="password" placeholder="Xác nhận mật khẩu">
                 <input class="col-input" type="number" name="phone" placeholder="Số điện thoại">
-                <br>
-                <input class="col-submit" type="submit" value="ĐĂNG KÝ">
-              </form>
+                <input class="col-submit" type="submit" value="ĐĂMG KÝ">
+              </form:form>
             </div>
           </div>
         </div>
