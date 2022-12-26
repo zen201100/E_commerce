@@ -223,17 +223,8 @@
                 <form:input class="col-input" type="password" path="password" placeholder="Mật khẩu"></form:input>
                 <input class="col-input" type="password" name="password" placeholder="Xác nhận mật khẩu">
                 <input class="col-input" type="number" name="phone" placeholder="Số điện thoại">
-                <input class="col-submit" type="submit" value="ĐĂMG NHẬP">
+                <input class="col-submit" type="submit" value="ĐĂMG KÝ">
               </form:form>
-<%--              <form method="" action="">--%>
-<%--                <input class="col-input" type="email" name="email" placeholder="Email">--%>
-<%--                <input class="col-input" type="text" name="username" placeholder="Tên đăng nhập">--%>
-<%--                <input class="col-input" type="password" name="password" placeholder="Mật khẩu">--%>
-<%--                <input class="col-input" type="password" name="password" placeholder="Xác nhận mật khẩu">--%>
-<%--                <input class="col-input" type="number" name="phone" placeholder="Số điện thoại">--%>
-<%--                <br>--%>
-<%--                <input class="col-submit" type="submit" value="ĐĂNG KÝ">--%>
-<%--              </form>--%>
             </div>
           </div>
         </div>

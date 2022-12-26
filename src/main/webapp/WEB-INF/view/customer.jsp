@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Customer</title>
@@ -117,6 +118,39 @@
             position: relative;
             display: block;
         }
+        #advertisement{
+            height: 200px;
+            background: #54a0ff;
+        }
+        .row-p{
+            padding-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 1080px;
+            margin: 0 auto;
+        }
+        .col-p{
+            box-sizing: border-box;
+            flex-basis: 25%;
+            height: 300px;
+            margin-bottom: 10px;
+        }
+        .product-item{
+            border: 1px solid black;
+            margin-left: 4px;
+            width: 260px;
+            height: 300px;
+            background: #6e7781;
+        }
+        .product-item a{
+            text-decoration: none;
+        }
+        .product-name{
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -164,6 +198,26 @@
                     <a href="">Pin</a>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="advertisement">
+
+    </div>
+
+    <div id="product">
+        <div class="row-p">
+            <c:forEach var="p" items="${product}">
+                <div class="col-p">
+                    <div class="product-item">
+                        <a href="">
+                            <img src="">
+                            <div class="product-name">${p.name}</div>
+                        </a>
+                        <div class="quantity">So luong: ${p.quantity}</div>
+                    </div>
+                </div>
+            </c:forEach>
         </div>
     </div>
 </body>

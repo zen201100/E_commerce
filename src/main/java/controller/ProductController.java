@@ -43,6 +43,7 @@ public class ProductController {
         List<Customer> customers = customerService.getAllCustomer();
         for(Customer c:customers){
             if(customer.getUserName().equals(c.getUserName()) && customer.getPassword().equals(c.getPassword())){
+                model.addAttribute("product",productService.getAllProduct());
                 model.addAttribute("customer",customerService.getCustomerByUserName(customer.getUserName()));
                 return "customer";
             }

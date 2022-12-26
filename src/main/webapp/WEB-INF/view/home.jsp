@@ -103,18 +103,30 @@
             border-right: 1px solid #ffffff;
             text-align: center;
         }
-        #product{
+        #advertisement{
+            height: 200px;
+            background: #54a0ff;
+        }
+        .row-p{
+            padding-top: 30px;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             width: 1080px;
             margin: 0 auto;
         }
-        .product-item{
-            padding-right: 15px;
-            padding-left: 15px;
+        .col-p{
             box-sizing: border-box;
             flex-basis: 25%;
+            height: 300px;
+            margin-bottom: 10px;
+        }
+        .product-item{
+            border: 1px solid black;
+            margin-left: 4px;
+            width: 260px;
+            height: 300px;
+            background: #6e7781;
         }
         .product-item a{
             text-decoration: none;
@@ -170,16 +182,24 @@
         </div>
     </div>
 
+    <div id="advertisement">
+
+    </div>
+
     <div id="product">
-        <c:forEach var="p" items="${product}">
-            <div class="product-item">
-                <a href="">
-                    <img src="">
-                    <div class="product-name">${p.name}</div>
-                </a>
-                <div class="quantity">So luong: ${p.quantity}</div>
-            </div>
-        </c:forEach>
+        <div class="row-p">
+            <c:forEach var="p" items="${product}">
+                <div class="col-p">
+                    <div class="product-item">
+                        <a href="">
+                            <img src="">
+                            <div class="product-name">${p.name}</div>
+                        </a>
+                        <div class="quantity">So luong: ${p.quantity}</div>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
     </div>
 </body>
 </html>
