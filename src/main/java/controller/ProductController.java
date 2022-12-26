@@ -38,7 +38,7 @@ public class ProductController {
         return "login";
     }
 
-    @GetMapping(value = "loginAccount")
+    @GetMapping(value = "account")
     public String getLoginAccount(@ModelAttribute Customer customer, Model model){
         List<Customer> customers = customerService.getAllCustomer();
         for(Customer c:customers){

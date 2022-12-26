@@ -126,22 +126,20 @@
             padding-top: 30px;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
             width: 1080px;
             margin: 0 auto;
         }
         .col-p{
             box-sizing: border-box;
+            justify-content: space-between;
+            padding: 4px;
             flex-basis: 25%;
             height: 300px;
-            margin-bottom: 10px;
         }
         .product-item{
             border: 1px solid black;
-            margin-left: 4px;
-            width: 260px;
-            height: 300px;
             background: #6e7781;
+            height: 290px;
         }
         .product-item a{
             text-decoration: none;
@@ -159,7 +157,7 @@
             <div class="container">
                 <div class="row-cs">
                     <div class="logo">
-                        <a style="color: #ffffff" href="loginAccount?userName=${customer.userName}&password=${customer.password}">PHUCTAI</a>
+                        <a style="color: #ffffff" href="account?userName=${customer.userName}&password=${customer.password}">PHUCTAI</a>
                     </div>
 
                     <div class="col-cs">
