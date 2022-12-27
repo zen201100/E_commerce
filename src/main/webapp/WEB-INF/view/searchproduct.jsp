@@ -265,12 +265,13 @@
 
         <nav class="home-page" aria-label="Page navigation example">
             <div class="page-item">
-                <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=0">First</a>
+                <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=0">&laquo;</a>
                 <c:choose>
                     <c:when test="${productPage.number >3}">
-                        <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number-1}">${productPage.number-3}</a>
+                        <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number-3}">${productPage.number-3}</a>
                         <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number-1}">${productPage.number-1}</a>
                         <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number}">${productPage.number}</a>
+                        <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number+1}">${productPage.number+1}</a>
                         <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number+3}">${productPage.number+3}</a>
                     </c:when>
                     <c:otherwise>
@@ -298,19 +299,11 @@
                                 <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=3">3</a>
                             </c:otherwise>
                         </c:choose>
+                        <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=4">4</a>
                         <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=5">5</a>
                     </c:otherwise>
                 </c:choose>
-
-                <c:choose>
-                    <c:when test="${productPage.number+1 > (productPage.totalPages-1)}">
-                        <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.totalPages-1}">&raquo;</a>
-                    </c:when>
-                    <c:otherwise>
-                        <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number+1}">&raquo;</a>
-                    </c:otherwise>
-                </c:choose>
-                <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.totalPages-1}">Last</a>
+                <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.totalPages-1}">&raquo;</a>
             </div>
         </nav>
     </div>
