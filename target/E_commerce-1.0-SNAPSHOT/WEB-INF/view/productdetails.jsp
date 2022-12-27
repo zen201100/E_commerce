@@ -1,15 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: Phuc Lee
-  Date: 12/25/22
-  Time: 11:14 PM
+  Date: 12/24/22
+  Time: 11:34 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Login</title>
+    <title>Home</title>
     <style>
         *{
             padding: 0;
@@ -83,7 +83,7 @@
             color: #ffffff;
         }
         .head-dow{
-            background: #6e7781;
+            background: #6e7781
         }
         .row-dow{
             width: 1080px;
@@ -103,66 +103,68 @@
             border-right: 1px solid #ffffff;
             text-align: center;
         }
-        #form-login{
+        #form-pr{
             width: 100%;
+            clear: both;
         }
-        .login{
-            padding: 40px 0;
-        }
-        .login-c{
-            width: 1080px;
-            margin: 0 auto;
-            display: flex;
-        }
-        .login-t{
-            width: 100%;
-            display: flex;
-        }
-        .login-l{
-            width: 67%;
-        }
-        .login-r{
-            width: 33%;
-            background: rgba(0,0,0,0.8);
-            box-shadow: 0 0 20px rgba(255, 255, 255, .5);
-            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
-        }
-        .row-f{
-            padding: 20px 0;
-            text-align: center;
-        }
-        .title{
-            color: #ffffff;
-            font-weight: bold;
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-        .col-input{
-            width: 280px;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: transparent;
-            color: #ffffff;
-            font-size: 15px;
-            outline: 0;
-            border: 0;
+        .form-np{
+            padding: 15px 0;
             border-bottom: 1px solid #ffffff;
         }
-        .col-input::placeholder{
-            color: #ffffff;
+        .name-pr{
+            font-weight: bold;
+            font-size: 20px;
+            color:rgba(0,0,0,0.8);
         }
-        .col-submit{
-            border: 1px solid #ffffff;
-            padding: 15px;
-            width: 280px;
-            background: transparent;
-            color: #ffffff;
-            border-radius:2px ;
-            transition: 0.25s ease-in-out;
+        .pr-dt{
+            width: 1080px;
+            margin: 0 auto;
         }
-        .col-submit:hover{
-            border: 1px solid #54a0ff;
-            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
+        .row-pr{
+            padding-top: 10px;
+            display: flex;
+            box-sizing: border-box;
+        }
+        .col-l{
+            width: 57%;
+            padding-right:5px;
+        }
+        .col-r{
+            width: 43%;
+            padding-left: 5px;
+        }
+        .img-pr{
+            width: 100%;
+            border: 1px solid black;
+            height: 500px;
+        }
+        .col-tt{
+            border: 1px solid black;
+            height: 500px;
+        }
+        .od-pr{
+            padding: 8px;
+        }
+        .gb-cl{
+            display: flex;
+            margin-bottom: 12px;
+        }
+        .g-l{
+            border: 1px solid black;
+            padding: 7px 12px;
+            margin-right: 2px;
+            text-decoration: none;
+            font-weight: bold;
+            color: rgba(0,0,0,0.8);
+        }
+        .g-l:hover{
+            border: 1px solid #1a73e8;
+            color: #1a73e8;
+        }
+        .price{
+            font-size: 20px;
+            color: #d0021c;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -177,8 +179,8 @@
 
                     <div class="col-cs">
                         <div class="search">
-                            <form action="" method="">
-                                <input class="search-control" type="text" name="search" placeholder="Search..." >
+                            <form action="searchProduct" method="get">
+                                <input class="search-control" type="text" name="searchproduct" placeholder="Search..." >
                                 <input style="padding: 0 5px" type="submit">
                             </form>
                         </div>
@@ -210,22 +212,33 @@
         </div>
     </div>
 
-    <div id="form-login">
-        <div class="login">
-            <div class="login-c">
-                <div class="login-t">
-                    <div class="login-l">
-
-                    </div>
-
-                    <div class="login-r">
-                        <div class="row-f">
-                            <div class="title">Đăng nhập</div>
-                            <form:form modelAttribute="customer" method="get" action="account">
-                                <form:input class="col-input" type="text" path="userName" placeholder="Tên đăng nhập"></form:input>
-                                <form:input class="col-input" type="password" path="password" placeholder="Mật khẩu"></form:input>
-                                <input class="col-submit" type="submit" value="ĐĂMG NHẬP">
-                            </form:form>
+    <div id="form-pr">
+        <div class="pr-dt">
+            <div class="form-np">
+                <div class="name-pr">${productDetails.name}</div>
+            </div>
+            <div class="row-pr">
+                <div class="col-l">
+                    <img class="img-pr" src="">
+                </div>
+                <div class="col-r">
+                    <div class="col-tt">
+                        <div class="od-pr">
+                            <div class="gb-cl">
+                                <a class="g-l" href=""><div>4GB-64GB</div></a>
+                                <a class="g-l" href=""><div>8GB-128GB</div></a>
+                                <a class="g-l" href=""><div>12GB-512GB</div></a>
+                                <a class="g-l" href=""><div>1TB</div></a>
+                            </div>
+                            <div class="gb-cl">
+                                <a class="g-l" href=""><div>Tím</div></a>
+                                <a class="g-l" href=""><div>Hồng</div></a>
+                                <a class="g-l" href=""><div>Xám</div></a>
+                                <a class="g-l" href=""><div>Xanh Dương</div></a>
+                            </div>
+                            <div class="price-pr">
+                                <div class="price">${productDetails.price.unitPrice} đ</div>
+                            </div>
                         </div>
                     </div>
                 </div>

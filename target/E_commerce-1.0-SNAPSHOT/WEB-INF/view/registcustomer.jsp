@@ -217,12 +217,13 @@
             <div class="row-f">
               <div class="title">Đăng ký</div>
 
-              <form:form modelAttribute="customer" method="post" action="">
-                <form:input class="col-input" type="email" path="email" placeholder="Email"></form:input>
+              <form:form modelAttribute="customer" method="post" action="registAccount">
                 <form:input class="col-input" type="text" path="userName" placeholder="Tên đăng nhập"></form:input>
                 <form:input class="col-input" type="password" path="password" placeholder="Mật khẩu"></form:input>
-                <input class="col-input" type="password" name="password" placeholder="Xác nhận mật khẩu">
-                <input class="col-input" type="number" name="phone" placeholder="Số điện thoại">
+                <input class="col-input" type="password" name="passWord" placeholder="Xác nhận mật khẩu">
+                <form:input class="col-input" type="email" path="email" placeholder="Email"></form:input>
+                <form:input class="col-input" type="text" path="fullName" placeholder="Họ tên"></form:input>
+                <form:input class="col-input" type="text" path="phone" placeholder="Số điện thoại"></form:input>
                 <input class="col-submit" type="submit" value="ĐĂMG KÝ">
               </form:form>
             </div>

@@ -21,4 +21,9 @@ public class CustomerServiceImpl implements CustomerService{
         return (Customer) customerRepository.getCustomerByUserName(username);
     }
 
+    @Override
+    public void getRegistCustomer(Customer customer) {
+        customerRepository.save(customer);
+    }
+
 }

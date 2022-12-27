@@ -199,11 +199,11 @@
         <div class="head-dow">
             <div class="row-dow">
                 <div class="row-cd">
-                    <a href="">Hang</a>
-                    <a href="">Gia</a>
-                    <a href="">Loai dien thoai</a>
+                    <a href="">Hãng</a>
+                    <a href="">Giá</a>
+                    <a href="">Loại điện thoại</a>
                     <a href="">RAM</a>
-                    <a href="">Dung luong</a>
+                    <a href="">Dung lượng</a>
                     <a href="">Pin</a>
                 </div>
             </div>

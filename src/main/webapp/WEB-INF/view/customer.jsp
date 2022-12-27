@@ -111,12 +111,11 @@
             margin-top: 13px;
         }
         .avata-lg{
-            width: 44px;
-            height: 44px;
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ffffff;
             border-radius:50%;
-            background: #ffffff;
-            position: relative;
-            display: block;
+            background: #54a0ff;
         }
         #advertisement{
             height: 200px;
@@ -131,23 +130,77 @@
         }
         .col-p{
             box-sizing: border-box;
-            justify-content: space-between;
             padding: 4px;
             flex-basis: 25%;
-            height: 300px;
         }
         .product-item{
-            border: 1px solid black;
-            background: #6e7781;
-            height: 290px;
+            background: rgba(0,0,0,0.8);
         }
-        .product-item a{
-            text-decoration: none;
+        .img{
+            width: 100%;
+            height: 300px;
+            background: #54a0ff;
+        }
+        .col-item{
+            padding:15px;
+        }
+        .product-name:hover{
+            color: #54a0ff;
         }
         .product-name{
-            color: black;
-            font-size: 20px;
+            color: #ffffff;
+            font-size: 16px;
+        }
+        .price{
+            color: #ffffff;
+            font-size: 18px;
             font-weight: bold;
+        }
+        .main-contain{
+            text-decoration: none;
+        }
+        .col-t{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px 0;
+        }
+        .capacity-b{
+            color: #ffffff;
+            margin: 2px;
+            text-align: center;
+            flex-basis: 44%;
+            border: 1px solid #ffffff;
+            padding: 5px 0;
+            font-size: 13px;
+        }
+        .capacity-b:hover{
+            color: #54a0ff;
+            border: 1px solid #54a0ff;
+        }
+        .home-page{
+            width: 1080px;
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+        .pagination{
+
+        }
+        .page-item{
+            display: flex;
+            margin-left: 396px;
+        }
+        .page-link{
+            background: rgba(0,0,0,0.8);
+            padding: 5px;
+            border: 1px solid #1a73e8;
+            text-decoration: none;
+            color: #ffffff;
+            width: 60px;
+            text-align: center;
+        }
+        .page-link:hover{
+            border: 1px solid #ffffff;
         }
     </style>
 </head>
@@ -162,8 +215,8 @@
 
                     <div class="col-cs">
                         <div class="search">
-                            <form action="" method="">
-                                <input class="search-control" type="text" name="search" placeholder="Search..." >
+                            <form action="searchProduct" method="get">
+                                <input class="search-control" type="text" name="searchproduct" placeholder="Search..." >
                                 <input style="padding: 0 5px" type="submit">
                             </form>
                         </div>
@@ -176,7 +229,7 @@
                                 <a class="gh" href=""></a>
                             </div>
                             <div class="avata-lg">
-
+                                <img class="avata" src="">
                             </div>
                         </div>
                     </div>
@@ -188,11 +241,11 @@
         <div class="head-dow">
             <div class="row-dow">
                 <div class="row-cd">
-                    <a href="">Hang</a>
-                    <a href="">Gia</a>
-                    <a href="">Loai dien thoai</a>
+                    <a href="">Hãng</a>
+                    <a href="">Giá</a>
+                    <a href="">Loại điện thoại</a>
                     <a href="">RAM</a>
-                    <a href="">Dung luong</a>
+                    <a href="">Dung lượng</a>
                     <a href="">Pin</a>
                 </div>
             </div>
@@ -205,18 +258,43 @@
 
     <div id="product">
         <div class="row-p">
-            <c:forEach var="p" items="${product}">
+            <c:forEach var="p" items="${productPage.content}">
                 <div class="col-p">
                     <div class="product-item">
-                        <a href="">
-                            <img src="">
-                            <div class="product-name">${p.name}</div>
+                        <a class="main-contain" href="">
+                            <img class="img" src="">
+                            <div class="col-item">
+                                <div class="product-name">${p.name}</div>
+                                <div class="capacity">
+                                    <div class="col-t">
+                                        <div class="capacity-b">${p.capacity.capacity}</div>
+                                        <div class="capacity-b">${p.capacity.capacity}</div>
+                                        <div class="capacity-b">${p.capacity.capacity}</div>
+                                        <div class="capacity-b">${p.capacity.capacity}</div>
+                                    </div>
+                                </div>
+                                <div class="price">${p.price.unitPrice} đ</div>
+                            </div>
                         </a>
-                        <div class="quantity">So luong: ${p.quantity}</div>
                     </div>
                 </div>
             </c:forEach>
         </div>
+
+        <nav class="home-page" aria-label="Page navigation example">
+            <div class="pagination">
+                <div class="page-item">
+                    <a class="page-link" href="userName=${customer.userName}&password=${customer.password}
+                    &searchProduct?searchproduct=${searchproduct}&page=0">First</a>
+                    <a class="page-link" href="userName=${customer.userName}&password=${customer.password}
+                    &searchProduct?searchproduct=${searchproduct}&page=${productPage.number-1}">Previous</a>
+                    <a class="page-link" href="userName=${customer.userName}&password=${customer.password}
+                    &searchProduct?searchproduct=${searchproduct}&page=${productPage.number+1}">Next</a>
+                    <a class="page-link" href="userName=${customer.userName}&password=${customer.password}
+                    &searchProduct?searchproduct=${searchproduct}&page=${productPage.totalPages-1}">Last</a>
+                </div>
+            </div>
+        </nav>
     </div>
 </body>
 </html>

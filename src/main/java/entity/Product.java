@@ -10,14 +10,22 @@ public class Product {
     private int id;
     private String name;
     private int quantity;
+    @ManyToOne
+    @JoinColumn(name = "priceID")
+    private Price price;
+    @ManyToOne
+    @JoinColumn(name = "capacityID")
+    private Capacity capacity;
 
     public Product() {
     }
 
-    public Product(int id, String name, int quantity) {
+    public Product(int id, String name, int quantity, Price price, Capacity capacity) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
+        this.price = price;
+        this.capacity = capacity;
     }
 
     public int getId() {
@@ -42,5 +50,21 @@ public class Product {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public Price getPrice() {
+        return price;
+    }
+
+    public void setPrice(Price price) {
+        this.price = price;
+    }
+
+    public Capacity getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Capacity capacity) {
+        this.capacity = capacity;
     }
 }

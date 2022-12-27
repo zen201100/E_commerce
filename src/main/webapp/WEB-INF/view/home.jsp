@@ -116,23 +116,77 @@
         }
         .col-p{
             box-sizing: border-box;
-            justify-content: space-between;
             padding: 4px;
             flex-basis: 25%;
-            height: 300px;
         }
         .product-item{
-            border: 1px solid black;
-            background: #6e7781;
-            height: 290px;
+            background: rgba(0,0,0,0.8);
         }
-        .product-item a{
-            text-decoration: none;
+        .img{
+            width: 100%;
+            height: 300px;
+            background: #54a0ff;
+        }
+        .col-item{
+            padding:15px;
+        }
+        .product-name:hover{
+            color: #54a0ff;
         }
         .product-name{
-            color: black;
-            font-size: 20px;
+            color: #ffffff;
+            font-size: 16px;
+        }
+        .price{
+            color: #ffffff;
+            font-size: 18px;
             font-weight: bold;
+        }
+        .main-contain{
+            text-decoration: none;
+        }
+        .col-t{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px 0;
+        }
+        .capacity-b{
+            color: #ffffff;
+            margin: 2px;
+            text-align: center;
+            flex-basis: 44%;
+            border: 1px solid #ffffff;
+            padding: 5px 0;
+            font-size: 13px;
+        }
+        .capacity-b:hover{
+            color: #54a0ff;
+            border: 1px solid #54a0ff;
+        }
+        .home-page{
+            width: 1080px;
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+        .page-item{
+            width: 300px;
+            margin: 0 auto;
+            display: flex;
+        }
+        .page-link{
+            background: rgba(0,0,0,0.8);
+            padding: 5px;
+            border: 1px solid #ffffff;
+            text-decoration: none;
+            color: #ffffff;
+            width: 25%;
+            text-align: center;
+            margin:1px;
+        }
+        .page-link:hover{
+            border: 1px solid #1a73e8;
+            color: #1a73e8;
         }
     </style>
 </head>
@@ -147,8 +201,8 @@
 
                     <div class="col-cs">
                         <div class="search">
-                            <form action="" method="">
-                                <input class="search-control" type="text" name="search" placeholder="Search..." >
+                            <form action="searchProduct" method="get">
+                                <input class="search-control" type="text" name="searchproduct" placeholder="Search..." >
                                 <input style="padding: 0 5px" type="submit">
                             </form>
                         </div>
@@ -169,11 +223,11 @@
         <div class="head-dow">
             <div class="row-dow">
                 <div class="row-cd">
-                    <a href="">Hang</a>
-                    <a href="">Gia</a>
-                    <a href="">Loai dien thoai</a>
+                    <a href="">Hãng</a>
+                    <a href="">Giá</a>
+                    <a href="">Loại điện thoại</a>
                     <a href="">RAM</a>
-                    <a href="">Dung luong</a>
+                    <a href="">Dung lượng</a>
                     <a href="">Pin</a>
                 </div>
             </div>
@@ -186,18 +240,46 @@
 
     <div id="product">
         <div class="row-p">
-            <c:forEach var="p" items="${product}">
+            <c:forEach var="p" items="${productPage.content}">
                 <div class="col-p">
                     <div class="product-item">
-                        <a href="">
-                            <img src="">
-                            <div class="product-name">${p.name}</div>
+                        <a class="main-contain" href="productDetails?id=${p.id}">
+                            <img class="img" src="">
+                            <div class="col-item">
+                                <div class="product-name">${p.name}</div>
+                                <div class="capacity">
+                                    <div class="col-t">
+                                        <div class="capacity-b">4GB-64GB</div>
+                                        <div class="capacity-b">8GB-128GB</div>
+                                        <div class="capacity-b">12GB-512GB</div>
+                                        <div class="capacity-b">1TB</div>
+                                    </div>
+                                </div>
+                                <div class="price">${p.price.unitPrice} đ</div>
+                            </div>
                         </a>
-                        <div class="quantity">So luong: ${p.quantity}</div>
                     </div>
                 </div>
             </c:forEach>
         </div>
+
+        <nav class="home-page" aria-label="Page navigation example">
+            <div class="pagination">
+                <div class="page-item">
+                    <a class="page-link" href="home?page=0">First</a>
+                    <c:choose>
+                        <c:when test="${productPage.number-1 <0}">
+                            <a class="page-link" href="home?page=0">Previous</a>
+                        </c:when>
+                        <c:otherwise>
+                            <a class="page-link" href="home?page=${productPage.number-1}">Previous</a>
+                        </c:otherwise>
+                    </c:choose>
+                    <a class="page-link" href="home?page=${productPage.number+1}">Next</a>
+                    <a class="page-link" href="home?page=${productPage.totalPages-1}">Last</a>
+                </div>
+            </div>
+        </nav>
     </div>
 </body>
 </html>

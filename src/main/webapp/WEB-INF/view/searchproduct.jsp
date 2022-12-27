@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Home</title>
+    <title>Search</title>
     <style>
         *{
             padding: 0;
@@ -125,7 +125,6 @@
         .img{
             width: 100%;
             height: 300px;
-            background: #54a0ff;
         }
         .col-item{
             padding:15px;
@@ -169,117 +168,110 @@
             margin: 0 auto;
             padding: 10px 0;
         }
+        .pagination{
+
+        }
         .page-item{
-            width: 300px;
-            margin: 0 auto;
             display: flex;
+            margin-left: 396px;
         }
         .page-link{
             background: rgba(0,0,0,0.8);
             padding: 5px;
-            border: 1px solid #ffffff;
+            border: 1px solid #1a73e8;
             text-decoration: none;
             color: #ffffff;
-            width: 25%;
+            width: 60px;
             text-align: center;
-            margin:1px;
         }
         .page-link:hover{
-            border: 1px solid #1a73e8;
-            color: #1a73e8;
+            border: 1px solid #ffffff;
         }
     </style>
 </head>
 <body>
-    <div id="head">
-        <div class="head-top">
-            <div class="container">
-                <div class="row-cs">
-                    <div class="logo">
-                        <a style="color: #ffffff" href="home">PHUCTAI</a>
-                    </div>
+<div id="head">
+    <div class="head-top">
+        <div class="container">
+            <div class="row-cs">
+                <div class="logo">
+                    <a style="color: #ffffff" href="home">PHUCTAI</a>
+                </div>
 
-                    <div class="col-cs">
-                        <div class="search">
-                            <form action="searchProduct" method="get">
-                                <input class="search-control" type="text" name="searchproduct" placeholder="Search..." >
-                                <input style="padding: 0 5px" type="submit">
-                            </form>
-                        </div>
-                    </div>
-
-                    <div class="col-dndk">
-                        <div class="dn-dk">
-                            <a class="dn" href="login">Đăng nhập</a>
-                            <div class="chan">|</div>
-                            <a class="dk" href="registCustomer">Đăng ký</a>
-                        </div>
+                <div class="col-cs">
+                    <div class="search">
+                        <form action="home " method="get">
+                            <input class="search-control" type="text" name="searchproduct" placeholder="Search..." >
+                            <input style="padding: 0 5px" type="submit">
+                        </form>
                     </div>
                 </div>
 
-            </div>
-        </div>
-
-        <div class="head-dow">
-            <div class="row-dow">
-                <div class="row-cd">
-                    <a href="">Hãng</a>
-                    <a href="">Giá</a>
-                    <a href="">Loại điện thoại</a>
-                    <a href="">RAM</a>
-                    <a href="">Dung lượng</a>
-                    <a href="">Pin</a>
+                <div class="col-dndk">
+                    <div class="dn-dk">
+                        <a class="dn" href="login">Đăng nhập</a>
+                        <div class="chan">|</div>
+                        <a class="dk" href="registCustomer">Đăng ký</a>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 
-    <div id="advertisement">
-
+    <div class="head-dow">
+        <div class="row-dow">
+            <div class="row-cd">
+                <a href="">Hãng</a>
+                <a href="">Giá</a>
+                <a href="">Loại điện thoại</a>
+                <a href="">RAM</a>
+                <a href="">Dung lượng</a>
+                <a href="">Pin</a>
+            </div>
+        </div>
     </div>
+</div>
 
-    <div id="product">
-        <div class="row-p">
-            <c:forEach var="p" items="${productPage.content}">
-                <div class="col-p">
-                    <div class="product-item">
-                        <a class="main-contain" href="productDetails?id=${p.id}">
-                            <img class="img" src="">
-                            <div class="col-item">
-                                <div class="product-name">${p.name}</div>
-                                <div class="capacity">
-                                    <div class="col-t">
-                                        <div class="capacity-b">4GB-64GB</div>
-                                        <div class="capacity-b">8GB-128GB</div>
-                                        <div class="capacity-b">12GB-512GB</div>
-                                        <div class="capacity-b">1TB</div>
-                                    </div>
+<div id="advertisement">
+
+</div>
+
+<div id="product">
+    <div class="row-p">
+        <c:forEach var="p" items="${productPage.content}">
+            <div class="col-p">
+                <div class="product-item">
+                    <a class="main-contain" href="">
+                        <img class="img" src="">
+                        <div class="col-item">
+                            <div class="product-name">${p.name}</div>
+                            <div class="capacity">
+                                <div class="col-t">
+                                    <div class="capacity-b">${p.capacity.capacity}</div>
+                                    <div class="capacity-b">${p.capacity.capacity}</div>
+                                    <div class="capacity-b">${p.capacity.capacity}</div>
+                                    <div class="capacity-b">${p.capacity.capacity}</div>
                                 </div>
-                                <div class="price">${p.price.unitPrice} đ</div>
                             </div>
-                        </a>
-                    </div>
-                </div>
-            </c:forEach>
-        </div>
-
-        <nav class="home-page" aria-label="Page navigation example">
-            <div class="pagination">
-                <div class="page-item">
-                    <a class="page-link" href="home?page=0">First</a>
-                    <c:choose>
-                        <c:when test="${productPage.number-1 <0}">
-                            <a class="page-link" href="home?page=0">Previous</a>
-                        </c:when>
-                        <c:otherwise>
-                            <a class="page-link" href="home?page=${productPage.number-1}">Previous</a>
-                        </c:otherwise>
-                    </c:choose>
-                    <a class="page-link" href="home?page=${productPage.number+1}">Next</a>
-                    <a class="page-link" href="home?page=${productPage.totalPages-1}">Last</a>
+                            <div class="price">${p.price.unitPrice} đ</div>
+                        </div>
+                    </a>
                 </div>
             </div>
-        </nav>
+        </c:forEach>
     </div>
+
+    <nav class="home-page" aria-label="Page navigation example">
+        <div class="pagination">
+            <div class="page-item">
+                <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=0">First</a>
+                <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number-1}">Previous</a>
+                <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number+1}">Next</a>
+                <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.totalPages-1}">Last</a>
+            </div>
+        </div>
+    </nav>
+</div>
 </body>
 </html>
