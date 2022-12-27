@@ -108,11 +108,12 @@
             background: #54a0ff;
         }
         .row-p{
-            padding-top: 30px;
             display: flex;
             flex-wrap: wrap;
             width: 1080px;
             margin: 0 auto;
+            margin-top: 30px;
+            background: rgba(0,0,0,0.8);
         }
         .col-p{
             box-sizing: border-box;
@@ -125,6 +126,7 @@
         .img{
             width: 100%;
             height: 300px;
+            background: #54a0ff;
         }
         .col-item{
             padding:15px;
@@ -168,24 +170,24 @@
             margin: 0 auto;
             padding: 10px 0;
         }
-        .pagination{
-
-        }
         .page-item{
+            width: 520px;
+            margin: 0 auto;
             display: flex;
-            margin-left: 396px;
         }
         .page-link{
             background: rgba(0,0,0,0.8);
             padding: 5px;
-            border: 1px solid #1a73e8;
+            border: 1px solid #ffffff;
             text-decoration: none;
             color: #ffffff;
-            width: 60px;
+            width: 14.28571428%;
             text-align: center;
+            margin:1px;
         }
         .page-link:hover{
-            border: 1px solid #ffffff;
+            border: 1px solid #1a73e8;
+            color: #1a73e8;
         }
     </style>
 </head>
@@ -260,18 +262,59 @@
                 </div>
             </div>
         </c:forEach>
-    </div>
 
-    <nav class="home-page" aria-label="Page navigation example">
-        <div class="pagination">
+        <nav class="home-page" aria-label="Page navigation example">
             <div class="page-item">
                 <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=0">First</a>
-                <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number-1}">Previous</a>
-                <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number+1}">Next</a>
+                <c:choose>
+                    <c:when test="${productPage.number >3}">
+                        <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number-1}">${productPage.number-3}</a>
+                        <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number-1}">${productPage.number-1}</a>
+                        <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number}">${productPage.number}</a>
+                        <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number+3}">${productPage.number+3}</a>
+                    </c:when>
+                    <c:otherwise>
+                        <c:choose>
+                            <c:when test="${productPage.number==1}">
+                                <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="searchProduct?searchproduct=${searchproduct}&page=1">1</a>
+                            </c:when>
+                            <c:otherwise>
+                                <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=1">1</a>
+                            </c:otherwise>
+                        </c:choose>
+                        <c:choose>
+                            <c:when test="${productPage.number==2}">
+                                <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="searchProduct?searchproduct=${searchproduct}&page=2">2</a>
+                            </c:when>
+                            <c:otherwise>
+                                <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=2">2</a>
+                            </c:otherwise>
+                        </c:choose>
+                        <c:choose>
+                            <c:when test="${productPage.number==3}">
+                                <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="searchProduct?searchproduct=${searchproduct}&page=3">3</a>
+                            </c:when>
+                            <c:otherwise>
+                                <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=3">3</a>
+                            </c:otherwise>
+                        </c:choose>
+                        <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=5">5</a>
+                    </c:otherwise>
+                </c:choose>
+
+                <c:choose>
+                    <c:when test="${productPage.number+1 > (productPage.totalPages-1)}">
+                        <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.totalPages-1}">&raquo;</a>
+                    </c:when>
+                    <c:otherwise>
+                        <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number+1}">&raquo;</a>
+                    </c:otherwise>
+                </c:choose>
                 <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.totalPages-1}">Last</a>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
+
 </div>
 </body>
 </html>

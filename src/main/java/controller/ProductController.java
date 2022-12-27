@@ -29,9 +29,9 @@ public class ProductController {
     private CapacityService capacityService;
 
     @GetMapping(value = {"/","home"})
-    public String paginate(@RequestParam(name = "page",defaultValue = "0") Optional<Integer> page, Model model){
+    public String paginate(@RequestParam(name = "page") Optional<Integer> page, Model model){
 
-        Page<Product> productPage = productService.getPageProduct(PageRequest.of(page.orElse(0),8));
+        Page<Product> productPage = productService.getPageProduct(PageRequest.of(page.orElse(0),4));
         model.addAttribute("productPage",productPage);
         return "home";
     }
@@ -41,7 +41,7 @@ public class ProductController {
                                    @RequestParam(name = "searchproduct",required = false) String searchproduct, Model model) {
         List<Product> products = productService.getAllProduct();
         for (Product p : products) {
-            Page<Product> productPage = productService.getPageProductByName(searchproduct, PageRequest.of(page.orElse(0), 8));
+            Page<Product> productPage = productService.getPageProductByName(searchproduct, PageRequest.of(page.orElse(0), 4));
             model.addAttribute("searchproduct",searchproduct);
             model.addAttribute("productPage", productPage);
         }
@@ -79,10 +79,10 @@ public class ProductController {
 
     @GetMapping(value = "account")
     public String getLoginAccount(@ModelAttribute Customer customer,
-                                  @RequestParam(name = "page",defaultValue = "0") Optional<Integer> page,
+                                  @RequestParam(name = "page") Optional<Integer> page,
                                   Model model){
         List<Customer> customers = customerService.getAllCustomer();
-        Page<Product> productPage = productService.getPageProduct(PageRequest.of(page.orElse(0),8));
+        Page<Product> productPage = productService.getPageProduct(PageRequest.of(page.orElse(0),4));
         for(Customer c:customers){
             if(customer.getUserName().equals(c.getUserName()) && customer.getPassword().equals(c.getPassword())){
                 model.addAttribute("productPage",productPage);
