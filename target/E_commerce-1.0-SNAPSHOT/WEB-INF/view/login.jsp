@@ -221,7 +221,7 @@
                     <div class="login-r">
                         <div class="row-f">
                             <div class="title">Đăng nhập</div>
-                            <form:form modelAttribute="customer" method="get" action="account">
+                            <form:form modelAttribute="customer" method="post" action="account">
                                 <form:input class="col-input" type="text" path="userName" placeholder="Tên đăng nhập"></form:input>
                                 <form:input class="col-input" type="password" path="password" placeholder="Mật khẩu"></form:input>
                                 <input class="col-submit" type="submit" value="ĐĂMG NHẬP">

@@ -15,12 +15,9 @@
             padding: 0;
             margin: 0;
         }
-        body{
-            background: #B6E3FF;
-        }
         .head-top{
             padding: 15px 0;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.9);
         }
         .container{
             width: 1080px;
@@ -93,26 +90,55 @@
         .row-cd{
             display: flex;
         }
-        .row-cd a{
+        .name-title{
             font-size: 16px;
             color: #ffffff;
             text-decoration: none;
             justify-content: space-between;
             padding: 5px;
-            flex-basis: 16.6666667%;
+            flex-basis: 14.28571428%;
             border-right: 1px solid #ffffff;
             text-align: center;
         }
-        #advertisement{
-            height: 200px;
-            background: #54a0ff;
+        .sale-product{
+            width: 1080px;
+            margin: 0 auto;
+            display: flex;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        .sale-l{
+            width: 65%;
+            border: 1px solid black;
+            margin-right:5px ;
+        }
+        .sale-r{
+            border: 1px solid black;
+            width: 35%;
+            margin-left: 5px;
+            padding: 8px;
+        }
+        .col-sale{
+            border: 1px solid black;
+            margin-top: 5px;
+            height: 100px;
+        }
+        .deal-product{
+            width: 1080px;
+            margin: 0 auto;
+            height: 350px;
+            border: 1px solid black;
+        }
+        .name-km{
+            text-align: center;
+            color:rgba(0,0,0,0.9);
         }
         .row-p{
             display: flex;
             flex-wrap: wrap;
             width: 1080px;
             margin: 0 auto;
-            margin-top: 30px;
+            padding: 10px 0;
             background: rgba(0,0,0,0.8);
         }
         .col-p{
@@ -189,6 +215,11 @@
             border: 1px solid #1a73e8;
             color: #1a73e8;
         }
+        .footer{
+            width: 1080px;
+            height: 300px;
+
+        }
     </style>
 </head>
 <body>
@@ -224,19 +255,34 @@
         <div class="head-dow">
             <div class="row-dow">
                 <div class="row-cd">
-                    <a href="">Hãng</a>
-                    <a href="">Giá</a>
-                    <a href="">Loại điện thoại</a>
-                    <a href="">RAM</a>
-                    <a href="">Dung lượng</a>
-                    <a href="">Pin</a>
+                    <a class="name-title" href="">Điện thoại</a>
+                    <a class="name-title" href="">Hãng</a>
+                    <a class="name-title" href="">Giá</a>
+                    <a class="name-title" href="">Loại điện thoại</a>
+                    <a class="name-title" href="">RAM</a>
+                    <a class="name-title" href="">Dung lượng</a>
+                    <a class="name-title" href="">Pin</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="advertisement">
+    <div class="form-sale-pr">
+        <div class="sale-product">
+            <div class="sale-l"></div>
+            <div class="sale-r">
+                <div class="name-km">Khuyến mãi nổi bật</div>
+                <div class="col-sale"></div>
+                <div class="col-sale"></div>
+                <div class="col-sale"></div>
+            </div>
+        </div>
+    </div>
 
+    <div class="form-deal-pr">
+       <div class="deal-product">
+
+       </div>
     </div>
 
     <div id="product">
@@ -265,50 +311,54 @@
 
             <nav class="home-page" aria-label="Page navigation example">
                 <div class="page-item">
-                    <a class="page-link" href="home?page=0">&laquo;</a>
+                    <a class="page-link" href="product?page=0">&laquo;</a>
                     <c:choose>
                         <c:when test="${productPage.number >3}">
-                            <a class="page-link" href="home?page=${productPage.number-3}">${productPage.number-3}</a>
-                            <a class="page-link" href="home?page=${productPage.number-1}">${productPage.number-1}</a>
-                            <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="home?page=${productPage.number}">${productPage.number}</a>
-                            <a class="page-link" href="home?page=${productPage.number+1}">${productPage.number+1}</a>
-                            <a class="page-link" href="home?page=${productPage.number+3}">${productPage.number+3}</a>
+                            <a class="page-link" href="product?page=${productPage.number-3}">${productPage.number-3}</a>
+                            <a class="page-link" href="product?page=${productPage.number-1}">${productPage.number-1}</a>
+                            <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="product?page=${productPage.number}">${productPage.number}</a>
+                            <a class="page-link" href="product?page=${productPage.number+1}">${productPage.number+1}</a>
+                            <a class="page-link" href="product?page=${productPage.number+3}">${productPage.number+3}</a>
                         </c:when>
                         <c:otherwise>
                             <c:choose>
                                 <c:when test="${productPage.number==1}">
-                                    <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="home?page=1">1</a>
+                                    <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="product?page=1">1</a>
                                 </c:when>
                                 <c:otherwise>
-                                    <a class="page-link" href="home?page=1">1</a>
+                                    <a class="page-link" href="product?page=1">1</a>
                                 </c:otherwise>
                             </c:choose>
                             <c:choose>
                                 <c:when test="${productPage.number==2}">
-                                    <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="home?page=2">2</a>
+                                    <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="product?page=2">2</a>
                                 </c:when>
                                 <c:otherwise>
-                                    <a class="page-link" href="home?page=2">2</a>
+                                    <a class="page-link" href="product?page=2">2</a>
                                 </c:otherwise>
                             </c:choose>
                             <c:choose>
                                 <c:when test="${productPage.number==3}">
-                                    <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="home?page=3">3</a>
+                                    <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="product?page=3">3</a>
                                 </c:when>
                                 <c:otherwise>
-                                    <a class="page-link" href="home?page=3">3</a>
+                                    <a class="page-link" href="product?page=3">3</a>
                                 </c:otherwise>
                             </c:choose>
-                            <a class="page-link" href="home?page=4">4</a>
-                            <a class="page-link" href="home?page=5">5</a>
+                            <a class="page-link" href="product?page=4">4</a>
+                            <a class="page-link" href="product?page=5">5</a>
                         </c:otherwise>
                     </c:choose>
 
-                    <a class="page-link" href="home?page=${productPage.totalPages-1}">&raquo;</a>
+                    <a class="page-link" href="product?page=${productPage.totalPages-1}">&raquo;</a>
                 </div>
             </nav>
         </div>
 
+    </div>
+
+    <div class="form-footer">
+        <div class="footer"></div>
     </div>
 </body>
 </html>

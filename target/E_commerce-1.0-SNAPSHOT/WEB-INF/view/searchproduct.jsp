@@ -15,12 +15,9 @@
             padding: 0;
             margin: 0;
         }
-        body{
-            background: #B6E3FF;
-        }
         .head-top{
             padding: 15px 0;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.9);
         }
         .container{
             width: 1080px;
@@ -103,16 +100,12 @@
             border-right: 1px solid #ffffff;
             text-align: center;
         }
-        #advertisement{
-            height: 200px;
-            background: #54a0ff;
-        }
         .row-p{
             display: flex;
             flex-wrap: wrap;
             width: 1080px;
             margin: 0 auto;
-            margin-top: 30px;
+            margin-top: 10px;
             background: rgba(0,0,0,0.8);
         }
         .col-p{
@@ -202,7 +195,7 @@
 
                 <div class="col-cs">
                     <div class="search">
-                        <form action="home " method="get">
+                        <form action="searchProduct " method="get">
                             <input class="search-control" type="text" name="searchproduct" placeholder="Search..." >
                             <input style="padding: 0 5px" type="submit">
                         </form>
@@ -233,10 +226,6 @@
             </div>
         </div>
     </div>
-</div>
-
-<div id="advertisement">
-
 </div>
 
 <div id="product">

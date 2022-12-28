@@ -29,11 +29,18 @@ public class ProductController {
     private CapacityService capacityService;
 
     @GetMapping(value = {"/","home"})
-    public String paginate(@RequestParam(name = "page") Optional<Integer> page, Model model){
+    public String getHomePage(@RequestParam(name = "page") Optional<Integer> page, Model model){
 
-        Page<Product> productPage = productService.getPageProduct(PageRequest.of(page.orElse(0),4));
+        Page<Product> productPage = productService.getPageProduct(PageRequest.of(page.orElse(0),8));
         model.addAttribute("productPage",productPage);
         return "home";
+    }
+
+    @GetMapping(value = "product")
+    public String getProduct(@RequestParam(name = "page") Optional<Integer> page, Model model){
+        Page<Product> productPage = productService.getPageProduct(PageRequest.of(page.orElse(0),8));
+        model.addAttribute("productPage",productPage);
+        return "product";
     }
 
     @GetMapping(value = "searchProduct")
@@ -76,8 +83,16 @@ public class ProductController {
         model.addAttribute("customer",new Customer());
         return "login";
     }
+    @GetMapping(value = "homeaccount")
+    public String getHomeAccount(@RequestParam(name = "userName") String userName,
+                                 @RequestParam(name = "password") String password,
+                                 Model model){
+        model.addAttribute(userName);
+        model.addAttribute(password);
+        return "redirect:account";
+    }
 
-    @GetMapping(value = "account")
+    @PostMapping (value = "account")
     public String getLoginAccount(@ModelAttribute Customer customer,
                                   @RequestParam(name = "page") Optional<Integer> page,
                                   Model model){

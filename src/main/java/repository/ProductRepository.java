@@ -10,6 +10,6 @@ public interface ProductRepository extends CrudRepository<Product,Integer> {
     @Query(value="select  * from product ",nativeQuery = true)
     public Page<Product> getPageProduct(Pageable pageable);
 
-    @Query(value="select  * from product where name like ?1% ",nativeQuery = true)
+    @Query(value="select  * from product where name like %?1% ",nativeQuery = true)
     public Page<Product> getPageProductByName(String name,Pageable pageable);
 }

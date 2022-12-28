@@ -20,7 +20,7 @@
     }
     .head-top{
       padding: 15px 0;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.9);
     }
     .container{
       width: 1080px;

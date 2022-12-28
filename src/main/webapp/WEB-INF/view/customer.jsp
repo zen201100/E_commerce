@@ -16,12 +16,9 @@
             padding: 0;
             margin: 0;
         }
-        body{
-            background: #B6E3FF;
-        }
         .head-top{
             padding: 15px 0;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.9);
         }
         .container{
             width: 1080px;
@@ -126,7 +123,7 @@
             flex-wrap: wrap;
             width: 1080px;
             margin: 0 auto;
-            margin-top: 30px;
+            margin-top: 10px;
             background: rgba(0,0,0,0.8);
         }
         .col-p{
@@ -211,7 +208,7 @@
             <div class="container">
                 <div class="row-cs">
                     <div class="logo">
-                        <a style="color: #ffffff" href="account?userName=${customer.userName}&password=${customer.password}">PHUCTAI</a>
+                        <a style="color: #ffffff" href="homeaccount?userName=${customer.userName}&password=${customer.password}">PHUCTAI</a>
                     </div>
 
                     <div class="col-cs">
