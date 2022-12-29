@@ -11,5 +11,6 @@ public interface ProductService {
     public List<Product> getAllProduct();
     public Page<Product> getPageProduct(Pageable pageable);
     public Page<Product> getPageProductByName(String name,Pageable pageable);
+    public List<Product> getSizeProductByName(String name);
     public Product getProductById(int id);
 }

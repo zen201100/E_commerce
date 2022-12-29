@@ -96,13 +96,13 @@
             text-decoration: none;
             justify-content: space-between;
             padding: 5px;
-            flex-basis: 16.6666667%;
+            flex-basis: 14.28571428%;
             border-right: 1px solid #ffffff;
             text-align: center;
         }
         #form-pr{
             width: 100%;
-            clear: both;
+            padding-bottom: 25px;
         }
         .provider-pr{
             display: flex;
@@ -145,7 +145,6 @@
             margin-left: 5px;
             border: 1px solid black;
         }
-
         .od-pr{
             padding: 8px;
         }
@@ -224,13 +223,40 @@
             box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
             color: rgba(0,0,0,0.8);
         }
-        .config-ct{
+        .config-ct {
             width: 100%;
+        }
+        #form-footer{
+            border-top: 1px solid #6e7781;
+            background: #fff;
         }
         .footer{
             width: 1080px;
-            height: 300px;
-
+            margin: 0 auto;
+            display: flex;
+            padding: 20px 0
+        }
+        .footer-tt{
+            width: 33.3333333%;
+        }
+        .footer-tt a{
+            text-decoration: none;
+        }
+        .col-tt-footer{
+            color: rgba(0,0,0,0.8);
+            padding: 8px 0;
+        }
+        .footer-bottom{
+            background-color: #f1f1f1;
+        }
+        .bottom{
+            width: 1080px;
+            margin: 0 auto;
+        }
+        .bottom p{
+            color: #666;
+            padding: 20px 0;
+            font-size: 13px;
         }
     </style>
 </head>
@@ -267,6 +293,7 @@
         <div class="head-dow">
             <div class="row-dow">
                 <div class="row-cd">
+                    <a href="product">Điện thoại</a>
                     <a href="">Hãng</a>
                     <a href="">Giá</a>
                     <a href="">Loại điện thoại</a>
@@ -281,7 +308,7 @@
     <div id="form-pr">
         <div class="pr-dt">
             <div class="provider-pr">
-                <a href="home" class="prov">Điện thoại</a>
+                <a href="product" class="prov">Điện thoại</a>
                 <div style="margin:0 6px;padding-top: 2px ;font-size: 20px ">›</div>
                 <a href="" class="prov">Điện thoại ${productDetails.providers.providerName}</a>
             </div>
@@ -315,28 +342,30 @@
                                 <div class="col-config">
                                     <div class="config-l">Màn hình:</div>
                                     <div class="config-r">
-                                        <div class="config-ct">${productDetails.size}</div>
+                                        <div class="config-ct">${productDetails.screen.screenSize}, ${productDetails.size},
+                                            ${productDetails.screen.screen}
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-config">
                                     <div class="config-l">Hệ điều hành:</div>
-                                    <div class="config-r">iOS 16</div>
+                                    <div class="config-r">${productDetails.operatingSystem.typeName}</div>
                                 </div>
                                 <div class="col-config">
                                     <div class="config-l">Cammera sau:</div>
-                                    <div class="config-r">Chính 48 MP & Phụ 12 MP, 12 MP</div>
+                                    <div class="config-r">${productDetails.camera.cameraAfter}</div>
                                 </div>
                                 <div class="col-config">
                                     <div class="config-l">Cammera trước:</div>
-                                    <div class="config-r">12 MP</div>
+                                    <div class="config-r">${productDetails.camera.cameraBefore}</div>
                                 </div>
                                 <div class="col-config">
                                     <div class="config-l">Chip:</div>
-                                    <div class="config-r">Apple A16 Bionic</div>
+                                    <div class="config-r">${productDetails.camera.chip}</div>
                                 </div>
                                 <div class="col-config">
                                     <div class="config-l">Dung lượng:</div>
-                                    <div class="config-r">8GB-128GB</div>
+                                    <div class="config-r">${productDetails.capacity.capacity}</div>
                                 </div>
                                 <div class="col-config">
                                     <div class="config-l">SIM:</div>
@@ -344,7 +373,7 @@
                                 </div>
                                 <div class="col-config">
                                     <div class="config-l">Pin, Sạc:</div>
-                                    <div class="config-r">4323 mAh20 W</div>
+                                    <div class="config-r">${productDetails.pinAndSac.pinandsac}</div>
                                 </div>
                             </div>
                         </div>
@@ -365,8 +394,42 @@
         </div>
     </div>
 
-    <div class="form-footer">
-        <div class="footer"></div>
+    <div id="form-footer">
+        <div class="footer-top">
+            <div class="footer">
+                <div class="footer-tt">
+                    <a href=""><div class="col-tt-footer">Tích điểm Quà tặng VIP</div></a>
+                    <a href=""><div class="col-tt-footer">Lịch sử mua hàng</div></a>
+                    <a href=""><div class="col-tt-footer">Tìm hiểu về mua trả góp</div></a>
+                    <a href=""><div class="col-tt-footer">Chính sách bảo hành</div></a>
+                </div>
+                <div class="footer-tt">
+                    <a href=""><div class="col-tt-footer">Giới thiệu công ty (MWG.vn)</div></a>
+                    <a href=""><div class="col-tt-footer">Tuyển dụng</div></a>
+                    <a href=""><div class="col-tt-footer">Gửi góp ý, khiếu nại</div></a>
+                    <a href=""><div class="col-tt-footer">Tìm siêu thị (3.385 shop)</div></a>
+                    <a href=""><div class="col-tt-footer">Xem bản mobile</div></a>
+                </div>
+                <div class="footer-tt">
+                    <div class="col-tt-footer">Tổng đài hỗ trợ (Miễn phí gọi)</div>
+                    <div class="col-tt-footer">Gọi mua: 1800.1060 (7:30 - 22:00)</div>
+                    <div class="col-tt-footer">Kỹ thuật: 1800.1763 (7:30 - 22:00)</div>
+                    <div class="col-tt-footer">Khiếu nại: 1800.1062 (8:00 - 21:30)</div>
+                    <div class="col-tt-footer">Bảo hành: 1800.1064 (8:00 - 21:00)</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="bottom">
+                <p>
+                    © 2018. Công ty cổ phần Thế Giới Di Động. GPDKKD: 0303217354 do sở
+                    KH & ĐT TP.HCM cấp ngày 02/01/2007. GPMXH: 238/GP-BTTTT do Bộ Thông Tin và Truyền Thông cấp ngày 04/06/2020.<br>
+
+                    Địa chỉ: 128 Trần Quang Khải, P. Tân Định, Q.1, TP.Hồ Chí Minh. Điện thoại: 028 38125960.
+                    Email: cskh@thegioididong.com. Chịu trách nhiệm nội dung: Huỳnh Văn Tốt.
+                </p>
+            </div>
+        </div>
     </div>
 </body>
 </html>

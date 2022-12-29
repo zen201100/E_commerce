@@ -1,6 +1,5 @@
 package service;
 
-import entity.Customer;
 import entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -28,6 +27,11 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public Page<Product> getPageProductByName(String name, Pageable pageable) {
         return (Page<Product>) productRepository.getPageProductByName(name,pageable);
+    }
+
+    @Override
+    public List<Product> getSizeProductByName(String name) {
+      return (List<Product>) productRepository.getSizeProductByName(name);
     }
 
     @Override

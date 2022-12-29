@@ -29,9 +29,9 @@ public class ProductController {
     private CapacityService capacityService;
 
     @GetMapping(value = {"/","home"})
-    public String getHomePage(@RequestParam(name = "page") Optional<Integer> page, Model model){
+    public String getHome( Model model){
 
-        Page<Product> productPage = productService.getPageProduct(PageRequest.of(page.orElse(0),8));
+        Page<Product> productPage = productService.getPageProduct(PageRequest.of(0,8));
         model.addAttribute("productPage",productPage);
         return "home";
     }
@@ -39,6 +39,7 @@ public class ProductController {
     @GetMapping(value = "product")
     public String getProduct(@RequestParam(name = "page") Optional<Integer> page, Model model){
         Page<Product> productPage = productService.getPageProduct(PageRequest.of(page.orElse(0),8));
+        model.addAttribute("sizeProduct",productService.getAllProduct().size());
         model.addAttribute("productPage",productPage);
         return "product";
     }
@@ -46,12 +47,11 @@ public class ProductController {
     @GetMapping(value = "searchProduct")
     public String getSearchProduct(@RequestParam(name = "page",defaultValue = "0")Optional<Integer> page,
                                    @RequestParam(name = "searchproduct",required = false) String searchproduct, Model model) {
-        List<Product> products = productService.getAllProduct();
-        for (Product p : products) {
-            Page<Product> productPage = productService.getPageProductByName(searchproduct, PageRequest.of(page.orElse(0), 4));
-            model.addAttribute("searchproduct",searchproduct);
-            model.addAttribute("productPage", productPage);
-        }
+
+        Page<Product> productPage = productService.getPageProductByName(searchproduct, PageRequest.of(page.orElse(0), 8));
+        model.addAttribute("searchproduct",searchproduct);
+        model.addAttribute("productPage", productPage);
+        model.addAttribute("sizeSearchProduct",productService.getSizeProductByName(searchproduct).size());
         return "searchproduct";
     }
 
