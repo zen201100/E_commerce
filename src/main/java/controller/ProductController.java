@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import service.CapacityService;
 import service.CustomerService;
 import service.ProductService;
+import service.ProvidersService;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,12 +27,13 @@ public class ProductController {
     @Autowired
     private CustomerService customerService;
     @Autowired
-    private CapacityService capacityService;
+    private ProvidersService providersService;
 
     @GetMapping(value = {"/","home"})
     public String getHome( Model model){
 
         Page<Product> productPage = productService.getPageProduct(PageRequest.of(0,8));
+        model.addAttribute("providers",providersService.PROVIDERS());
         model.addAttribute("productPage",productPage);
         return "home";
     }
@@ -39,6 +41,7 @@ public class ProductController {
     @GetMapping(value = "product")
     public String getProduct(@RequestParam(name = "page") Optional<Integer> page, Model model){
         Page<Product> productPage = productService.getPageProduct(PageRequest.of(page.orElse(0),8));
+        model.addAttribute("providers",providersService.PROVIDERS());
         model.addAttribute("sizeProduct",productService.getAllProduct().size());
         model.addAttribute("productPage",productPage);
         return "product";
@@ -49,16 +52,17 @@ public class ProductController {
                                    @RequestParam(name = "searchproduct",required = false) String searchproduct, Model model) {
 
         Page<Product> productPage = productService.getPageProductByName(searchproduct, PageRequest.of(page.orElse(0), 8));
+        model.addAttribute("providers",providersService.PROVIDERS());
         model.addAttribute("searchproduct",searchproduct);
         model.addAttribute("productPage", productPage);
-        model.addAttribute("sizeSearchProduct",productService.getSizeProductByName(searchproduct).size());
+        model.addAttribute("sizeSearchProduct", productService.getSizeProductByName(searchproduct).size());
         return "searchproduct";
     }
 
     @GetMapping(value = "productDetails")
     public String getProductDetails(@RequestParam(name = "id") int id,Model model){
         model.addAttribute("productDetails",productService.getProductById(id));
-
+        model.addAttribute("providers",providersService.PROVIDERS());
         return "productdetails";
     }
 

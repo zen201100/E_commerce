@@ -48,7 +48,7 @@
         }
         .search{
             border-radius:4px ;
-            background: #6e7781;
+            background: #f3f3f3;
         }
         .search-control{
             width: 350px;
@@ -60,7 +60,7 @@
             font-size: 15px;
         }
         .search input::placeholder {
-            color: #ffffff;
+            color: rgba(0,0,0,0.9);
         }
         .col-dndk{
             width: 40%;
@@ -75,7 +75,7 @@
             color: #ffffff;
         }
         .dn-dk a:hover{
-            opacity: 0.85;
+            color: #1a73e8;
         }
         .chan{
             margin-right: 5px;
@@ -83,47 +83,145 @@
             color: #ffffff;
         }
         .head-dow{
-            background: #6e7781
+            background: #ffffff;
         }
         .row-dow{
             width: 1080px;
             margin: 0 auto;
-            padding: 12px 0;
+            padding: 10px 0;
         }
         .row-cd{
             display: flex;
         }
-        .row-cd a{
-            font-size: 16px;
-            color: #ffffff;
-            text-decoration: none;
-            justify-content: space-between;
+        .name-type{
             padding: 5px;
+            font-size: 16px;
+            color: rgba(0,0,0,0.9);
+        }
+        .name-type:hover{
+            color: #1a73e8;
+        }
+        .name-title{
             flex-basis: 14.28571428%;
-            border-right: 1px solid #ffffff;
+            border-right: 1px solid #e0e0e0;
             text-align: center;
         }
+        .name-title a{
+            text-decoration: none;
+        }
+        .name-title{
+            display: block;
+            position: relative;
+            padding: 5px 0;
+        }
+        .name-title:hover>.form-providers{
+            position: absolute;
+            display: block;
+        }
+        .form-providers{
+            display: none;
+            width: 600px;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.9);
+            border-radius: 4px;
+        }
+        .row-providers{
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
+            border-radius: 4px;
+        }
+        .col-providers{
+            flex-basis: 20%;
+            box-sizing: border-box;
+        }
+        .name-providers{
+            padding: 5px;
+            margin: 2px;
+            color: rgba(0,0,0,0.9);
+            font-weight: bold;
+            border: 1px solid #e0e0e0;
+        }
+        .name-providers:hover{
+            border: 1px solid #1a73e8;
+        }
+
+        .name-title:hover>.form-price{
+            position: absolute;
+            display: block;
+        }
+        .form-price{
+            display: none;
+            width: 600px;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.9);
+            border-radius: 4px;
+        }
+        .row-price{
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
+            border-radius: 4px;
+        }
+        .col-price{
+            flex-basis: 20%;
+            box-sizing: border-box;
+        }
+        .name-price{
+            padding: 5px;
+            margin: 2px;
+            color: rgba(0,0,0,0.9);
+            font-weight: bold;
+            border: 1px solid #e0e0e0;
+        }
+        .name-price:hover{
+            border: 1px solid #1a73e8;
+        }
+
         .product{
             padding: 25px 0;
         }
+        .form-size-product{
+            width:1080px;
+            margin: 0 auto;
+        }
+        .search-fal{
+            margin-left: 350px;
+            padding: 50px 0
+        }
+        .name-gy{
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffe818;
+        }
+        .search-pr-fal{
+            margin: 10px 0;
+            line-height: 20px;
+            padding-left: 17px;
+        }
+        .title-false{
+            color: #ffffff;
+        }
+
         .b-color{
             width: 1080px;
             margin: 0 auto;
             background: rgba(0,0,0,0.9);
         }
-        .form-size-product{
-        }
+
         .size-product{
             color: #ffffff;
             font-size: 15px;
             font-weight: bold;
             padding: 10px 0;
-            margin-left: 4px;
+            margin-left: 8px;
         }
         .row-p{
             display: flex;
             flex-wrap: wrap;
-            width: 1080px;
+            padding: 4px;
             margin: 0 auto;
         }
         .col-p{
@@ -160,9 +258,14 @@
             padding: 0 5px;
             color: #ffffff;
         }
+        .gb-product{
+            display: flex;
+            flex-wrap: wrap;
+        }
         .gb-pr{
             border: 1px solid #ffffff;
-            width: 45%;
+            margin-right: 2px;
+            margin-bottom: 2px;
             padding: 5px;
             color: #ffffff;
             text-align: center;
@@ -205,7 +308,7 @@
             color: #1a73e8;
         }
         #form-footer{
-            border-top: 1px solid #6e7781;
+            border-top: 1px solid #e0e0e0;
             background: #fff;
         }
         .footer{
@@ -217,8 +320,12 @@
         .footer-tt{
             width: 33.3333333%;
         }
-        .footer-tt a{
+        .link-hover{
             text-decoration: none;
+            color: #4a4a4a;;
+        }
+        .link-hover:hover{
+            color: #dd0000;
         }
         .col-tt-footer{
             color: rgba(0,0,0,0.8);
@@ -271,23 +378,72 @@
         <div class="head-dow">
             <div class="row-dow">
                 <div class="row-cd">
-                    <a href="product">Điện thoại</a>
-                    <a href="">Hãng</a>
-                    <a href="">Giá</a>
-                    <a href="">Loại điện thoại</a>
-                    <a href="">RAM</a>
-                    <a href="">Dung lượng</a>
-                    <a href="">Pin</a>
+                    <div class="name-title">
+                        <a href="product"><div class="name-type">Điện thoại</div></a>
+                    </div>
+                    <div class="name-title"><a href="product"><div class="name-type">Hãng</div></a>
+                        <div class="form-providers">
+                            <div class="row-providers">
+                                <c:forEach var="p" items="${providers}">
+                                    <div class="col-providers"><a href=""><div class="name-providers">${p.providerName}</div></a></div>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="name-title">
+                        <a href="product"><div class="name-type">Giá</div></a>
+                        <div class="form-price">
+                            <div class="row-price">
+                                <div class="col-price"><a href=""><div class="name-price">Dưới 2 triệu</div></a></div>
+                                <div class="col-price"><a href=""><div class="name-price">Từ 2-4 triệu</div></a></div>
+                                <div class="col-price"><a href=""><div class="name-price">Từ 4-7 triệu</div></a></div>
+                                <div class="col-price"><a href=""><div class="name-price">Từ 7-13 triệu</div></a></div>
+                                <div class="col-price"><a href=""><div class="name-price">Từ 13-20 triệu</div></a></div>
+                                <div class="col-price"><a href=""><div class="name-price">Trên 20 triệu</div></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="name-title">
+                        <a href="product"><div class="name-type">Loại điện thoại</div></a>
+                    </div>
+                    <div class="name-title">
+                        <a href="product"><div class="name-type">RAM</div></a>
+                    </div>
+                    <div class="name-title">
+                        <a href="product"><div class="name-type">Dung lượng</div></a>
+                    </div>
+                    <div class="name-title">
+                        <a href="product"><div class="name-type">Pin</div></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
     <section>
         <div class="product">
             <div class="b-color">
                 <div class="form-size-product">
-                    <div class="size-product">Tìm thấy ${sizeSearchProduct} sản phẩm:</div>
+                    <c:choose>
+                        <c:when test="${sizeSearchProduct==0}">
+                            <div class="size-product">Rất tiếc, không tìm thấy kết quả nào phù hợp với từ khóa <strong
+                                    style="font-size: 15px;font-weight: bold;color: #ffe818">"${searchproduct}"</strong>
+                            </div>
+                            <div class="form-search-fal">
+                                <div class="search-fal">
+                                    <div class="name-gy">Để tìm được kết quả chính xác hơn, bạn vui lòng:</div>
+                                    <ul class="search-pr-fal">
+                                        <li class="title-false">Kiểm tra lỗi chính tả của từ khóa đã nhập</li>
+                                        <li class="title-false">Thử lại bằng từ khóa khác</li>
+                                        <li class="title-false">Thử lại bằng những từ khóa tổng quát hơn</li>
+                                        <li class="title-false">Thử lại bằng những từ khóa ngắn gọn hơn</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <div class="size-product">Tìm thấy ${sizeSearchProduct} sản phẩm:</div>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
                 <div class="row-p">
                     <c:forEach var="p" items="${productPage.content}">
@@ -304,6 +460,22 @@
                                             </div>
                                             <div class="gb-product">
                                                 <div class="gb-pr">${p.capacity.capacity}</div>
+                                                <c:choose>
+                                                    <c:when test="${p.capacity.capacity_one != null}">
+                                                        <div class="gb-pr">${p.capacity.capacity_one}</div>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <div></div>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                                <c:choose>
+                                                    <c:when test="${p.capacity.capacity_two != null}">
+                                                        <div class="gb-pr">${p.capacity.capacity_two}</div>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <div></div>
+                                                    </c:otherwise>
+                                                </c:choose>
                                             </div>
                                         </div>
                                         <div class="price">${p.price.unitPrice} đ</div>
@@ -312,50 +484,52 @@
                             </div>
                         </div>
                     </c:forEach>
+                    <c:if test="${sizeSearchProduct != 0}">
+                        <nav class="home-page" aria-label="Page navigation example">
+                            <div class="page-item">
+                                <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=0">&laquo;</a>
+                                <c:choose>
+                                    <c:when test="${productPage.number >3}">
+                                        <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number-3}">${productPage.number-3}</a>
+                                        <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number-1}">${productPage.number-1}</a>
+                                        <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number}">${productPage.number}</a>
+                                        <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number+1}">${productPage.number+1}</a>
+                                        <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number+3}">${productPage.number+3}</a>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:choose>
+                                            <c:when test="${productPage.number==1}">
+                                                <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="searchProduct?searchproduct=${searchproduct}&page=1">1</a>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=1">1</a>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <c:choose>
+                                            <c:when test="${productPage.number==2}">
+                                                <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="searchProduct?searchproduct=${searchproduct}&page=2">2</a>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=2">2</a>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <c:choose>
+                                            <c:when test="${productPage.number==3}">
+                                                <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="searchProduct?searchproduct=${searchproduct}&page=3">3</a>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=3">3</a>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=4">4</a>
+                                        <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=5">5</a>
+                                    </c:otherwise>
+                                </c:choose>
+                                <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.totalPages-1}">&raquo;</a>
+                            </div>
+                        </nav>
+                    </c:if>
 
-                    <nav class="home-page" aria-label="Page navigation example">
-                        <div class="page-item">
-                            <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=0">&laquo;</a>
-                            <c:choose>
-                                <c:when test="${productPage.number >3}">
-                                    <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number-3}">${productPage.number-3}</a>
-                                    <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number-1}">${productPage.number-1}</a>
-                                    <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number}">${productPage.number}</a>
-                                    <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number+1}">${productPage.number+1}</a>
-                                    <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.number+3}">${productPage.number+3}</a>
-                                </c:when>
-                                <c:otherwise>
-                                    <c:choose>
-                                        <c:when test="${productPage.number==1}">
-                                            <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="searchProduct?searchproduct=${searchproduct}&page=1">1</a>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=1">1</a>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${productPage.number==2}">
-                                            <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="searchProduct?searchproduct=${searchproduct}&page=2">2</a>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=2">2</a>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${productPage.number==3}">
-                                            <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="searchProduct?searchproduct=${searchproduct}&page=3">3</a>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=3">3</a>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=4">4</a>
-                                    <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=5">5</a>
-                                </c:otherwise>
-                            </c:choose>
-                            <a class="page-link" href="searchProduct?searchproduct=${searchproduct}&page=${productPage.totalPages-1}">&raquo;</a>
-                        </div>
-                    </nav>
                 </div>
             </div>
         </div>
@@ -365,20 +539,38 @@
         <div class="footer-top">
             <div class="footer">
                 <div class="footer-tt">
-                    <a href=""><div class="col-tt-footer">Tích điểm Quà tặng VIP</div></a>
-                    <a href=""><div class="col-tt-footer">Lịch sử mua hàng</div></a>
-                    <a href=""><div class="col-tt-footer">Tìm hiểu về mua trả góp</div></a>
-                    <a href=""><div class="col-tt-footer">Chính sách bảo hành</div></a>
+                    <div class="col-tt-footer">
+                        <a class="link-hover" href="">Tích điểm Quà tặng VIP</a>
+                    </div>
+                    <div class="col-tt-footer">
+                        <a class="link-hover" href="">Lịch sử mua hàng</a>
+                    </div>
+                    <div class="col-tt-footer">
+                        <a class="link-hover" href="">Tìm hiểu về mua trả góp</a>
+                    </div>
+                    <div class="col-tt-footer">
+                        <a class="link-hover" href="">Chính sách bảo hành</a>
+                    </div>
                 </div>
                 <div class="footer-tt">
-                    <a href=""><div class="col-tt-footer">Giới thiệu công ty (MWG.vn)</div></a>
-                    <a href=""><div class="col-tt-footer">Tuyển dụng</div></a>
-                    <a href=""><div class="col-tt-footer">Gửi góp ý, khiếu nại</div></a>
-                    <a href=""><div class="col-tt-footer">Tìm siêu thị (3.385 shop)</div></a>
-                    <a href=""><div class="col-tt-footer">Xem bản mobile</div></a>
+                    <div class="col-tt-footer">
+                        <a class="link-hover" href="">Giới thiệu công ty (MWG.vn)</a>
+                    </div>
+                    <div class="col-tt-footer">
+                        <a class="link-hover" href="">Tuyển dụng</a>
+                    </div>
+                    <div class="col-tt-footer">
+                        <a class="link-hover" href="">Gửi góp ý, khiếu nại</a>
+                    </div>
+                    <div class="col-tt-footer">
+                        <a class="link-hover" href="">Tìm siêu thị (3.385 shop)</a>
+                    </div>
+                    <div class="col-tt-footer">
+                        <a class="link-hover" href="">Xem bản mobile</a>
+                    </div>
                 </div>
                 <div class="footer-tt">
-                    <div class="col-tt-footer">Tổng đài hỗ trợ (Miễn phí gọi)</div>
+                    <div class="col-tt-footer" style="font-weight: bold">Tổng đài hỗ trợ (Miễn phí gọi)</div>
                     <div class="col-tt-footer">Gọi mua: 1800.1060 (7:30 - 22:00)</div>
                     <div class="col-tt-footer">Kỹ thuật: 1800.1763 (7:30 - 22:00)</div>
                     <div class="col-tt-footer">Khiếu nại: 1800.1062 (8:00 - 21:30)</div>

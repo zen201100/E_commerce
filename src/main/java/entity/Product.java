@@ -34,8 +34,26 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "pinID")
     private PinAndSac pinAndSac;
+    @ManyToOne
+    @JoinColumn(name = "colorID")
+    private Color color;
 
     public Product() {
+    }
+
+    public Product(int id, String name, int quantity, String size, Price price, Capacity capacity, Providers providers, Screen screen, OperatingSystem operatingSystem, Camera camera, PinAndSac pinAndSac, Color color) {
+        this.id = id;
+        this.name = name;
+        this.quantity = quantity;
+        this.size = size;
+        this.price = price;
+        this.capacity = capacity;
+        this.providers = providers;
+        this.screen = screen;
+        this.operatingSystem = operatingSystem;
+        this.camera = camera;
+        this.pinAndSac = pinAndSac;
+        this.color = color;
     }
 
     public int getId() {
@@ -126,17 +144,11 @@ public class Product {
         this.pinAndSac = pinAndSac;
     }
 
-    public Product(int id, String name, int quantity, String size, Price price, Capacity capacity, Providers providers, Screen screen, OperatingSystem operatingSystem, Camera camera, PinAndSac pinAndSac) {
-        this.id = id;
-        this.name = name;
-        this.quantity = quantity;
-        this.size = size;
-        this.price = price;
-        this.capacity = capacity;
-        this.providers = providers;
-        this.screen = screen;
-        this.operatingSystem = operatingSystem;
-        this.camera = camera;
-        this.pinAndSac = pinAndSac;
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
     }
 }
