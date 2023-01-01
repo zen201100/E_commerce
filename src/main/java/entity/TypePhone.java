@@ -4,21 +4,21 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "color")
-public class Color {
+@Table(name = "typephone")
+public class TypePhone {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String color;
-    @OneToMany(mappedBy = "color")
+    private String typePhone;
+    @OneToMany(mappedBy = "typePhone")
     private List<Product> products;
 
-    public Color() {
+    public TypePhone() {
     }
 
-    public Color(int id, String color, List<Product> products) {
+    public TypePhone(int id, String typePhone, List<Product> products) {
         this.id = id;
-        this.color = color;
+        this.typePhone = typePhone;
         this.products = products;
     }
 
@@ -30,12 +30,12 @@ public class Color {
         this.id = id;
     }
 
-    public String getColor() {
-        return color;
+    public String getTypePhone() {
+        return typePhone;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setTypePhone(String typePhone) {
+        this.typePhone = typePhone;
     }
 
     public List<Product> getProducts() {

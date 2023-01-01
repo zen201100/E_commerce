@@ -13,7 +13,7 @@ public class CapacityServiceImpl implements CapacityService{
     private CapacityRepository capacityRepository;
 
     @Override
-    public List<Capacity> getAllCapacity() {
+    public List<Capacity> CAPACITIES() {
         return (List<Capacity>) capacityRepository.findAll();
     }
 }

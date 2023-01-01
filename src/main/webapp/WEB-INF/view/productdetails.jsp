@@ -35,7 +35,7 @@
             display: flex;
         }
         .col-cs{
-            width: 44%;
+            width: 54%;
             display: flex;
         }
         .logo {
@@ -51,8 +51,8 @@
             background: #f3f3f3;
         }
         .search-control{
-            width: 350px;
-            padding: 12px;
+            width: 400px;
+            padding: 11px;
             outline: 0;
             border: none;
             background: transparent;
@@ -62,13 +62,35 @@
         .search input::placeholder {
             color: rgba(0,0,0,0.9);
         }
-        .col-dndk{
-            width: 40%;
+        .cart{
+            width: 50%;
+        }
+        .link-cart{
+            text-decoration: none;
+        }
+
+        .name-cart{
+            background: #1a73e8;
+            margin: 0 30px;
+            padding: 10px;
+            text-align: center;
+            color: #ffffff;
+            border-radius: 4px;
+        }
+        .name-cart:hover{
+            color: #333333;
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
         }
         .dn-dk{
+            width: 50%;
+        }
+        .col-dndk{
+            width: 30%;
             display: flex;
-            float: right;
-            margin-top: 10px;
+        }
+        .row-dn-dk{
+            display: flex;
+            padding: 10px;
         }
         .dn-dk a{
             text-decoration: none;
@@ -114,6 +136,7 @@
             position: relative;
             padding: 5px 0;
         }
+
         .name-title:hover>.form-providers{
             position: absolute;
             display: block;
@@ -180,6 +203,103 @@
             border: 1px solid #1a73e8;
         }
 
+        .name-title:hover>.form-typephone{
+            position: absolute;
+            display: block;
+        }
+        .form-typephone{
+            display: none;
+            width: 206px;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.9);
+            border-radius: 4px;
+        }
+        .row-typephone{
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
+            border-radius: 4px;
+        }
+        .col-typephone{
+            box-sizing: border-box;
+        }
+        .name-typephone{
+            padding: 5px 7px;
+            margin: 2px;
+            color: rgba(0,0,0,0.9);
+            font-weight: bold;
+            border: 1px solid #e0e0e0;
+        }
+        .name-typephone:hover{
+            border: 1px solid #1a73e8;
+        }
+
+        .name-title:hover>.form-caparity-ram{
+            position: absolute;
+            display: block;
+        }
+        .form-caparity-ram{
+            display: none;
+            width: 300px;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.9);
+            border-radius: 4px;
+        }
+        .row-caparity-ram{
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
+            border-radius: 4px;
+        }
+        .col-caparity-ram{
+            box-sizing: border-box;
+        }
+        .name-caparity-ram{
+            padding: 5px 7px;
+            margin: 2px;
+            color: rgba(0,0,0,0.9);
+            font-weight: bold;
+            border: 1px solid #e0e0e0;
+        }
+        .name-caparity-ram:hover{
+            border: 1px solid #1a73e8;
+        }
+
+        .name-title:hover>.form-pin-sac-feature{
+            position: absolute;
+            display: block;
+        }
+        .form-pin-sac-feature{
+            display: none;
+            right: 0;
+            width: 600px;
+            background: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.9);
+            border-radius: 4px;
+        }
+        .row-pin-sac-feature{
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
+            border-radius: 4px;
+        }
+        .col-pin-sac-feature{
+            box-sizing: border-box;
+        }
+        .name-pin-sac-feature{
+            padding: 5px 7px;
+            margin: 2px;
+            color: rgba(0,0,0,0.9);
+            font-weight: bold;
+            border: 1px solid #e0e0e0;
+        }
+        .name-pin-sac-feature:hover{
+            border: 1px solid #1a73e8;
+        }
+
         #form-pr{
             width: 100%;
             padding-bottom: 25px;
@@ -195,7 +315,7 @@
         }
         .form-np{
             padding-bottom: 15px;
-            border-bottom: 1px solid rgba(0,0,0,0.8);
+            border-bottom: 1px solid #e0e0e0;
         }
         .name-pr{
             font-weight: bold;
@@ -215,15 +335,17 @@
         }
         .col-l{
             width: 60%;
+            background: #ffffff;
             padding-right:5px;
             margin-right: 5px;
-            border: 1px solid black;
+            border: 1px solid #e0e0e0;
         }
         .col-r{
             width: 40%;
+            background: #ffffff;
             padding-left: 5px;
             margin-left: 5px;
-            border: 1px solid black;
+            border: 1px solid #e0e0e0;
         }
         .od-pr{
             padding: 8px;
@@ -250,12 +372,13 @@
             font-weight: bold;
         }
         .cf-pr{
-            border: 1px solid black;
+            border: 1px solid #e0e0e0;
         }
         .form-config{
             width: 100%;
         }
         .col-config{
+            background: #f3f3f3;
             padding: 10px 5px;
             display: flex;
             box-sizing: border-box;
@@ -271,35 +394,24 @@
             font-weight: bold;
             padding: 6px 0;
         }
-        .form-ordbuy{
+        .form-buynow{
             width: 100%;
         }
-        .row-ordbuy{
-            padding: 5px 0;
-            display: flex;
-            box-sizing: border-box;
-            width: 100%;
+        .row-buynow{
+            padding-top: 10px;
         }
-        .ordbuy-l{
-            width: 50%;
-            margin-right: 2px;
-        }
-        .ordbuy-r{
-            width: 50%;
-            margin-left: 2px;
-        }
-        .ordbuy{
+        .buynow{
             text-align: center;
-            padding: 10px 0;
+            padding: 15px 0;
             background: #1a73e8;
             font-size: 15px;
             font-weight: bold;
             color: #ffffff;
         }
-        .or-b{
+        .buy-now{
             text-decoration: none;
         }
-        .ordbuy:hover{
+        .buynow:hover{
             box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
             color: rgba(0,0,0,0.8);
         }
@@ -363,10 +475,15 @@
                     </div>
 
                     <div class="col-dndk">
+                        <div class="cart">
+                            <a class="link-cart" href="cart"><div class="name-cart">Giỏ hàng</div></a>
+                        </div>
                         <div class="dn-dk">
-                            <a class="dn" href="login">Đăng nhập</a>
-                            <div class="chan">|</div>
-                            <a class="dk" href="registCustomer">Đăng ký</a>
+                            <div class="row-dn-dk">
+                                <a class="dn" href="login">Đăng nhập</a>
+                                <div class="chan">|</div>
+                                <a class="dk" href="registCustomer">Đăng ký</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -380,7 +497,8 @@
                     <div class="name-title">
                         <a href="product"><div class="name-type">Điện thoại</div></a>
                     </div>
-                    <div class="name-title"><a href="product"><div class="name-type">Hãng</div></a>
+                    <div class="name-title">
+                        <a href="product"><div class="name-type">Hãng</div></a>
                         <div class="form-providers">
                             <div class="row-providers">
                                 <c:forEach var="p" items="${providers}">
@@ -404,15 +522,56 @@
                     </div>
                     <div class="name-title">
                         <a href="product"><div class="name-type">Loại điện thoại</div></a>
-                    </div>
-                    <div class="name-title">
-                        <a href="product"><div class="name-type">RAM</div></a>
+                        <div class="form-typephone">
+                            <div class="row-typephone">
+                                <c:forEach var="p" items="${typePhone}">
+                                    <div class="col-typephone"><a href=""><div class="name-typephone">${p.typePhone}</div></a></div>
+                                </c:forEach>
+                            </div>
+                        </div>
                     </div>
                     <div class="name-title">
                         <a href="product"><div class="name-type">Dung lượng</div></a>
+                        <div class="form-caparity-ram">
+                            <div class="row-caparity-ram">
+                                <c:forEach var="p" items="${caparity}">
+                                    <div class="col-caparity-ram"><a href=""><div class="name-caparity-ram">${p.capacity}</div></a></div>
+                                </c:forEach>
+                            </div>
+                        </div>
                     </div>
                     <div class="name-title">
-                        <a href="product"><div class="name-type">Pin</div></a>
+                        <a href="product"><div class="name-type">RAM</div></a>
+                        <div class="form-caparity-ram">
+                            <div class="row-caparity-ram">
+                                <div class="col-caparity-ram"><a href=""><div class="name-caparity-ram">4GB</div></a></div>
+                                <div class="col-caparity-ram"><a href=""><div class="name-caparity-ram">6GB</div></a></div>
+                                <div class="col-caparity-ram"><a href=""><div class="name-caparity-ram">8GB</div></a></div>
+                                <div class="col-caparity-ram"><a href=""><div class="name-caparity-ram">12GB</div></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="name-title">
+                        <a href="product"><div class="name-type">Pin & Sạc</div></a>
+                        <div class="form-pin-sac-feature">
+                            <div class="row-pin-sac-feature">
+                                <div class="col-pin-sac-feature"><a href=""><div class="name-pin-sac-feature">Pin khủng trên 5000 mAh</div></a></div>
+                                <div class="col-pin-sac-feature"><a href=""><div class="name-pin-sac-feature">Sạc nhanh (từ 18W)</div></a></div>
+                                <div class="col-pin-sac-feature"><a href=""><div class="name-pin-sac-feature">Sạc siêu nhanh (từ 33W)</div></a></div>
+                                <div class="col-pin-sac-feature"><a href=""><div class="name-pin-sac-feature">Sạc không dây</div></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="name-title">
+                        <a href="product"><div class="name-type">Tính năng đặc biệt</div></a>
+                        <div class="form-pin-sac-feature">
+                            <div class="row-pin-sac-feature">
+                                <div class="col-pin-sac-feature"><a href=""><div class="name-pin-sac-feature">Kháng nước,bụi</div></a></div>
+                                <div class="col-pin-sac-feature"><a href=""><div class="name-pin-sac-feature">Hỗ trợ 5G</div></a></div>
+                                <div class="col-pin-sac-feature"><a href=""><div class="name-pin-sac-feature">Bảo mật khuôn mặt 3D</div></a></div>
+                                <div class="col-pin-sac-feature"><a href=""><div class="name-pin-sac-feature">Chống rung quang học</div></a></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -437,57 +596,7 @@
                     <div class="od-pr">
                         <div class="gb-cl">
                             <a class="g-l" href=""><div>${productDetails.capacity.capacity}</div></a>
-                            <c:choose>
-                                <c:when test="${productDetails.capacity.capacity_one != null}">
-                                    <a class="g-l" href=""><div>${productDetails.capacity.capacity_one}</div></a>
-                                </c:when>
-                                <c:otherwise>
-                                    <div></div>
-                                </c:otherwise>
-                            </c:choose>
-                            <c:choose>
-                                <c:when test="${productDetails.capacity.capacity_two != null}">
-                                    <a class="g-l" href=""><div>${productDetails.capacity.capacity_two}</div></a>
-                                </c:when>
-                                <c:otherwise>
-                                    <div></div>
-                                </c:otherwise>
-                            </c:choose>
-                        </div>
-                        <div class="gb-cl">
                             <a class="g-l" href=""><div>${productDetails.color.color}</div></a>
-                            <c:choose>
-                                <c:when test="${productDetails.color.color_one != null}">
-                                    <a class="g-l" href=""><div>${productDetails.color.color_one}</div></a>
-                                </c:when>
-                                <c:otherwise>
-                                    <div></div>
-                                </c:otherwise>
-                            </c:choose>
-                            <c:choose>
-                                <c:when test="${productDetails.color.color_two != null}">
-                                    <a class="g-l" href=""><div>${productDetails.color.color_two}</div></a>
-                                </c:when>
-                                <c:otherwise>
-                                    <div></div>
-                                </c:otherwise>
-                            </c:choose>
-                            <c:choose>
-                                <c:when test="${productDetails.color.color_t != null}">
-                                    <a class="g-l" href=""><div>${productDetails.color.color_t}</div></a>
-                                </c:when>
-                                <c:otherwise>
-                                    <div></div>
-                                </c:otherwise>
-                            </c:choose>
-                            <c:choose>
-                                <c:when test="${productDetails.color.color_f != null}">
-                                    <a class="g-l" href=""><div>${productDetails.color.color_f}</div></a>
-                                </c:when>
-                                <c:otherwise>
-                                    <div></div>
-                                </c:otherwise>
-                            </c:choose>
                         </div>
                         <div class="price-pr">
                             <div class="price">${productDetails.price.unitPrice} đ</div>
@@ -524,6 +633,10 @@
                                     <div class="config-r">${productDetails.capacity.capacity}</div>
                                 </div>
                                 <div class="col-config">
+                                    <div class="config-l">RAM:</div>
+                                    <div class="config-r">${productDetails.ram}</div>
+                                </div>
+                                <div class="col-config">
                                     <div class="config-l">SIM:</div>
                                     <div class="config-r">1 Nano SIM & 1 eSIMHỗ trợ 5G</div>
                                 </div>
@@ -533,14 +646,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="form-ordbuy">
-                            <div class="row-ordbuy">
-                                <div class="ordbuy-l">
-                                    <a class="or-b" href=""><div class="ordbuy">THÊM GIỎ HÀNG</div></a>
-                                </div>
-                                <div class="ordbuy-r">
-                                    <a class="or-b" href=""><div class="ordbuy">MUA NGAY</div></a>
-                                </div>
+                        <div class="form-buynow">
+                            <div class="row-buynow">
+                                <a class="buy-now" href="addItem?productID=${productDetails.id}"><div class="buynow">MUA NGAY</div></a>
                             </div>
                         </div>
                     </div>

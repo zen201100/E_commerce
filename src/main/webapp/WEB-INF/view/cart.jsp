@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>Home</title>
+    <link rel="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
     <style>
         *{
             padding: 0;
@@ -104,6 +105,7 @@
             margin-left: 5px;
             color: #ffffff;
         }
+
         .head-dow{
             background: #ffffff;
         }
@@ -124,7 +126,7 @@
             color: #1a73e8;
         }
         .name-title{
-            flex-basis: 14.28571428%;
+            flex-basis: 12.5%;
             border-right: 1px solid #e0e0e0;
             text-align: center;
         }
@@ -300,124 +302,145 @@
             border: 1px solid #1a73e8;
         }
 
-        #form-pr{
-            width: 100%;
-            padding-bottom: 25px;
-        }
-        .provider-pr{
-            display: flex;
-        }
-        .prov{
-            text-decoration: none;
-            font-size: 14px;
-            color: #1a73e8;
-            padding: 6px 0
-        }
-        .form-np{
-            padding-bottom: 15px;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        .name-pr{
-            font-weight: bold;
-            font-size: 20px;
-            color:rgba(0,0,0,0.8);
-        }
-        .pr-dt{
-            width: 1080px;
-            margin: 0 auto;
-        }
-        .row-pr{
-            padding-top: 10px;
-            width: 1080px;
-            margin: 0 auto;
-            display: flex;
-            box-sizing: border-box;
-        }
-        .col-l{
-            width: 60%;
+        .shopping-cart{
             background: #ffffff;
-            padding-right:5px;
-            margin-right: 5px;
-            border: 1px solid #e0e0e0;
         }
-        .col-r{
-            width: 40%;
-            background: #ffffff;
-            padding-left: 5px;
-            margin-left: 5px;
-            border: 1px solid #e0e0e0;
+        .form-cart{
+            width: 750px;
+            margin: 0 auto;
+            padding: 25px 0;
         }
-        .od-pr{
-            padding: 8px;
-        }
-        .gb-cl{
+        .cart-item{
+            border: 1px solid #d1d1d1;
+            padding: 15px 0;
             display: flex;
             flex-wrap: wrap;
-            margin-bottom: 12px;
         }
-        .g-l{
-            border: 1px solid #e0e0e0;
-            padding: 7px 12px;
-            margin-right: 4px;
-            text-decoration: none;
-            color: #333;
+        .col-name-product{
+            flex-basis: 55%;
+            display: flex;
         }
-        .g-l:hover{
+        .col-cart{
+            flex-basis: 15%;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .img-product{
+            width: 20%;
+            padding: 0px 10px 0px 25px
+        }
+        .row-product{
+            width: 80%;
+        }
+        .col-infor{
+            margin: 5px;
+            color: #1a73e8;
+            font-size: 15px;
+        }
+        .name-prod{
+            font-size: 18px;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        .form-empty-cart{
+            margin-top: 25px;
+            width: 600px;
+            height: 300px;
+            padding-top: 70px;;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .home-cart{
+            padding: 10px 20px ;
             border: 1px solid #1a73e8;
             color: #1a73e8;
-        }
-        .price{
-            font-size: 20px;
-            color: #1a73e8;
             font-weight: bold;
         }
-        .cf-pr{
-            border: 1px solid #e0e0e0;
+        .home-cart:hover{
+            box-shadow: inset 0 0 20px #1a73e8;
         }
-        .form-config{
-            width: 100%;
-        }
-        .col-config{
-            background: #f3f3f3;
-            padding: 10px 5px;
+        .total-product{
             display: flex;
-            box-sizing: border-box;
+            padding: 15px 25px;
+            border: 1px solid #d1d1d1;
         }
-        .config-l{
-            width:35%;
+        .size-cart{
+            width: 50%;
         }
-        .config-r{
-            width: 65%;
+        .total-price{
+            width: 50%;
         }
-        .config-name{
-            font-size: 20px;
-            font-weight: bold;
-            padding: 6px 0;
+        .infor-order{
+            border: 1px solid #d1d1d1;
+            padding: 10px 25px
         }
-        .form-buynow{
-            width: 100%;
-        }
-        .row-buynow{
-            padding-top: 10px;
-        }
-        .buynow{
-            text-align: center;
+        .infor-numberphone{
+            display: flex;
             padding: 15px 0;
-            background: #1a73e8;
-            font-size: 15px;
-            font-weight: bold;
-            color: #ffffff;
         }
-        .buy-now{
-            text-decoration: none;
+        .infor-name{
+            width: 50%;
+            margin-right: 15px
         }
-        .buynow:hover{
-            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
-            color: rgba(0,0,0,0.8);
+        .infor-number{
+            width: 50%;
         }
-        .config-ct {
+        .input-infor-number{
             width: 100%;
+            padding: 10px;
         }
+
+        .row-address{
+            display: flex;
+            padding-top: 15px;
+        }
+        .addess-phuong{
+            width: 50%;
+            margin-right: 15px;
+        }
+        .addess-huyen{
+            width: 50%;
+        }
+        .input-address{
+            width: 100% ;
+            padding: 10px;
+        }
+
+
+
+        .place-cart{
+            background: #f3f3f3;
+            border: 1px solid #d1d1d1;
+            padding: 15px;
+        }
+        .order-product{
+            border: 1px solid #d1d1d1;
+            padding: 25px;
+        }
+        .row-total-price{
+            display: flex;
+            flex-wrap: wrap;
+            padding-bottom: 25px;
+        }
+        .name-total{
+            width: 50%;
+        }
+        .price-total{
+            width: 50%;
+        }
+        .submit-order{
+            width: 100%;
+            padding: 15px;
+            background: #1a73e8;
+            color: #ffffff;
+            border: #1a73e8;
+        }
+        .submit-order:hover{
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
+        }
+
+
         #form-footer{
             border-top: 1px solid #e0e0e0;
             background: #fff;
@@ -578,85 +601,99 @@
         </div>
     </div>
 
-    <div id="form-pr">
-        <div class="pr-dt">
-            <div class="provider-pr">
-                <a href="product" class="prov">Điện thoại</a>
-                <div style="margin:0 6px;padding-top: 2px ;font-size: 20px ">›</div>
-                <a href="" class="prov">Điện thoại ${productDetails.providers.providerName}</a>
-            </div>
-            <div class="form-np">
-                <div class="name-pr">Điện thoại ${productDetails.name}</div>
-            </div>
-            <div class="row-pr">
-                <div class="col-l">
-
-                </div>
-                <div class="col-r">
-                    <div class="od-pr">
-                        <div class="gb-cl">
-                            <a class="g-l" href=""><div>${productDetails.capacity.capacity}</div></a>
-                            <a class="g-l" href=""><div>${productDetails.color.color}</div></a>
+    <section>
+        <div class="form-cart">
+            <div class="shopping-cart">
+                <c:choose>
+                    <c:when test="${count==0}">
+                        <div class="form-empty-cart">
+                            <div class="empty-cart" style="padding-top: 20px">Không có sản phẩm nào trong giỏ hàng</div>
+                            <div style="margin: 10px 50px">
+                                <a style="text-decoration: none" href="home">
+                                    <div class="home-cart">VỀ TRANG CHỦ</div>
+                                </a> </div>
+                            <div style="padding-bottom:20px ">Khi cần trợ giúp vui lòng gọi 1800.1060 hoặc 028.3622.1060 (7h30 - 22h)</div>
                         </div>
-                        <div class="price-pr">
-                            <div class="price">${productDetails.price.unitPrice} đ</div>
-                        </div>
-                        <div class="form-config">
-                            <div class="config-name">Cấu hình Điện thoại ${productDetails.name} </div>
-                            <div class="cf-pr">
-                                <div class="col-config">
-                                    <div class="config-l">Màn hình:</div>
-                                    <div class="config-r">
-                                        <div class="config-ct">${productDetails.screen.screenSize}, ${productDetails.size},
-                                            ${productDetails.screen.screen}
-                                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <c:forEach var="c" items="${cartItem}">
+                            <div class="cart-item">
+                                <div class="col-name-product">
+                                    <div class="img-product">
+                                        <a href="productDetails?id=${c.product.id}"><img class="link-img" style="width: 100%;height: 80px" src=""></a>
+                                    </div>
+                                    <div class="row-product">
+                                        <div class="col-infor"><a href="productDetails?id=${c.product.id}" style="text-decoration: none"><div class="name-prod">${c.product.name}</div></a></div>
+                                        <div class="col-infor">Màu: ${c.product.color.color}</div>
+                                        <div class="col-infor">Dung lượng: ${c.product.capacity.capacity}</div>
                                     </div>
                                 </div>
-                                <div class="col-config">
-                                    <div class="config-l">Hệ điều hành:</div>
-                                    <div class="config-r">${productDetails.operatingSystem.typeName}</div>
+                                <div class="col-cart">
+                                    <div style="color: #333333">${c.product.price.unitPrice} <strong style="color: #1a73e8">đ</strong></div>
                                 </div>
-                                <div class="col-config">
-                                    <div class="config-l">Cammera sau:</div>
-                                    <div class="config-r">${productDetails.camera.cameraAfter}</div>
+                                <div class="col-cart">
+                                    <div><input type="number" value="${c.quantity}" style="padding: 5px;width: 50px;text-align: center"></div>
                                 </div>
-                                <div class="col-config">
-                                    <div class="config-l">Cammera trước:</div>
-                                    <div class="config-r">${productDetails.camera.cameraBefore}</div>
-                                </div>
-                                <div class="col-config">
-                                    <div class="config-l">Chip:</div>
-                                    <div class="config-r">${productDetails.camera.chip}</div>
-                                </div>
-                                <div class="col-config">
-                                    <div class="config-l">Dung lượng:</div>
-                                    <div class="config-r">${productDetails.capacity.capacity}</div>
-                                </div>
-                                <div class="col-config">
-                                    <div class="config-l">RAM:</div>
-                                    <div class="config-r">${productDetails.ram}</div>
-                                </div>
-                                <div class="col-config">
-                                    <div class="config-l">SIM:</div>
-                                    <div class="config-r">1 Nano SIM & 1 eSIMHỗ trợ 5G</div>
-                                </div>
-                                <div class="col-config">
-                                    <div class="config-l">Pin, Sạc:</div>
-                                    <div class="config-r">${productDetails.pinAndSac.pinandsac}</div>
+                                <div class="col-cart">
+                                    <a style="text-decoration: none;color: #dd0000" href="removeItem?productID=${c.product.id}">Xóa</a>
                                 </div>
                             </div>
+                        </c:forEach>
+                        <div class="total-product">
+                            <c:if test="${count!=0}">
+                                <div class="size-cart">Tạm tính (${count} sản phầm)</div>
+                            </c:if>
+                            <c:if test="${totalPrice!=0}">
+                                <div class="total-price">
+                                    <div style="float: right;font-weight: bold">Thành tiền: <strong style="color: #dd0000">${totalPrice}</strong> đ</div>
+                                </div>
+                            </c:if>
                         </div>
-                        <div class="form-buynow">
-                            <div class="row-buynow">
-                                <a class="buy-now" href="addItem?productID=${productDetails.id}"><div class="buynow">MUA NGAY</div></a>
+                        <div class="infor-order">
+                            <form action="" method="">
+                                <div style="font-weight: bold;font-size: 15px">THÔNG TIN KHÁCH HÀNG</div>
+                                <div class="infor-numberphone">
+                                    <div class="infor-name"><input class="input-infor-number" type="text" name="name" placeholder="Họ và Tên"></div>
+                                    <div class="infor-number"><input class="input-infor-number" type="text" name="numberphone" placeholder="Số điện thoại"></div>
+                                </div>
+                                <div class="place-cart">
+                                    <div>Chọn địa chỉ để biết thời gian nhận hàng và phí vận chuyển (nếu có)</div>
+                                    <div class="row-address">
+                                        <div class="addess-phuong"><input class="input-address" type="text" name="thanhpho" placeholder="Thành phố"></div>
+                                        <div class="addess-huyen"><input class="input-address" type="text" name="quan" placeholder="Quận / Huyện"></div>
+                                    </div>
+                                    <div class="row-address">
+                                        <div class="addess-phuong"><input class="input-address" type="text" name="phuong" placeholder="Phường / Xã"></div>
+                                        <div class="addess-huyen"><input class="input-address" type="text" name="address" placeholder="Số nhà, tên đường"></div>
+                                    </div>
+                                </div>
+                                <input style="width: 100%;padding: 10px;margin: 15px 0" type="text" name="need" placeholder="Yêu cầu khác (không bắt buộc)"><br>
+                                <input type="checkbox" name="noteOne" value="Gọi người khác nhận hàng (nếu có)">
+                                <label >Gọi người khác nhận hàng (nếu có)</label><br>
+                                <input type="checkbox" name="noteTwo" value="Chuyển danh bạ, dữ liệu qua máy mới">
+                                <label >Chuyển danh bạ, dữ liệu qua máy mới</label><br>
+                                <input type="checkbox" name="noteThree" value="Xuất hóa đơn công ty">
+                                <label >Xuất hóa đơn công ty</label>
+                            </form>
+                        </div>
+                        <div class="order-product">
+                            <div class="row-total-price">
+                                <div class="name-total">
+                                    <div style="color: #333333;font-weight: bold">Tổng tiền:</div>
+                                </div>
+                                <div class="price-total">
+                                    <div style="float: right;color: #dd0000;font-weight: bold">${totalPrice} đ</div>
+                                </div>
+                            </div>
+                            <div>
+                                <input class="submit-order" type="submit" value="ĐẶT HÀNG">
                             </div>
                         </div>
-                    </div>
-                </div>
-
+                    </c:otherwise>
+                </c:choose>
             </div>
         </div>
-    </div>
+    </section>
 
     <div id="form-footer">
         <div class="footer-top">

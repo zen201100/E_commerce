@@ -12,13 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import service.CapacityService;
-import service.CustomerService;
-import service.ProductService;
-import service.ProvidersService;
+import service.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalInt;
 
 @Controller
 public class ProductController {
@@ -28,22 +26,31 @@ public class ProductController {
     private CustomerService customerService;
     @Autowired
     private ProvidersService providersService;
+    @Autowired
+    private TypePhoneService typePhoneService;
+    @Autowired
+    private CapacityService capacityService;
 
     @GetMapping(value = {"/","home"})
     public String getHome( Model model){
 
         Page<Product> productPage = productService.getPageProduct(PageRequest.of(0,8));
         model.addAttribute("providers",providersService.PROVIDERS());
+        model.addAttribute("typePhone",typePhoneService.TYPE_PHONES());
+        model.addAttribute("caparity",capacityService.CAPACITIES());
         model.addAttribute("productPage",productPage);
         return "home";
     }
 
     @GetMapping(value = "product")
     public String getProduct(@RequestParam(name = "page") Optional<Integer> page, Model model){
+
         Page<Product> productPage = productService.getPageProduct(PageRequest.of(page.orElse(0),8));
-        model.addAttribute("providers",providersService.PROVIDERS());
-        model.addAttribute("sizeProduct",productService.getAllProduct().size());
         model.addAttribute("productPage",productPage);
+        model.addAttribute("providers",providersService.PROVIDERS());
+        model.addAttribute("typePhone",typePhoneService.TYPE_PHONES());
+        model.addAttribute("caparity",capacityService.CAPACITIES());
+        model.addAttribute("sizeProduct",productService.getAllProduct().size());
         return "product";
     }
 
@@ -53,6 +60,8 @@ public class ProductController {
 
         Page<Product> productPage = productService.getPageProductByName(searchproduct, PageRequest.of(page.orElse(0), 8));
         model.addAttribute("providers",providersService.PROVIDERS());
+        model.addAttribute("typePhone",typePhoneService.TYPE_PHONES());
+        model.addAttribute("caparity",capacityService.CAPACITIES());
         model.addAttribute("searchproduct",searchproduct);
         model.addAttribute("productPage", productPage);
         model.addAttribute("sizeSearchProduct", productService.getSizeProductByName(searchproduct).size());
@@ -61,8 +70,11 @@ public class ProductController {
 
     @GetMapping(value = "productDetails")
     public String getProductDetails(@RequestParam(name = "id") int id,Model model){
+
         model.addAttribute("productDetails",productService.getProductById(id));
         model.addAttribute("providers",providersService.PROVIDERS());
+        model.addAttribute("typePhone",typePhoneService.TYPE_PHONES());
+        model.addAttribute("caparity",capacityService.CAPACITIES());
         return "productdetails";
     }
 

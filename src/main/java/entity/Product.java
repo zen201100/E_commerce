@@ -12,6 +12,7 @@ public class Product {
     private String name;
     private int quantity;
     private String size;
+    private String ram;
 
     @ManyToOne
     @JoinColumn(name = "priceID")
@@ -37,15 +38,21 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "colorID")
     private Color color;
+    @ManyToOne
+    @JoinColumn(name = "typePhoneID")
+    private TypePhone typePhone;
+    @OneToOne(mappedBy = "product")
+    private CartItem cartItems;
 
     public Product() {
     }
 
-    public Product(int id, String name, int quantity, String size, Price price, Capacity capacity, Providers providers, Screen screen, OperatingSystem operatingSystem, Camera camera, PinAndSac pinAndSac, Color color) {
+    public Product(int id, String name, int quantity, String size, String ram, Price price, Capacity capacity, Providers providers, Screen screen, OperatingSystem operatingSystem, Camera camera, PinAndSac pinAndSac, Color color, TypePhone typePhone, CartItem cartItems) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
         this.size = size;
+        this.ram = ram;
         this.price = price;
         this.capacity = capacity;
         this.providers = providers;
@@ -54,6 +61,8 @@ public class Product {
         this.camera = camera;
         this.pinAndSac = pinAndSac;
         this.color = color;
+        this.typePhone = typePhone;
+        this.cartItems = cartItems;
     }
 
     public int getId() {
@@ -86,6 +95,14 @@ public class Product {
 
     public void setSize(String size) {
         this.size = size;
+    }
+
+    public String getRam() {
+        return ram;
+    }
+
+    public void setRam(String ram) {
+        this.ram = ram;
     }
 
     public Price getPrice() {
@@ -150,5 +167,21 @@ public class Product {
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    public TypePhone getTypePhone() {
+        return typePhone;
+    }
+
+    public void setTypePhone(TypePhone typePhone) {
+        this.typePhone = typePhone;
+    }
+
+    public CartItem getCartItems() {
+        return cartItems;
+    }
+
+    public void setCartItems(CartItem cartItems) {
+        this.cartItems = cartItems;
     }
 }
