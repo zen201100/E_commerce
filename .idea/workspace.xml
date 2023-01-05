@@ -19,9 +19,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="spring-beans.schema" />
-        <option value="Interface" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
+        <option value="Interface" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -53,7 +54,13 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="F:/intellij/JPAAccount" />
+    <property name="last_opened_file_path" value="F:/intellij/Buy_WebMVC" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\E_commerce\src\main\webapp" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 8.5.822" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" activateToolWindowBeforeRun="false" APPLICATION_SERVER_NAME="Tomcat 8.5.822" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
@@ -199,7 +206,18 @@
       <workItem from="1672507358191" duration="12677000" />
       <workItem from="1672554541040" duration="7095000" />
       <workItem from="1672573207454" duration="8662000" />
-      <workItem from="1672589441989" duration="599000" />
+      <workItem from="1672589441989" duration="3664000" />
+      <workItem from="1672596625277" duration="9039000" />
+      <workItem from="1672610844751" duration="2470000" />
+      <workItem from="1672613373395" duration="3437000" />
+      <workItem from="1672643350906" duration="18700000" />
+      <workItem from="1672666134308" duration="745000" />
+      <workItem from="1672675773810" duration="7133000" />
+      <workItem from="1672744773861" duration="1735000" />
+      <workItem from="1672814926851" duration="2731000" />
+      <workItem from="1672828183289" duration="8678000" />
+      <workItem from="1672849651932" duration="1983000" />
+      <workItem from="1672904725185" duration="1463000" />
     </task>
     <servers />
   </component>

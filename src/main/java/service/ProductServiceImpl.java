@@ -39,5 +39,10 @@ public class ProductServiceImpl implements ProductService{
         return (Product) productRepository.findById(id).get();
     }
 
+    @Override
+    public Page<Product> getPageProviderName(String providerName, Pageable pageable) {
+        return (Page<Product>) productRepository.getPageProviderName(providerName,pageable);
+    }
+
 
 }

@@ -4,17 +4,24 @@ import entity.CartItem;
 import entity.Product;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.server.ServerHttpRequest;
+import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionAttributeStore;
+import org.springframework.web.context.support.HttpRequestHandlerServlet;
+import org.springframework.web.server.session.CookieWebSessionIdResolver;
 import org.springframework.web.servlet.HttpServletBean;
 import org.springframework.web.util.CookieGenerator;
 import service.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.net.CookieStore;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -22,8 +29,6 @@ import java.util.List;
 public class ShoppingCartController {
     @Autowired
     private ProductService productService;
-    @Autowired
-    private CustomerService customerService;
     @Autowired
     private ProvidersService providersService;
     @Autowired
@@ -34,24 +39,26 @@ public class ShoppingCartController {
     private ShoppingCartService shoppingCartService;
 
     @GetMapping(value = "cart")
-    public String cart(Model model){
-        Collection<CartItem> cartItems = shoppingCartService.getCartItems();
+    public String cart(Model model,@CookieValue(value = "cart",defaultValue = "") String nameProduct ,
+                       HttpServletRequest request,
+                       HttpServletResponse response){
+
         model.addAttribute("providers",providersService.PROVIDERS());
         model.addAttribute("typePhone",typePhoneService.TYPE_PHONES());
         model.addAttribute("caparity",capacityService.CAPACITIES());
-        model.addAttribute("cartItem",cartItems);
+        model.addAttribute("cartItem",shoppingCartService.getCartItems());
         model.addAttribute("count",shoppingCartService.getCount());
         model.addAttribute("totalPrice",shoppingCartService.totalPrice());
+        for(CartItem c:shoppingCartService.getCartItems()){
+        }
+
         return "cart";
     }
     @GetMapping(value = "addItem")
-    public String addItem(@RequestParam(name = "productID")int productID){
-        List<Product> products=(List<Product>) productService.getAllProduct();
-        for(Product p:products){
-            if(productID == p.getId()){
-                shoppingCartService.addCart(productID);
-            }
-        }
+    public String addItem(@RequestParam(name = "productID")int productID,Model model,
+                          HttpServletRequest request, HttpServletResponse response){
+
+        shoppingCartService.addCart(productID);
         return "redirect:cart";
     }
     @GetMapping(value = "removeItem")
@@ -59,12 +66,12 @@ public class ShoppingCartController {
         shoppingCartService.remove(productID);
         return "redirect:cart";
     }
+
     @GetMapping(value = "updateItem")
-    public String updateItem(){
+    public String updateItem(Model model,@RequestParam(name = "productID") int productID,
+                             @RequestParam(name = "quantity") int quantity){
+        shoppingCartService.update(productID,quantity);
         return "redirect:cart";
     }
-    @GetMapping(value = "clearItem")
-    public String clearItem(){
-        return "redirect:cart";
-    }
+
 }

@@ -8,6 +8,7 @@ public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String name;
     private int quantity;
     private double unitPrice;
     @OneToOne
@@ -17,8 +18,9 @@ public class CartItem {
     public CartItem() {
     }
 
-    public CartItem(int id, int quantity, double unitPrice, Product product) {
+    public CartItem(int id, String name, int quantity, double unitPrice, Product product) {
         this.id = id;
+        this.name = name;
         this.quantity = quantity;
         this.unitPrice = unitPrice;
         this.product = product;
@@ -30,6 +32,14 @@ public class CartItem {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getQuantity() {

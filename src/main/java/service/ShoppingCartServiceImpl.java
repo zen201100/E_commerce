@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.HttpSessionRequiredException;
 import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.context.annotation.SessionScope;
 import org.springframework.web.util.CookieGenerator;
 import repository.CartItemRepository;
@@ -32,11 +34,11 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
         int quantity= 1;
         CartItem exitedItem = map.get(productID);
         if(exitedItem!=null){
-            CartItem cartItem = new CartItem();
             exitedItem.setQuantity(exitedItem.getQuantity()+1);
         }
         else {
             CartItem cartItem = new CartItem();
+//            cartItem.setName(product.getName());
             cartItem.setQuantity(quantity);
             cartItem.setProduct(product);
             map.put(product.getId(),cartItem);
@@ -56,11 +58,18 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
 
 
     public void update(int productID,int quantity){
-        CartItem cartItem = map.get(productID);
-        cartItem.setQuantity(quantity+cartItem.getQuantity());
-        if(cartItem.getQuantity()<=0){
-            map.remove(productID);
+        Product product =productService.getProductById(productID);
+        CartItem cartItem = map.get(product.getId());
+        if(cartItem.getQuantity()+quantity<=0){
+            cartItem.setQuantity(1);
         }
+        else if(cartItem.getQuantity()+quantity>product.getQuantity()){
+            cartItem.setQuantity(product.getQuantity());
+        }
+        else {
+            cartItem.setQuantity(cartItem.getQuantity()+quantity);
+        }
+
     }
     public int getSizeCart(){
         return map.size() ;
@@ -80,6 +89,11 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
             quantity = quantity + c.getQuantity();
         }
         return quantity;
+    }
+
+    @Override
+    public CartItem item(int productID) {
+        return (CartItem) cartItemRepository.findById(productID).get();
     }
 
 }

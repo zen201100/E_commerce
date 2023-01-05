@@ -56,11 +56,17 @@
             outline: 0;
             border: none;
             background: transparent;
-            color: #fff;
+            color: #333333;
             font-size: 15px;
         }
         .search input::placeholder {
             color: rgba(0,0,0,0.9);
+        }
+        .submit-search{
+            padding: 0 5px;
+            border: 0;
+            background: #e0e0e0;
+            border-radius: 4px;
         }
         .cart{
             width: 50%;
@@ -115,26 +121,26 @@
         .row-cd{
             display: flex;
         }
-        .name-type{
-            padding: 5px;
-            font-size: 16px;
-            color: rgba(0,0,0,0.9);
-        }
-        .name-type:hover{
-            color: #1a73e8;
-        }
         .name-title{
-            flex-basis: 14.28571428%;
+            flex-basis: 12.5%;
             border-right: 1px solid #e0e0e0;
             text-align: center;
         }
-        .name-title a{
+        .link-head-dow{
             text-decoration: none;
         }
         .name-title{
             display: block;
             position: relative;
-            padding: 5px 0;
+        }
+        .name-type{
+            cursor: pointer;
+            font-size: 16px;
+            padding: 8px 0;
+            color: rgba(0,0,0,0.9);
+        }
+        .name-type:hover{
+            color: #1a73e8;
         }
 
         .name-title:hover>.form-providers{
@@ -478,16 +484,16 @@
 
                     <div class="col-cs">
                         <div class="search">
-                            <form action="searchProduct " method="get">
+                            <form action="searchProduct" method="get">
                                 <input class="search-control" type="text" name="searchproduct" placeholder="Search..." >
-                                <input style="padding: 0 5px" type="submit">
+                                <input class="submit-search" type="submit">
                             </form>
                         </div>
                     </div>
 
                     <div class="col-dndk">
                         <div class="cart">
-                            <a class="link-cart" href="cart"><div class="name-cart">Giỏ hàng</div></a>
+                            <a class="link-cart" href="cart"><div class="name-cart"><c:if test="${count !=0}">${count} </c:if>Giỏ hàng</div></a>
                         </div>
                         <div class="dn-dk">
                             <div class="row-dn-dk">
@@ -506,81 +512,81 @@
             <div class="row-dow">
                 <div class="row-cd">
                     <div class="name-title">
-                        <a href="product"><div class="name-type">Điện thoại</div></a>
+                        <a class="link-head-dow" href="product"><div class="name-type">Điện thoại</div></a>
                     </div>
                     <div class="name-title">
-                        <a href="product"><div class="name-type">Hãng</div></a>
+                        <div class="name-type">Hãng</div>
                         <div class="form-providers">
                             <div class="row-providers">
                                 <c:forEach var="p" items="${providers}">
-                                    <div class="col-providers"><a href=""><div class="name-providers">${p.providerName}</div></a></div>
+                                    <div class="col-providers"><a class="link-head-dow" href=""><div class="name-providers">${p.providerName}</div></a></div>
                                 </c:forEach>
                             </div>
                         </div>
                     </div>
                     <div class="name-title">
-                        <a href="product"><div class="name-type">Giá</div></a>
+                        <div class="name-type">Giá</div>
                         <div class="form-price">
                             <div class="row-price">
-                                <div class="col-price"><a href=""><div class="name-price">Dưới 2 triệu</div></a></div>
-                                <div class="col-price"><a href=""><div class="name-price">Từ 2-4 triệu</div></a></div>
-                                <div class="col-price"><a href=""><div class="name-price">Từ 4-7 triệu</div></a></div>
-                                <div class="col-price"><a href=""><div class="name-price">Từ 7-13 triệu</div></a></div>
-                                <div class="col-price"><a href=""><div class="name-price">Từ 13-20 triệu</div></a></div>
-                                <div class="col-price"><a href=""><div class="name-price">Trên 20 triệu</div></a></div>
+                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Dưới 2 triệu</div></a></div>
+                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Từ 2-4 triệu</div></a></div>
+                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Từ 4-7 triệu</div></a></div>
+                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Từ 7-13 triệu</div></a></div>
+                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Từ 13-20 triệu</div></a></div>
+                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Trên 20 triệu</div></a></div>
                             </div>
                         </div>
                     </div>
                     <div class="name-title">
-                        <a href="product"><div class="name-type">Loại điện thoại</div></a>
+                        <div class="name-type">Loại điện thoại</div>
                         <div class="form-typephone">
                             <div class="row-typephone">
                                 <c:forEach var="p" items="${typePhone}">
-                                    <div class="col-typephone"><a href=""><div class="name-typephone">${p.typePhone}</div></a></div>
+                                    <div class="col-typephone"><a class="link-head-dow" href=""><div class="name-typephone">${p.typePhone}</div></a></div>
                                 </c:forEach>
                             </div>
                         </div>
                     </div>
                     <div class="name-title">
-                        <a href="product"><div class="name-type">Dung lượng</div></a>
+                        <div class="name-type">Dung lượng</div>
                         <div class="form-caparity-ram">
                             <div class="row-caparity-ram">
                                 <c:forEach var="p" items="${caparity}">
-                                    <div class="col-caparity-ram"><a href=""><div class="name-caparity-ram">${p.capacity}</div></a></div>
+                                    <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">${p.capacity}</div></a></div>
                                 </c:forEach>
                             </div>
                         </div>
                     </div>
                     <div class="name-title">
-                        <a href="product"><div class="name-type">RAM</div></a>
+                        <div class="name-type">RAM</div>
                         <div class="form-caparity-ram">
                             <div class="row-caparity-ram">
-                                <div class="col-caparity-ram"><a href=""><div class="name-caparity-ram">4GB</div></a></div>
-                                <div class="col-caparity-ram"><a href=""><div class="name-caparity-ram">6GB</div></a></div>
-                                <div class="col-caparity-ram"><a href=""><div class="name-caparity-ram">8GB</div></a></div>
-                                <div class="col-caparity-ram"><a href=""><div class="name-caparity-ram">12GB</div></a></div>
+                                <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">4GB</div></a></div>
+                                <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">6GB</div></a></div>
+                                <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">8GB</div></a></div>
+                                <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">12GB</div></a></div>
                             </div>
                         </div>
                     </div>
                     <div class="name-title">
-                        <a href="product"><div class="name-type">Pin & Sạc</div></a>
+                        <div class="name-type">Pin & Sạc</div>
                         <div class="form-pin-sac-feature">
                             <div class="row-pin-sac-feature">
-                                <div class="col-pin-sac-feature"><a href=""><div class="name-pin-sac-feature">Pin khủng trên 5000 mAh</div></a></div>
-                                <div class="col-pin-sac-feature"><a href=""><div class="name-pin-sac-feature">Sạc nhanh (từ 18W)</div></a></div>
-                                <div class="col-pin-sac-feature"><a href=""><div class="name-pin-sac-feature">Sạc siêu nhanh (từ 33W)</div></a></div>
-                                <div class="col-pin-sac-feature"><a href=""><div class="name-pin-sac-feature">Sạc không dây</div></a></div>
+                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Pin khủng trên 5000 mAh</div></a></div>
+                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Sạc nhanh (từ 18W)</div></a></div>
+                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Sạc siêu nhanh (từ 33W)</div></a></div>
+                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Sạc không dây</div></a></div>
                             </div>
                         </div>
                     </div>
                     <div class="name-title">
-                        <a href="product"><div class="name-type">Tính năng đặc biệt</div></a>
+                        <div class="name-type">Tính năng đặc biệt</div>
                         <div class="form-pin-sac-feature">
                             <div class="row-pin-sac-feature">
-                                <div class="col-pin-sac-feature"><a href=""><div class="name-pin-sac-feature">Kháng nước,bụi</div></a></div>
-                                <div class="col-pin-sac-feature"><a href=""><div class="name-pin-sac-feature">Hỗ trợ 5G</div></a></div>
-                                <div class="col-pin-sac-feature"><a href=""><div class="name-pin-sac-feature">Bảo mật khuôn mặt 3D</div></a></div>
-                                <div class="col-pin-sac-feature"><a href=""><div class="name-pin-sac-feature">Chống rung quang học</div></a></div>
+                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Kháng nước,bụi</div></a></div>
+                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Hỗ trợ 5G</div></a></div>
+                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Bảo mật khuôn mặt 3D</div></a></div>
+                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Chống rung quang học</div></a></div>
                             </div>
                         </div>
                     </div>

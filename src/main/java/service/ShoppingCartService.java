@@ -16,4 +16,5 @@ public interface ShoppingCartService {
     public int getSizeCart();
     public double totalPrice();
     public int getCount();
+    public CartItem item(int productID);
 }
