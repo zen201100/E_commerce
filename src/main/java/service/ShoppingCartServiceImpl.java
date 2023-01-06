@@ -78,7 +78,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
         Collection<CartItem> cartItems = map.values();
         double amout = 0;
         for(CartItem c : cartItems){
-            amout = amout + (c.getProduct().getPrice().getUnitPrice())*c.getQuantity();
+            amout = amout + (c.getProduct().getPrice())*c.getQuantity();
         }
         return amout;
     }

@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface ProvidersService {
     public List<Providers> PROVIDERS();
+    public Page<Providers> getPageProviders(String providerName,Pageable pageable);
+    public Providers getSizeProviders(String providerName);
 }

@@ -18,4 +18,14 @@ public class ProvidersServiceImpl implements ProvidersService {
         return (List<Providers>) providersRepository.findAll();
     }
 
+    @Override
+    public Page<Providers> getPageProviders(String providerName, Pageable pageable) {
+        return (Page<Providers>) providersRepository.getPageProviders(providerName,pageable);
+    }
+
+    @Override
+    public Providers getSizeProviders(String providerName) {
+        return  providersRepository.getSizeProviders(providerName);
+    }
+
 }

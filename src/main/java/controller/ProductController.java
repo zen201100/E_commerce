@@ -65,7 +65,7 @@ public class ProductController {
                                @RequestParam(name = "providerName",required = false) String providerName,
                                Model model){
 
-        Page<Product> providerPage = productService.getPageProviderName(providerName,PageRequest.of(0,8));
+        Page<Product> providerPage = productService.getPageProviderName(providerName,PageRequest.of(0,13));
         model.addAttribute("count",shoppingCartService.getCount());
         model.addAttribute("providerPage",providerPage);
         model.addAttribute("providers",providersService.PROVIDERS());

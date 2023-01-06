@@ -11,18 +11,16 @@ public class Camera {
     private int id;
     private String cameraBefore;
     private String cameraAfter;
-    private String chip;
     @OneToMany(mappedBy = "camera")
     private List<Product> products;
 
     public Camera() {
     }
 
-    public Camera(int id, String cameraBefore, String cameraAfter, String chip, List<Product> products) {
+    public Camera(int id, String cameraBefore, String cameraAfter, List<Product> products) {
         this.id = id;
         this.cameraBefore = cameraBefore;
         this.cameraAfter = cameraAfter;
-        this.chip = chip;
         this.products = products;
     }
 
@@ -48,14 +46,6 @@ public class Camera {
 
     public void setCameraAfter(String cameraAfter) {
         this.cameraAfter = cameraAfter;
-    }
-
-    public String getChip() {
-        return chip;
-    }
-
-    public void setChip(String chip) {
-        this.chip = chip;
     }
 
     public List<Product> getProducts() {

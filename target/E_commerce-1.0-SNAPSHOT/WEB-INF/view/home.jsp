@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/homestyle.css" type="text/css"/>
     <title>Home</title>
 </head>
 <body>
@@ -99,17 +99,6 @@
                         </div>
                     </div>
                     <div class="name-title">
-                        <div class="name-type">RAM</div>
-                        <div class="form-caparity-ram">
-                            <div class="row-caparity-ram">
-                                <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">4GB</div></a></div>
-                                <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">6GB</div></a></div>
-                                <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">8GB</div></a></div>
-                                <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">12GB</div></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="name-title">
                         <div class="name-type">Pin & Sạc</div>
                         <div class="form-pin-sac-feature">
                             <div class="row-pin-sac-feature">
@@ -187,13 +176,12 @@
                                         <div class="product-name">${p.name}</div>
                                         <div class="size-pr">
                                             <div class="size">${p.size}</div>
-                                            <div class="size">${p.screen.screen}</div>
                                         </div>
                                         <div class="gb-product">
                                             <div class="gb-cl">${p.capacity.capacity}</div>
                                             <div class="gb-cl">${p.color.color}</div>
                                         </div>
-                                        <div class="price">${p.price.unitPrice} đ</div>
+                                        <div class="price">${p.price} đ</div>
                                     </div>
                                 </a>
                             </div>

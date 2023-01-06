@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/providers.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/providersstyle.css" type="text/css"/>
     <title>Providers</title>
 </head>
 <body>
@@ -162,14 +162,13 @@
                                         <div class="capacity">
                                             <div class="size-pr">
                                                 <div class="size">${p.size}</div>
-                                                <div class="size">${p.screen.screen}</div>
                                             </div>
                                             <div class="gb-product">
                                                 <div class="gb-cl">${p.capacity.capacity}</div>
                                                 <div class="gb-cl">${p.color.color}</div>
                                             </div>
                                         </div>
-                                        <div class="price">${p.price.unitPrice} đ</div>
+                                        <div class="price">${p.price} đ</div>
                                     </div>
                                 </a>
                             </div>

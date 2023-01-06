@@ -9,8 +9,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Home</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/cart.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/cartstyle.css" type="text/css"/>
+    <title>Cart</title>
 </head>
 <body>
     <div id="head">
@@ -97,17 +97,6 @@
                         </div>
                     </div>
                     <div class="name-title">
-                        <div class="name-type">RAM</div>
-                        <div class="form-caparity-ram">
-                            <div class="row-caparity-ram">
-                                <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">4GB</div></a></div>
-                                <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">6GB</div></a></div>
-                                <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">8GB</div></a></div>
-                                <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">12GB</div></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="name-title">
                         <div class="name-type">Pin & Sạc</div>
                         <div class="form-pin-sac-feature">
                             <div class="row-pin-sac-feature">
@@ -162,7 +151,7 @@
                                     </div>
                                 </div>
                                 <div class="col-cart">
-                                    <div style="color: #333333;float: left;padding-top: 30px">${c.product.price.unitPrice} <strong style="color: #1a73e8">đ</strong></div>
+                                    <div style="color: #333333;float: left;padding-top: 30px">${c.product.price} <strong style="color: #1a73e8">đ</strong></div>
                                 </div>
                                 <div class="col-cart">
                                     <div class="quantity">
@@ -311,7 +300,6 @@
             </div>
         </div>
     </div>
-
 </body>
 </html>
 
