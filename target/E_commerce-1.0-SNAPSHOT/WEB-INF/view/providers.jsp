@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/providersstyle.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/providers.css" type="text/css"/>
     <title>Providers</title>
 </head>
 <body>
@@ -58,21 +58,8 @@
                         <div class="form-providers">
                             <div class="row-providers">
                                 <c:forEach var="p" items="${providers}">
-                                    <div class="col-providers"><a class="link-head-dow" href=""><div class="name-providers">${p.providerName}</div></a></div>
+                                    <div class="col-providers"><a class="link-head-dow" href="providers?providerName=${p.providerName}"><div class="name-providers">${p.providerName}</div></a></div>
                                 </c:forEach>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="name-title">
-                        <div class="name-type">Giá</div>
-                        <div class="form-price">
-                            <div class="row-price">
-                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Dưới 2 triệu</div></a></div>
-                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Từ 2-4 triệu</div></a></div>
-                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Từ 4-7 triệu</div></a></div>
-                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Từ 7-13 triệu</div></a></div>
-                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Từ 13-20 triệu</div></a></div>
-                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Trên 20 triệu</div></a></div>
                             </div>
                         </div>
                     </div>
@@ -81,29 +68,18 @@
                         <div class="form-typephone">
                             <div class="row-typephone">
                                 <c:forEach var="p" items="${typePhone}">
-                                    <div class="col-typephone"><a class="link-head-dow" href=""><div class="name-typephone">${p.typePhone}</div></a></div>
+                                    <div class="col-typephone"><a class="link-head-dow" href="typephone?typePhone=${p.typePhone}"><div class="name-typephone">${p.typePhone}</div></a></div>
                                 </c:forEach>
                             </div>
                         </div>
                     </div>
                     <div class="name-title">
-                        <div class="name-type">Dung lượng</div>
+                        <div class="name-type">Dung lượng lưu trữ</div>
                         <div class="form-caparity-ram">
                             <div class="row-caparity-ram">
                                 <c:forEach var="p" items="${caparity}">
                                     <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">${p.capacity}</div></a></div>
                                 </c:forEach>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="name-title">
-                        <div class="name-type">RAM</div>
-                        <div class="form-caparity-ram">
-                            <div class="row-caparity-ram">
-                                <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">4GB</div></a></div>
-                                <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">6GB</div></a></div>
-                                <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">8GB</div></a></div>
-                                <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">12GB</div></a></div>
                             </div>
                         </div>
                     </div>
@@ -118,41 +94,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="name-title">
-                        <div class="name-type">Tính năng đặc biệt</div>
-                        <div class="form-pin-sac-feature">
-                            <div class="row-pin-sac-feature">
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Kháng nước,bụi</div></a></div>
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Hỗ trợ 5G</div></a></div>
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Bảo mật khuôn mặt 3D</div></a></div>
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Chống rung quang học</div></a></div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
     <section>
-        <div class="form-sale-pr">
-            <div class="sale-product">
-                <div class="sale-l">
-                    <a href=""><div class="img-sale"></div></a>
-                </div>
-                <div class="sale-r">
-                    <a href=""><div class="col-sale"></div></a>
-                    <a href=""><div class="col-sale"></div></a>
-                </div>
-            </div>
-        </div>
-
         <div class="product">
             <div class="b-color">
                 <div class="form-size-product">
-                    <div class="size-product">Hiện có ${sizeProduct} Điện thoại</div>
+                    <div class="size-product">Hiện có ${sizeProviders} Điện thoại</div>
                 </div>
                 <div class="row-p">
-                    <c:forEach var="p" items="${providerPage.content}">
+                    <c:forEach var="p" items="${productPage.content}">
                         <div class="col-p">
                             <div class="product-item">
                                 <a class="main-contain" href="productDetails?id=${p.id}">
@@ -177,45 +130,25 @@
 
                     <nav class="home-page" aria-label="Page navigation example">
                         <div class="page-item">
-                            <a class="page-link" href="product?page=0">&laquo;</a>
+                            <a class="page-link" href="providers?providerName=${providerName}&page=0">&laquo;</a>
                             <c:choose>
-                                <c:when test="${providerPage.number >3}">
-                                    <a class="page-link" href="providers?page=${providerPage.number-3}">${providerPage.number-3}</a>
-                                    <a class="page-link" href="providers?page=${providerPage.number-1}">${providerPage.number-1}</a>
-                                    <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="providers?page=${productPage.number}">${providerPage.number}</a>
-                                    <a class="page-link" href="providers?page=${providerPage.number+1}">${providerPage.number+1}</a>
-                                    <a class="page-link" href="providers?page=${providerPage.number+3}">${providerPage.number+3}</a>
+                                <c:when test="${productPage.number ==0}">
+                                    <a class="page-link" href="providers?providerName=${providerName}&page=0">&lsaquo;</a>
                                 </c:when>
                                 <c:otherwise>
-                                    <c:choose>
-                                        <c:when test="${providerPage.number==1}">
-                                            <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="providers?page=1">1</a>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <a class="page-link" href="providers?page=1">1</a>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${providerPage.number==2}">
-                                            <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="providers?page=2">2</a>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <a class="page-link" href="providers?page=2">2</a>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <c:choose>
-                                        <c:when test="${providerPage.number==3}">
-                                            <a class="page-link" style="border: 1px solid #1a73e8 ;color: #1a73e8" href="providers?page=3">3</a>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <a class="page-link" href="providers?page=3">3</a>
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <a class="page-link" href="providers?page=4">4</a>
-                                    <a class="page-link" href="providers?page=5">5</a>
+                                    <a class="page-link" href="providers?providerName=${providerName}&page=${productPage.number-1}">&lsaquo;</a>
                                 </c:otherwise>
                             </c:choose>
-                            <a class="page-link" href="providers?page=${providerPage.totalPages-1}">&raquo;</a>
+
+                            <c:choose>
+                                <c:when test="${productPage.number ==productPage.totalPages-1}">
+                                    <a class="page-link" href="providers?providerName=${providerName}&page=${productPage.totalPages-1}">&rsaquo;</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a class="page-link" href="providers?providerName=${providerName}&page=${productPage.number+1}">&rsaquo;</a>
+                                </c:otherwise>
+                            </c:choose>
+                            <a class="page-link" href="providers?providerName=${providerName}&page=${productPage.totalPages-1}">&raquo;</a>
                         </div>
                     </nav>
                 </div>

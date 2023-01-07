@@ -109,16 +109,14 @@ body{
     display: flex;
 }
 .name-title{
-    flex-basis: 12.5%;
+    flex-basis: 20%;
     border-right: 1px solid #e0e0e0;
     text-align: center;
+    display: block;
+    position: relative;
 }
 .link-head-dow{
     text-decoration: none;
-}
-.name-title{
-    display: block;
-    position: relative;
 }
 .name-type{
     cursor: pointer;
@@ -234,7 +232,7 @@ body{
 }
 .form-caparity-ram{
     display: none;
-    width: 300px;
+    width: 350px;
     background: #fff;
     box-shadow: 0 0 20px rgba(0,0,0,0.9);
     border-radius: 4px;
@@ -302,37 +300,80 @@ body{
 }
 .sale-l{
     width: 65%;
-    margin-right:4px ;
+    margin-right: 5px;
 }
 .sale-r{
+    background: #333333;
+    border-radius: 10px;
     width: 35%;
-    margin-left: 4px;
+    margin-left: 5px;
+    padding: 8px;
 }
 .col-sale{
-    margin-bottom: 6px;
-    height: 100px;
-    background: #ff685f;;
+    margin-top: 6px;
+    height: 150px;
+    background: #ffffff;;
+    border-radius: 10px;
 }
 .img-sale{
-    background: #1a73e8;
-    height: 206px;
+    background: #6e7781;
+    height: 350px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+}
+.advertisement{
+    background: #333333;
+    height: 144px;
+    border-radius: 10px;
+}
+.sale-pevrd{
+    width: 1080px;
+    margin: 0 auto;
+    background: #ED174B;
+}
+.row-sale{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4px
+}
+.col-sale-everyday{
+    flex-basis: 25%;
+    box-sizing: border-box;
+    padding: 4px
+}
+.link-sevrd{
+    height: 350px;
+    background: #f1f1f1;
+}
+.name-sale{
+    font-size: 30px;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+}
+.name-km{
+    text-align: center;
+    color:#ffe818;
+    font-size: 16px;
 }
 .product{
-    padding-bottom: 25px;
+    padding: 25px 0;
 }
 .b-color{
     width: 1080px;
     margin: 0 auto;
     background: rgba(0,0,0,0.9);
 }
-.form-size-product{
+.form-name-pr{
+    width: 1080px;
+    margin: 0 auto;
 }
-.size-product{
-    color: #ffffff;
-    font-size: 15px;
+.name-pr{
+    color: #ffff00;
+    font-size: 30px;
     font-weight: bold;
     padding: 10px 0;
-    margin-left: 8px;
+    text-align: center;
 }
 .row-p{
     display: flex;
@@ -401,30 +442,92 @@ body{
 .main-contain{
     text-decoration: none;
 }
-.home-page{
+.view-product{
     width: 1080px;
     margin: 0 auto;
     padding: 20px 0;
 }
-.page-item{
-    width: 520px;
+.view-pr{
+    width: 300px;
     margin: 0 auto;
-    display: flex;
 }
-.page-link{
-    background: rgba(0,0,0,0.8);
-    padding: 5px;
-    border: 1px solid #ffffff;
+.view-pr a{
     text-decoration: none;
-    color: #ffffff;
-    width: 14.28571428%;
-    text-align: center;
-    margin:1px;
 }
-.page-link:hover{
-    border: 1px solid #1a73e8;
+.link-view{
+    border: 1px solid #f1f1f1;
+    text-align: center;
+    border-radius: 2px;
+    padding: 6px;
+    color: #f1f1f1;
+    font-size: 20px;
+    font-weight: bold;
+}
+.link-view:hover{
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
     color: #1a73e8;
 }
+.payment-online{
+    padding-bottom: 25px;
+}
+.name-payment{
+    text-align: center;
+    padding: 10px;
+    color: #f1f1f1;
+    font-size: 20px;
+    font-weight: bold;
+}
+.form-payment-ol{
+    background-color: #ED4514;
+    width: 1080px;
+    margin: 0 auto;
+}
+.row-payment-ol{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4px;
+}
+.col-payment{
+    box-sizing: border-box;
+    flex-basis: 33.3333%;
+    padding: 4px;
+}
+.payment-link{
+    background: #f1f1f1;
+    height: 200px;
+}
+
+.form-service{
+    padding-bottom: 25px;
+}
+.service{
+    width: 1080px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    background: #ff685f;
+}
+.row-service{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4px;
+}
+.col-service{
+    flex-basis: 25%;
+    box-sizing: border-box;
+    padding: 4px
+}
+.link-service{
+    height: 200px;
+    background: #f1f1f1;
+}
+.name-service{
+    font-size: 30px;
+    color: #ffe818;
+    text-align: center;
+    padding: 10px 0;
+}
+
+
 #form-footer{
     border-top: 1px solid #e0e0e0;
     background: #fff;

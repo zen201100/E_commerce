@@ -2,24 +2,19 @@ package controller;
 
 import entity.Customer;
 import entity.Product;
-import entity.Providers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.support.SessionAttributeStore;
 import service.*;
 
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Optional;
-import java.util.OptionalInt;
 
 @Controller
 public class ProductController {
@@ -65,14 +60,31 @@ public class ProductController {
                                @RequestParam(name = "providerName",required = false) String providerName,
                                Model model){
 
-        Page<Product> providerPage = productService.getPageProviderName(providerName,PageRequest.of(0,13));
+        Page<Product> productPage = productService.findProductByProviders_ProviderName(providerName,PageRequest.of(page.orElse(0),8));
         model.addAttribute("count",shoppingCartService.getCount());
-        model.addAttribute("providerPage",providerPage);
+        model.addAttribute("productPage",productPage);
+        model.addAttribute("providerName",providerName);
         model.addAttribute("providers",providersService.PROVIDERS());
         model.addAttribute("typePhone",typePhoneService.TYPE_PHONES());
         model.addAttribute("caparity",capacityService.CAPACITIES());
-        model.addAttribute("sizeProduct",productService.getAllProduct().size());
+        model.addAttribute("sizeProviders",productService.getSizeProviders(providerName).size());
         return "providers";
+    }
+
+    @GetMapping(value = "typephone")
+    public String getTypePhone(@RequestParam(name = "page") Optional<Integer> page,
+                               @RequestParam(name = "typePhone",required = false) String typePhone,
+                               Model model){
+
+        Page<Product> productPage = productService.findProductByTypePhone_TypePhone(typePhone,PageRequest.of(page.orElse(0),8));
+        model.addAttribute("count",shoppingCartService.getCount());
+        model.addAttribute("productPage",productPage);
+        model.addAttribute("typePhoneName",typePhone);
+        model.addAttribute("providers",providersService.PROVIDERS());
+        model.addAttribute("typePhone",typePhoneService.TYPE_PHONES());
+        model.addAttribute("caparity",capacityService.CAPACITIES());
+        model.addAttribute("sizeTypePhone",productService.getSizeTypePhone(typePhone).size());
+        return "typephone";
     }
 
     @GetMapping(value = "searchProduct")

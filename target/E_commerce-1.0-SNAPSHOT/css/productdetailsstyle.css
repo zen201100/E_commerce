@@ -109,7 +109,7 @@ body{
     display: flex;
 }
 .name-title{
-    flex-basis: 14.2857142857%;
+    flex-basis: 20%;
     border-right: 1px solid #e0e0e0;
     text-align: center;
 }

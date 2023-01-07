@@ -19,10 +19,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="spring-beans.schema" />
-        <option value="Jsp File" />
         <option value="Interface" />
-        <option value="CSS File" />
         <option value="Class" />
+        <option value="Jsp File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -63,19 +63,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Tomcat 8.5.822" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" activateToolWindowBeforeRun="false" APPLICATION_SERVER_NAME="Tomcat 8.5.822" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/E_commerce_war_exploded/" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -236,7 +223,11 @@
       <workItem from="1672921408370" duration="1443000" />
       <workItem from="1672938410087" duration="3464000" />
       <workItem from="1672975328584" duration="1048000" />
-      <workItem from="1673001945021" duration="5184000" />
+      <workItem from="1673001945021" duration="6623000" />
+      <workItem from="1673022459630" duration="274000" />
+      <workItem from="1673022761476" duration="79000" />
+      <workItem from="1673022959818" duration="6512000" />
+      <workItem from="1673033244499" duration="483000" />
     </task>
     <servers />
   </component>

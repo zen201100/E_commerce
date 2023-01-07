@@ -109,7 +109,7 @@ body{
     display: flex;
 }
 .name-title{
-    flex-basis: 14.2857142857%;
+    flex-basis: 20%;
     border-right: 1px solid #e0e0e0;
     text-align: center;
     display: block;
@@ -290,41 +290,37 @@ body{
 .name-pin-sac-feature:hover{
     border: 1px solid #1a73e8;
 }
-
-.sale-product{
-    width: 1080px;
-    margin: 0 auto;
-    display: flex;
-    padding: 25px 0;
-    box-sizing: border-box;
-}
-.sale-l{
-    width: 65%;
-    margin-right:4px ;
-}
-.sale-r{
-    width: 35%;
-    margin-left: 4px;
-}
-.col-sale{
-    margin-bottom: 6px;
-    height: 100px;
-    background: #ff685f;;
-}
-.img-sale{
-    background: #1a73e8;
-    height: 206px;
-}
 .product{
-    padding-bottom: 25px;
+    padding: 25px 0;
 }
+.form-size-product{
+    width:1080px;
+    margin: 0 auto;
+}
+.search-fal{
+    margin-left: 350px;
+    padding: 50px 0
+}
+.name-gy{
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffe818;
+}
+.search-pr-fal{
+    margin: 10px 0;
+    line-height: 20px;
+    padding-left: 17px;
+}
+.title-false{
+    color: #ffffff;
+}
+
 .b-color{
     width: 1080px;
     margin: 0 auto;
     background: rgba(0,0,0,0.9);
 }
-.form-size-product{
-}
+
 .size-product{
     color: #ffffff;
     font-size: 15px;
@@ -405,7 +401,7 @@ body{
     padding: 20px 0;
 }
 .page-item{
-    width: 400px;
+    width: 300px;
     margin: 0 auto;
     display: flex;
 }

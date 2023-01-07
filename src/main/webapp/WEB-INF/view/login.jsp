@@ -59,21 +59,8 @@
                         <div class="form-providers">
                             <div class="row-providers">
                                 <c:forEach var="p" items="${providers}">
-                                    <div class="col-providers"><a class="link-head-dow" href=""><div class="name-providers">${p.providerName}</div></a></div>
+                                    <div class="col-providers"><a class="link-head-dow" href="providers?providerName=${p.providerName}"><div class="name-providers">${p.providerName}</div></a></div>
                                 </c:forEach>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="name-title">
-                        <div class="name-type">Giá</div>
-                        <div class="form-price">
-                            <div class="row-price">
-                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Dưới 2 triệu</div></a></div>
-                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Từ 2-4 triệu</div></a></div>
-                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Từ 4-7 triệu</div></a></div>
-                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Từ 7-13 triệu</div></a></div>
-                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Từ 13-20 triệu</div></a></div>
-                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Trên 20 triệu</div></a></div>
                             </div>
                         </div>
                     </div>
@@ -82,13 +69,13 @@
                         <div class="form-typephone">
                             <div class="row-typephone">
                                 <c:forEach var="p" items="${typePhone}">
-                                    <div class="col-typephone"><a class="link-head-dow" href=""><div class="name-typephone">${p.typePhone}</div></a></div>
+                                    <div class="col-typephone"><a class="link-head-dow" href="typephone?typePhone=${p.typePhone}"><div class="name-typephone">${p.typePhone}</div></a></div>
                                 </c:forEach>
                             </div>
                         </div>
                     </div>
                     <div class="name-title">
-                        <div class="name-type">Dung lượng</div>
+                        <div class="name-type">Dung lượng lưu trữ</div>
                         <div class="form-caparity-ram">
                             <div class="row-caparity-ram">
                                 <c:forEach var="p" items="${caparity}">
@@ -105,17 +92,6 @@
                                 <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Sạc nhanh (từ 18W)</div></a></div>
                                 <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Sạc siêu nhanh (từ 33W)</div></a></div>
                                 <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Sạc không dây</div></a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="name-title">
-                        <div class="name-type">Tính năng đặc biệt</div>
-                        <div class="form-pin-sac-feature">
-                            <div class="row-pin-sac-feature">
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Kháng nước,bụi</div></a></div>
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Hỗ trợ 5G</div></a></div>
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Bảo mật khuôn mặt 3D</div></a></div>
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Chống rung quang học</div></a></div>
                             </div>
                         </div>
                     </div>

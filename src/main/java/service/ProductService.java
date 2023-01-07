@@ -9,9 +9,12 @@ import java.util.List;
 
 public interface ProductService {
     public List<Product> getAllProduct();
+    public Product getProductById(int id);
     public Page<Product> getPageProduct(Pageable pageable);
     public Page<Product> getPageProductByName(String name,Pageable pageable);
     public List<Product> getSizeProductByName(String name);
-    public Product getProductById(int id);
-    public Page<Product> getPageProviderName(String providerName,Pageable pageable);
+    public Page<Product> findProductByProviders_ProviderName(String providerName,Pageable pageable);
+    public List<Product> getSizeProviders(String providerName);
+    public Page<Product> findProductByTypePhone_TypePhone(String typePhone,Pageable pageable);
+    public List<Product> getSizeTypePhone(String typePhone);
 }
