@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/productdetailsstyle.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/productdetails.css" type="text/css"/>
     <title>Product Details</title>
 </head>
 <body>
@@ -57,7 +57,7 @@
                         <div class="name-type">Hãng</div>
                         <div class="form-providers">
                             <div class="row-providers">
-                                <c:forEach var="p" items="${providers}">
+                                <c:forEach var="p" items="${listProviders}">
                                     <div class="col-providers"><a class="link-head-dow" href="providers?providerName=${p.providerName}"><div class="name-providers">${p.providerName}</div></a></div>
                                 </c:forEach>
                             </div>
@@ -67,7 +67,7 @@
                         <div class="name-type">Loại điện thoại</div>
                         <div class="form-typephone">
                             <div class="row-typephone">
-                                <c:forEach var="p" items="${typePhone}">
+                                <c:forEach var="p" items="${listTypePhone}">
                                     <div class="col-typephone"><a class="link-head-dow" href="typephone?typePhone=${p.typePhone}"><div class="name-typephone">${p.typePhone}</div></a></div>
                                 </c:forEach>
                             </div>
@@ -77,8 +77,8 @@
                         <div class="name-type">Dung lượng lưu trữ</div>
                         <div class="form-caparity-ram">
                             <div class="row-caparity-ram">
-                                <c:forEach var="p" items="${caparity}">
-                                    <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">${p.capacity}</div></a></div>
+                                <c:forEach var="p" items="${listCaparity}">
+                                    <div class="col-caparity-ram"><a class="link-head-dow" href="capacity?capacity=${p.capacity}"><div class="name-caparity-ram">${p.capacity}</div></a></div>
                                 </c:forEach>
                             </div>
                         </div>
@@ -104,7 +104,7 @@
             <div class="provider-pr">
                 <a href="product" class="prov">Điện thoại</a>
                 <div style="margin:0 6px;padding-top: 2px ;font-size: 20px ">›</div>
-                <a href="" class="prov">Điện thoại ${productDetails.providers.providerName}</a>
+                <a href="providers?providerName=${productDetails.providers.providerName}" class="prov">Điện thoại ${productDetails.providers.providerName}</a>
             </div>
             <div class="form-np">
                 <div class="name-pr">Điện thoại ${productDetails.name}</div>
@@ -156,6 +156,7 @@
                         <div class="form-buynow">
                             <div class="row-buynow">
                                 <a class="buy-now" href="addItem?productID=${productDetails.id}"><div class="buynow">MUA NGAY</div></a>
+<%--                                <button class="buy-now" onclick="addToCart(${productDetails.id})"><div class="buynow">MUA NGAY</div></button>--%>
                             </div>
                         </div>
                     </div>

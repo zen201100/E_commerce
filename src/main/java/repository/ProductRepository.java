@@ -25,4 +25,8 @@ public interface ProductRepository extends PagingAndSortingRepository<Product,In
     @Query(value="select  * from product inner join typephone on product.typePhoneID=typephone.id where typephone.typePhone=?1",nativeQuery = true)
     public List<Product> getSizeTypePhone(String typePhone);
 
+    public Page<Product> findProductByCapacity_Capacity(String capacity,Pageable pageable);
+    @Query(value="select  * from product inner join capacity on product.capacityID=capacity.id where capacity.capacity=?1",nativeQuery = true)
+    public List<Product> getSizeCapacity(String capacity);
+
 }

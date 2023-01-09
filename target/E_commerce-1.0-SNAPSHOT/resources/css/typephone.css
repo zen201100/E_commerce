@@ -257,7 +257,6 @@ body{
 .name-caparity-ram:hover{
     border: 1px solid #1a73e8;
 }
-
 .name-title:hover>.form-pin-sac-feature{
     position: absolute;
     display: block;
@@ -290,33 +289,8 @@ body{
 .name-pin-sac-feature:hover{
     border: 1px solid #1a73e8;
 }
-
-.sale-product{
-    width: 1080px;
-    margin: 0 auto;
-    display: flex;
+.product {
     padding: 25px 0;
-    box-sizing: border-box;
-}
-.sale-l{
-    width: 65%;
-    margin-right:4px ;
-}
-.sale-r{
-    width: 35%;
-    margin-left: 4px;
-}
-.col-sale{
-    margin-bottom: 6px;
-    height: 100px;
-    background: #ff685f;;
-}
-.img-sale{
-    background: #1a73e8;
-    height: 206px;
-}
-.product{
-    padding-bottom: 25px;
 }
 .b-color{
     width: 1080px;
@@ -347,9 +321,9 @@ body{
     background: #fff;
 }
 .img{
+    padding-top: 10px;
     width: 100%;
     height: 300px;
-    background: #54a0ff;
 }
 .col-item{
     padding:10px;

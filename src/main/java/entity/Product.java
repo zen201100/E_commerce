@@ -12,6 +12,7 @@ public class Product {
     private int quantity;
     private String size;
     private double price;
+    private String image;
 
     @ManyToOne
     @JoinColumn(name = "capacityID")
@@ -40,12 +41,13 @@ public class Product {
     public Product() {
     }
 
-    public Product(int id, String name, int quantity, String size, double price, Capacity capacity, Providers providers, Camera camera, Sim sim, Pin pin, Color color, TypePhone typePhone, CartItem cartItems) {
+    public Product(int id, String name, int quantity, String size, double price, String image, Capacity capacity, Providers providers, Camera camera, Sim sim, Pin pin, Color color, TypePhone typePhone, CartItem cartItems) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
         this.size = size;
         this.price = price;
+        this.image = image;
         this.capacity = capacity;
         this.providers = providers;
         this.camera = camera;
@@ -94,6 +96,14 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Capacity getCapacity() {

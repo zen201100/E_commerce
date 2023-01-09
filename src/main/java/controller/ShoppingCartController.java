@@ -20,10 +20,12 @@ import service.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.net.CookieStore;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class ShoppingCartController {
@@ -39,18 +41,19 @@ public class ShoppingCartController {
     private ShoppingCartService shoppingCartService;
 
     @GetMapping(value = "cart")
-    public String cart(Model model,@CookieValue(value = "cart",defaultValue = "") String nameProduct ,
-                       HttpServletRequest request,
-                       HttpServletResponse response){
+    public String cart(Model model,@CookieValue(value = "cart",defaultValue = "") String nameProduct,
+                       HttpSession session){
 
-        model.addAttribute("providers",providersService.PROVIDERS());
-        model.addAttribute("typePhone",typePhoneService.TYPE_PHONES());
-        model.addAttribute("caparity",capacityService.CAPACITIES());
+        model.addAttribute("listProviders",providersService.PROVIDERS());
+        model.addAttribute("listTypePhone",typePhoneService.TYPE_PHONES());
+        model.addAttribute("listCaparity",capacityService.CAPACITIES());
         model.addAttribute("cartItem",shoppingCartService.getCartItems());
         model.addAttribute("count",shoppingCartService.getCount());
         model.addAttribute("totalPrice",shoppingCartService.totalPrice());
-        for(CartItem c:shoppingCartService.getCartItems()){
-        }
+//        Map<Integer,CartItem> cartItemMap=(Map<Integer, CartItem>) session.getAttribute("cart");
+//        if(cartItemMap!=null){
+//            model.addAttribute("cartItem",cartItemMap.values());
+//        }
 
         return "cart";
     }

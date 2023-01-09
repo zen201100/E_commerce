@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css" type="text/css"/>
     <title>Home</title>
 </head>
 <body>
@@ -57,7 +57,7 @@
                         <div class="name-type">Hãng</div>
                         <div class="form-providers">
                             <div class="row-providers">
-                                <c:forEach var="p" items="${providers}">
+                                <c:forEach var="p" items="${listProviders}">
                                     <div class="col-providers">
                                         <a class="link-head-dow" href="providers?providerName=${p.providerName}"><div class="name-providers">${p.providerName}</div></a>
                                     </div>
@@ -69,7 +69,7 @@
                         <div class="name-type">Loại điện thoại</div>
                         <div class="form-typephone">
                             <div class="row-typephone">
-                                <c:forEach var="p" items="${typePhone}">
+                                <c:forEach var="p" items="${listTypePhone}">
                                     <div class="col-typephone"><a class="link-head-dow" href="typephone?typePhone=${p.typePhone}"><div class="name-typephone">${p.typePhone}</div></a></div>
                                 </c:forEach>
                             </div>
@@ -79,8 +79,8 @@
                         <div class="name-type">Dung lượng lưu trữ</div>
                         <div class="form-caparity-ram">
                             <div class="row-caparity-ram">
-                                <c:forEach var="p" items="${caparity}">
-                                    <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">${p.capacity}</div></a></div>
+                                <c:forEach var="p" items="${listCaparity}">
+                                    <div class="col-caparity-ram"><a class="link-head-dow" href="capacity?capacity=${p.capacity}"><div class="name-caparity-ram">${p.capacity}</div></a></div>
                                 </c:forEach>
                             </div>
                         </div>
@@ -105,14 +105,14 @@
         <div class="form-sale-pr">
             <div class="sale-product">
                 <div class="sale-l">
-                    <a href=""><div class="img-sale"></div></a>
-                    <a href=""><div class="advertisement"></div></a>
+                    <a href=""><img src="${pageContext.request.contextPath}/resources/image/slide-tet-phat-loc-vang-01-768x373.jpg" class="img-sale"></a>
+                    <a href=""><img src="${pageContext.request.contextPath}/resources/image/bgw-iphone-chinh-hang-bao-hanh-24-thang-01.png" class="advertisement"></a>
                 </div>
                 <div class="sale-r">
                     <div class="name-km">Khuyến mãi nổi bật</div>
-                    <a href=""><div class="col-sale"></div></a>
-                    <a href=""><div class="col-sale"></div></a>
-                    <a href=""><div class="col-sale"></div></a>
+                    <a href=""><img src="${pageContext.request.contextPath}/resources/image/bpl-tet-phat-loc-vang-01.png" class="col-sale"></a>
+                    <a href=""><img src="${pageContext.request.contextPath}/resources/image/bpl-galaxyA-1.png" class="col-sale"></a>
+                    <a href=""><img src="${pageContext.request.contextPath}/resources/image/bpl-apple-watch-uu-dai-to-01.png" class="col-sale"></a>
                 </div>
             </div>
         </div>
@@ -122,16 +122,16 @@
                 <div class="name-sale">FLASH SALE MỖI NGÀY</div>
                 <div class="row-sale">
                     <div class="col-sale-everyday">
-                        <a href=""><div class="link-sevrd"></div></a>
+                        <a href=""><img src="${pageContext.request.contextPath}/resources/image/iphone-14.jpg" class="link-sevrd"></a>
                     </div>
                     <div class="col-sale-everyday">
-                        <a href=""><div class="link-sevrd"></div></a>
+                        <a href=""><img src="${pageContext.request.contextPath}/resources/image/iphone-14-pro.jpg" class="link-sevrd"></a>
                     </div>
                     <div class="col-sale-everyday">
-                        <a href=""><div class="link-sevrd"></div></a>
+                        <a href=""><img src="${pageContext.request.contextPath}/resources/image/iphone-14-pro-max.jpg" class="link-sevrd"></a>
                     </div>
                     <div class="col-sale-everyday">
-                        <a href=""><div class="link-sevrd"></div></a>
+                        <a href=""><img src="${pageContext.request.contextPath}/resources/image/iphone-14-pro-max-1tb.jpg" class="link-sevrd"></a>
                     </div>
                 </div>
             </div>
@@ -147,7 +147,7 @@
                         <div class="col-p">
                             <div class="product-item">
                                 <a class="main-contain" href="productDetails?id=${p.id}">
-                                    <img class="img" src="">
+                                    <img class="img" src="${pageContext.request.contextPath}/resources/image/${p.image}.jpg">
                                     <div class="col-item">
                                         <div class="product-name">${p.name}</div>
                                         <div class="size-pr">
@@ -178,13 +178,13 @@
 
                 <div class="row-payment-ol">
                     <div class="col-payment">
-                        <a href=""><div class="payment-link"></div></a>
+                        <a href=""><img src="${pageContext.request.contextPath}/resources/image/TGDD380x200-380x200-01.png" class="payment-link"></a>
                     </div>
                     <div class="col-payment">
-                        <a href=""><div class="payment-link"></div></a>
+                        <a href=""><img src="${pageContext.request.contextPath}/resources/image/VCBDesk--2--380x200-02.png" class="payment-link"></a>
                     </div>
                     <div class="col-payment">
-                        <a href=""><div class="payment-link"></div></a>
+                        <a href=""><img src="${pageContext.request.contextPath}/resources/image/380x200-380x200-03.webp" class="payment-link"></a>
                     </div>
                 </div>
             </div>
@@ -194,16 +194,28 @@
                 <div class="name-service">DỊCH VỤ TIỆN ÍCH</div>
                 <div class="row-service">
                     <div class="col-service">
-                        <a href=""><div class="link-service"></div></a>
+                        <a class="link-sv" href=""><div class="link-service" style="background: #dceeff">
+                            <div class="name-sv">Mua mã thẻ cào</div>
+                            <div style="font-size: 20px;color: #333333"><strong style="color: #dd0000">Giảm 3%</strong> cho mệnh giá từ 100.000 trở lên</div>
+                        </div></a>
                     </div>
                     <div class="col-service">
-                        <a href=""><div class="link-service"></div></a>
+                        <a class="link-sv" href=""><div class="link-service" style="background: #fef5cf">
+                            <div class="name-sv">Dịch vụ đóng tiền</div>
+                            <div style="font-size: 20px;color: #333333">Điện, Nước, Internet, Cước điện thoại trả sau</div>
+                        </div></a>
                     </div>
                     <div class="col-service">
-                        <a href=""><div class="link-service"></div></a>
+                        <a class="link-sv" href=""><div class="link-service" style="background: #ffefdb">
+                            <div class="name-sv" >Mua thẻ game</div>
+                            <div style="font-size: 20px;color: #333333"><strong style="color: #dd0000">Giảm 2%</strong> cho tất cả nhà mạng, áp dụng cho mệnh giá 300.000 trở lên</div>
+                        </div></a>
                     </div>
                     <div class="col-service">
-                        <a href=""><div class="link-service"></div></a>
+                        <a class="link-sv" href=""><div class="link-service" style="background: #e1fecf">
+                            <div class="name-sv">Office bản quền</div>
+                            <div style="font-size: 20px;color: #333333">Mua Microsoft Office giá chỉ từ 990k</div>
+                        </div></a>
                     </div>
                 </div>
             </div>

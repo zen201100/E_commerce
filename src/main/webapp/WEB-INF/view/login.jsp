@@ -10,7 +10,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/loginstyle.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login.css" type="text/css"/>
     <title>Login</title>
 </head>
 <body>
@@ -58,7 +58,7 @@
                         <div class="name-type">Hãng</div>
                         <div class="form-providers">
                             <div class="row-providers">
-                                <c:forEach var="p" items="${providers}">
+                                <c:forEach var="p" items="${listProviders}">
                                     <div class="col-providers"><a class="link-head-dow" href="providers?providerName=${p.providerName}"><div class="name-providers">${p.providerName}</div></a></div>
                                 </c:forEach>
                             </div>
@@ -68,7 +68,7 @@
                         <div class="name-type">Loại điện thoại</div>
                         <div class="form-typephone">
                             <div class="row-typephone">
-                                <c:forEach var="p" items="${typePhone}">
+                                <c:forEach var="p" items="${listTypePhone}">
                                     <div class="col-typephone"><a class="link-head-dow" href="typephone?typePhone=${p.typePhone}"><div class="name-typephone">${p.typePhone}</div></a></div>
                                 </c:forEach>
                             </div>
@@ -78,8 +78,8 @@
                         <div class="name-type">Dung lượng lưu trữ</div>
                         <div class="form-caparity-ram">
                             <div class="row-caparity-ram">
-                                <c:forEach var="p" items="${caparity}">
-                                    <div class="col-caparity-ram"><a class="link-head-dow" href=""><div class="name-caparity-ram">${p.capacity}</div></a></div>
+                                <c:forEach var="p" items="${listCaparity}">
+                                    <div class="col-caparity-ram"><a class="link-head-dow" href="capacity?capacity=${p.capacity}"><div class="name-caparity-ram">${p.capacity}</div></a></div>
                                 </c:forEach>
                             </div>
                         </div>

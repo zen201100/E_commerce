@@ -257,7 +257,6 @@ body{
 .name-caparity-ram:hover{
     border: 1px solid #1a73e8;
 }
-
 .name-title:hover>.form-pin-sac-feature{
     position: absolute;
     display: block;
@@ -290,73 +289,7 @@ body{
 .name-pin-sac-feature:hover{
     border: 1px solid #1a73e8;
 }
-
-.sale-product{
-    width: 1080px;
-    margin: 0 auto;
-    display: flex;
-    padding: 25px 0;
-    box-sizing: border-box;
-}
-.sale-l{
-    width: 65%;
-    margin-right: 5px;
-}
-.sale-r{
-    background: #333333;
-    border-radius: 10px;
-    width: 35%;
-    margin-left: 5px;
-    padding: 8px;
-}
-.col-sale{
-    margin-top: 6px;
-    height: 150px;
-    background: #ffffff;;
-    border-radius: 10px;
-}
-.img-sale{
-    background: #6e7781;
-    height: 350px;
-    margin-bottom: 8px;
-    border-radius: 10px;
-}
-.advertisement{
-    background: #333333;
-    height: 144px;
-    border-radius: 10px;
-}
-.sale-pevrd{
-    width: 1080px;
-    margin: 0 auto;
-    background: #ED174B;
-}
-.row-sale{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 4px
-}
-.col-sale-everyday{
-    flex-basis: 25%;
-    box-sizing: border-box;
-    padding: 4px
-}
-.link-sevrd{
-    height: 350px;
-    background: #f1f1f1;
-}
-.name-sale{
-    font-size: 30px;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px 0;
-}
-.name-km{
-    text-align: center;
-    color:#ffe818;
-    font-size: 16px;
-}
-.product{
+.product {
     padding: 25px 0;
 }
 .b-color{
@@ -364,16 +297,14 @@ body{
     margin: 0 auto;
     background: rgba(0,0,0,0.9);
 }
-.form-name-pr{
-    width: 1080px;
-    margin: 0 auto;
+.form-size-product{
 }
-.name-pr{
-    color: #ffff00;
-    font-size: 30px;
+.size-product{
+    color: #ffffff;
+    font-size: 15px;
     font-weight: bold;
     padding: 10px 0;
-    text-align: center;
+    margin-left: 8px;
 }
 .row-p{
     display: flex;
@@ -390,9 +321,9 @@ body{
     background: #fff;
 }
 .img{
+    padding-top: 10px;
     width: 100%;
     height: 300px;
-    background: #54a0ff;
 }
 .col-item{
     padding:10px;
@@ -442,92 +373,30 @@ body{
 .main-contain{
     text-decoration: none;
 }
-.view-product{
+.home-page{
     width: 1080px;
     margin: 0 auto;
     padding: 20px 0;
 }
-.view-pr{
+.page-item{
     width: 300px;
     margin: 0 auto;
+    display: flex;
 }
-.view-pr a{
+.page-link{
+    background: rgba(0,0,0,0.8);
+    padding: 5px;
+    border: 1px solid #ffffff;
     text-decoration: none;
-}
-.link-view{
-    border: 1px solid #f1f1f1;
+    color: #ffffff;
+    width: 25%;
     text-align: center;
-    border-radius: 2px;
-    padding: 6px;
-    color: #f1f1f1;
-    font-size: 20px;
-    font-weight: bold;
+    margin:1px;
 }
-.link-view:hover{
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
+.page-link:hover{
+    border: 1px solid #1a73e8;
     color: #1a73e8;
 }
-.payment-online{
-    padding-bottom: 25px;
-}
-.name-payment{
-    text-align: center;
-    padding: 10px;
-    color: #f1f1f1;
-    font-size: 20px;
-    font-weight: bold;
-}
-.form-payment-ol{
-    background-color: #ED4514;
-    width: 1080px;
-    margin: 0 auto;
-}
-.row-payment-ol{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 4px;
-}
-.col-payment{
-    box-sizing: border-box;
-    flex-basis: 33.3333%;
-    padding: 4px;
-}
-.payment-link{
-    background: #f1f1f1;
-    height: 200px;
-}
-
-.form-service{
-    padding-bottom: 25px;
-}
-.service{
-    width: 1080px;
-    margin: 0 auto;
-    padding-bottom: 10px;
-    background: #ff685f;
-}
-.row-service{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 4px;
-}
-.col-service{
-    flex-basis: 25%;
-    box-sizing: border-box;
-    padding: 4px
-}
-.link-service{
-    height: 200px;
-    background: #f1f1f1;
-}
-.name-service{
-    font-size: 30px;
-    color: #ffe818;
-    text-align: center;
-    padding: 10px 0;
-}
-
-
 #form-footer{
     border-top: 1px solid #e0e0e0;
     background: #fff;

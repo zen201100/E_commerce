@@ -17,4 +17,6 @@ public interface ProductService {
     public List<Product> getSizeProviders(String providerName);
     public Page<Product> findProductByTypePhone_TypePhone(String typePhone,Pageable pageable);
     public List<Product> getSizeTypePhone(String typePhone);
+    public Page<Product> findProductByCapacity_Capacity(String capacity,Pageable pageable);
+    public List<Product> getSizeCapacity(String capacity);
 }

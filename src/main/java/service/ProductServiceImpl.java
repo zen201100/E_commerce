@@ -59,5 +59,15 @@ public class ProductServiceImpl implements ProductService{
         return (List<Product>) productRepository.getSizeTypePhone(typePhone);
     }
 
+    @Override
+    public Page<Product> findProductByCapacity_Capacity(String capacity, Pageable pageable) {
+        return (Page<Product>) productRepository.findProductByCapacity_Capacity(capacity,pageable);
+    }
+
+    @Override
+    public List<Product> getSizeCapacity(String capacity) {
+        return (List<Product>) productRepository.getSizeCapacity(capacity);
+    }
+
 
 }
