@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/product.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/productstyle.css" type="text/css"/>
     <title>Product</title>
 </head>
 <body>
@@ -32,7 +32,7 @@
 
                     <div class="col-dndk">
                         <div class="cart">
-                            <a class="link-cart" href="cart"><div class="name-cart"><c:if test="${count !=0}">${count} </c:if>Giỏ hàng</div></a>
+                            <a class="link-cart" href="cart"><div class="name-cart"><c:if test="${sessionScope.myCartNum !=0}">${sessionScope.myCartNum} </c:if>Giỏ hàng</div></a>
                         </div>
                         <div class="dn-dk">
                             <div class="row-dn-dk">
@@ -84,13 +84,13 @@
                         </div>
                     </div>
                     <div class="name-title">
-                        <div class="name-type">Pin & Sạc</div>
-                        <div class="form-pin-sac-feature">
-                            <div class="row-pin-sac-feature">
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Pin khủng trên 5000 mAh</div></a></div>
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Sạc nhanh (từ 18W)</div></a></div>
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Sạc siêu nhanh (từ 33W)</div></a></div>
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Sạc không dây</div></a></div>
+                        <div class="name-type">Giá</div>
+                        <div class="form-price">
+                            <div class="row-price">
+                                <div class="col-price"><a class="link-head-dow" href="searchByMoney?searchByMoney=duoi5"><div class="name-price">Dưới 5 triệu</div></a></div>
+                                <div class="col-price"><a class="link-head-dow" href="searchByMoney?searchByMoney=tu5den13"><div class="name-price">Từ 5-13 triệu</div></a></div>
+                                <div class="col-price"><a class="link-head-dow" href="searchByMoney?searchByMoney=tu13den20"><div class="name-price">Từ 13-20 triệu</div></a></div>
+                                <div class="col-price"><a class="link-head-dow" href="searchByMoney?searchByMoney=tren20"><div class="name-price">Trên 20 triệu</div></a></div>
                             </div>
                         </div>
                     </div>
@@ -102,11 +102,11 @@
         <div class="form-sale-pr">
             <div class="sale-product">
                 <div class="sale-l">
-                    <a href=""><div class="img-sale"></div></a>
+                    <a href=""><img src="${pageContext.request.contextPath}/resources/image/s22-800-200-800x200-4.webp" class="img-sale"></a>
                 </div>
                 <div class="sale-r">
-                    <a href=""><div class="col-sale"></div></a>
-                    <a href=""><div class="col-sale"></div></a>
+                    <a href=""><img src="${pageContext.request.contextPath}/resources/image/390-97-390x97-3.png" class="col-sale" style="margin-bottom: 6px;"></a>
+                    <a href=""><img src="${pageContext.request.contextPath}/resources/image/sticky-a57-copy-390x97-2.webp" class="col-sale"></a>
                 </div>
             </div>
         </div>
@@ -121,7 +121,7 @@
                         <div class="col-p">
                             <div class="product-item">
                                 <a class="main-contain" href="productDetails?id=${p.id}">
-                                    <img class="img" src="${pageContext.request.contextPath}/resources/image/${p.image}.jpg">
+                                    <div style="padding: 25px 25px 0;height: 220px"><img class="img" src="${pageContext.request.contextPath}/resources/image/${p.image}.jpg"></div>
                                     <div class="col-item">
                                         <div class="product-name">${p.name}</div>
                                         <div class="capacity">

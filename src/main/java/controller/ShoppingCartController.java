@@ -9,6 +9,7 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionAttributeStore;
 import org.springframework.web.context.support.HttpRequestHandlerServlet;
@@ -22,10 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.net.CookieStore;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class ShoppingCartController {
@@ -41,40 +39,86 @@ public class ShoppingCartController {
     private ShoppingCartService shoppingCartService;
 
     @GetMapping(value = "cart")
-    public String cart(Model model,@CookieValue(value = "cart",defaultValue = "") String nameProduct,
-                       HttpSession session){
-
+    public String cart(Model model,@CookieValue(value = "cart",defaultValue = "") String nameProduct){
         model.addAttribute("listProviders",providersService.PROVIDERS());
         model.addAttribute("listTypePhone",typePhoneService.TYPE_PHONES());
         model.addAttribute("listCaparity",capacityService.CAPACITIES());
-        model.addAttribute("cartItem",shoppingCartService.getCartItems());
-        model.addAttribute("count",shoppingCartService.getCount());
-        model.addAttribute("totalPrice",shoppingCartService.totalPrice());
-//        Map<Integer,CartItem> cartItemMap=(Map<Integer, CartItem>) session.getAttribute("cart");
-//        if(cartItemMap!=null){
-//            model.addAttribute("cartItem",cartItemMap.values());
-//        }
 
         return "cart";
     }
     @GetMapping(value = "addItem")
-    public String addItem(@RequestParam(name = "productID")int productID,Model model,
-                          HttpServletRequest request, HttpServletResponse response){
-
-        shoppingCartService.addCart(productID);
+    public String addItem(HttpSession session, @RequestParam(name = "productID")int productID, Model model){
+        HashMap<Integer,CartItem> cartItems = (HashMap<Integer, CartItem>) session.getAttribute(("myCartItems"));
+        if(cartItems==null){
+            cartItems = new HashMap<>();
+        }
+        Product product=productService.getProductById(productID);
+        if(product!=null){
+            if(cartItems.containsKey(productID)){
+                CartItem item = cartItems.get(productID);
+                item.setProduct(product);
+                item.setQuantity(item.getQuantity()+1);
+                cartItems.put(productID,item);
+            }
+            else {
+                CartItem item = new CartItem();
+                item.setProduct(product);
+                item.setQuantity(1);
+                cartItems.put(productID,item);
+            }
+        }
+        session.setAttribute("myCartItems",cartItems);
+        session.setAttribute("myCartNum",cartItems.size());
+        session.setAttribute("myCartTotal",totalPrice(cartItems));
         return "redirect:cart";
     }
     @GetMapping(value = "removeItem")
-    public String removeItem(@RequestParam(name = "productID")int productID){
-        shoppingCartService.remove(productID);
+    public String removeItem(HttpSession session,@RequestParam(name = "productID")int productID){
+        HashMap<Integer,CartItem> cartItems = (HashMap<Integer, CartItem>) session.getAttribute(("myCartItems"));
+        if(cartItems == null){
+            cartItems = new HashMap<>();
+        }
+        Product product=productService.getProductById(productID);
+        if (cartItems.containsKey(productID)){
+            cartItems.remove(productID);
+        }
+        session.setAttribute("myCartItems",cartItems);
+        session.setAttribute("myCartNum",cartItems.size());
+        session.setAttribute("myCartTotal",totalPrice(cartItems));
         return "redirect:cart";
     }
 
     @GetMapping(value = "updateItem")
-    public String updateItem(Model model,@RequestParam(name = "productID") int productID,
+    public String updateItem(Model model,HttpSession session,@RequestParam(name = "productID") int productID,
                              @RequestParam(name = "quantity") int quantity){
-        shoppingCartService.update(productID,quantity);
+        HashMap<Integer,CartItem> cartItems = (HashMap<Integer, CartItem>) session.getAttribute(("myCartItems"));
+        Product product=productService.getProductById(productID);
+        if(product !=null){
+            if (cartItems.containsKey(productID)){
+                CartItem item = cartItems.get(productID);
+                if (quantity+item.getQuantity()>=product.getQuantity()){
+                    item.setQuantity(product.getQuantity());
+                }
+                else if (quantity+item.getQuantity()<=1){
+                    item.setQuantity(1);
+                }
+                else {
+                    item.setQuantity(item.getQuantity()+quantity);
+                }
+            }
+        }
+
+        session.setAttribute("myCartItems",cartItems);
+        session.setAttribute("myCartNum",cartItems.size());
+        session.setAttribute("myCartTotal",totalPrice(cartItems));
         return "redirect:cart";
     }
 
+    public double totalPrice(HashMap<Integer,CartItem> cartItems){
+        int count =0;
+        for (Map.Entry<Integer,CartItem> list : cartItems.entrySet()){
+            count += list.getValue().getProduct().getPrice() * list.getValue().getQuantity();
+        }
+        return count;
+    }
 }

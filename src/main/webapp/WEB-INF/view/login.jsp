@@ -33,7 +33,7 @@
 
                     <div class="col-dndk">
                         <div class="cart">
-                            <a class="link-cart" href="cart"><div class="name-cart"><c:if test="${count !=0}">${count} </c:if>Giỏ hàng</div></a>
+                            <a class="link-cart" href="cart"><div class="name-cart"><c:if test="${sessionScope.myCartNum !=0}">${sessionScope.myCartNum} </c:if>Giỏ hàng</div></a>
                         </div>
                         <div class="dn-dk">
                             <div class="row-dn-dk">
@@ -85,13 +85,13 @@
                         </div>
                     </div>
                     <div class="name-title">
-                        <div class="name-type">Pin & Sạc</div>
-                        <div class="form-pin-sac-feature">
-                            <div class="row-pin-sac-feature">
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Pin khủng trên 5000 mAh</div></a></div>
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Sạc nhanh (từ 18W)</div></a></div>
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Sạc siêu nhanh (từ 33W)</div></a></div>
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Sạc không dây</div></a></div>
+                        <div class="name-type">Giá</div>
+                        <div class="form-price">
+                            <div class="row-price">
+                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Dưới 5 triệu</div></a></div>
+                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Từ 5-13 triệu</div></a></div>
+                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Từ 13-20 triệu</div></a></div>
+                                <div class="col-price"><a class="link-head-dow" href=""><div class="name-price">Trên 20 triệu</div></a></div>
                             </div>
                         </div>
                     </div>

@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cart.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/stylecart.css" type="text/css"/>
     <title>Cart</title>
 </head>
 <body>
@@ -32,7 +32,7 @@
 
                     <div class="col-dndk">
                         <div class="cart">
-                            <a class="link-cart" href="cart"><div class="name-cart"><c:if test="${count !=0}">${count} </c:if>Giỏ hàng</div></a>
+                            <a class="link-cart" href="cart"><div class="name-cart"><c:if test="${sessionScope.myCartNum !=0}">${sessionScope.myCartNum} </c:if>Giỏ hàng</div></a>
                         </div>
                         <div class="dn-dk">
                             <div class="row-dn-dk">
@@ -84,13 +84,13 @@
                         </div>
                     </div>
                     <div class="name-title">
-                        <div class="name-type">Pin & Sạc</div>
-                        <div class="form-pin-sac-feature">
-                            <div class="row-pin-sac-feature">
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Pin khủng trên 5000 mAh</div></a></div>
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Sạc nhanh (từ 18W)</div></a></div>
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Sạc siêu nhanh (từ 33W)</div></a></div>
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Sạc không dây</div></a></div>
+                        <div class="name-type">Giá</div>
+                        <div class="form-price">
+                            <div class="row-price">
+                                <div class="col-price"><a class="link-head-dow" href="searchByMoney?searchByMoney=duoi5"><div class="name-price">Dưới 5 triệu</div></a></div>
+                                <div class="col-price"><a class="link-head-dow" href="searchByMoney?searchByMoney=tu5den13"><div class="name-price">Từ 5-13 triệu</div></a></div>
+                                <div class="col-price"><a class="link-head-dow" href="searchByMoney?searchByMoney=tu13den20"><div class="name-price">Từ 13-20 triệu</div></a></div>
+                                <div class="col-price"><a class="link-head-dow" href="searchByMoney?searchByMoney=tren20"><div class="name-price">Trên 20 triệu</div></a></div>
                             </div>
                         </div>
                     </div>
@@ -103,7 +103,7 @@
         <div class="form-cart">
             <div class="shopping-cart">
                 <c:choose>
-                    <c:when test="${count==0}">
+                    <c:when test="${sessionScope.myCartNum==null || sessionScope.myCartNum==0}">
                         <div class="form-empty-cart">
                             <div class="empty-cart" style="padding-top: 20px">Không có sản phẩm nào trong giỏ hàng</div>
                             <div style="margin: 10px 50px">
@@ -114,42 +114,42 @@
                         </div>
                     </c:when>
                     <c:otherwise>
-                        <c:forEach var="c" items="${cartItem}">
+                        <c:forEach var="c" items="${sessionScope.myCartItems}">
                             <div class="cart-item">
                                 <div class="col-name-product">
                                     <div class="img-product">
-                                        <a href="productDetails?id=${c.product.id}"><img class="link-img" style="width: 100%;height: 80px" src=""></a>
+                                        <a href="productDetails?id=${c.value.product.id}"><img class="link-img" style="width: 100%;height: 80px" src="${pageContext.request.contextPath}/resources/image/${c.value.product.image}.jpg"></a>
                                     </div>
                                     <div class="row-product">
-                                        <div class="col-infor"><a href="productDetails?id=${c.product.id}" style="text-decoration: none"><div class="name-prod">${c.product.name}</div></a></div>
-                                        <div class="col-infor">Màu: ${c.product.color.color}</div>
-                                        <div class="col-infor">Dung lượng: ${c.product.capacity.capacity}</div>
+                                        <div class="col-infor"><a href="productDetails?id=${c.value.product.id}" style="text-decoration: none"><div class="name-prod">${c.value.product.name}</div></a></div>
+                                        <div class="col-infor">Màu: ${c.value.product.color.color}</div>
+                                        <div class="col-infor">Dung lượng: ${c.value.product.capacity.capacity}</div>
                                     </div>
                                 </div>
                                 <div class="col-cart">
-                                    <div style="color: #333333;float: left;padding-top: 30px">${c.product.price} <strong style="color: #1a73e8">đ</strong></div>
+                                    <div style="color: #333333;float: left;padding-top: 30px">${c.value.product.price} <strong style="color: #1a73e8">đ</strong></div>
                                 </div>
                                 <div class="col-cart">
                                     <div class="quantity">
                                         <c:choose>
-                                            <c:when test="${c.quantity==1}">
+                                            <c:when test="${c.value.quantity==1}">
                                                 <div class="amount-quantity" style="color: #e0e0e0" >-</div>
                                             </c:when>
                                             <c:otherwise>
-                                                <a style="text-decoration: none" href="updateItem?productID=${c.product.id}&quantity=-1">
+                                                <a style="text-decoration: none" href="updateItem?productID=${c.value.product.id}&quantity=-1">
                                                     <div class="amount-quantity">
                                                         <div class="quantity-ct">-</div>
                                                     </div>
                                                 </a>
                                             </c:otherwise>
                                         </c:choose>
-                                        <input class="input-quantity" readonly="true" type="text" value="${c.quantity}">
+                                        <input class="input-quantity" readonly="true" type="text" value="${c.value.quantity}">
                                         <c:choose>
-                                            <c:when test="${c.quantity==c.product.quantity}">
+                                            <c:when test="${c.value.quantity==c.value.product.quantity}">
                                                 <div class="amount-quantity" style="color: #e0e0e0" >+</div>
                                             </c:when>
                                             <c:otherwise>
-                                                <a style="text-decoration: none" href="updateItem?productID=${c.product.id}&quantity=1">
+                                                <a style="text-decoration: none" href="updateItem?productID=${c.value.product.id}&quantity=1">
                                                     <div class="amount-quantity">
                                                         <div class="quantity-ct">+</div>
                                                     </div>
@@ -159,21 +159,17 @@
                                     </div>
                                 </div>
                                 <div class="col-delete">
-                                    <a style="text-decoration: none" href="removeItem?productID=${c.product.id}">
+                                    <a style="text-decoration: none" href="removeItem?productID=${c.value.product.id}">
                                         <div style="color: #dd0000;padding-top: 30px">Xóa</div>
                                     </a>
                                 </div>
                             </div>
                         </c:forEach>
                         <div class="total-product">
-                            <c:if test="${count!=0}">
-                                <div class="size-cart">Tạm tính (${count} sản phầm)</div>
-                            </c:if>
-                            <c:if test="${totalPrice!=0}">
-                                <div class="total-price">
-                                    <div style="float: right;font-weight: bold">Thành tiền: <strong style="color: #dd0000">${totalPrice}</strong> đ</div>
-                                </div>
-                            </c:if>
+                            <div class="size-cart">Tạm tính (${sessionScope.myCartNum} sản phầm)</div>
+                            <div class="total-price">
+                                <div style="float: right;font-weight: bold">Thành tiền: <strong style="color: #dd0000">${sessionScope.myCartTotal}</strong> đ</div>
+                            </div>
                         </div>
                         <div class="infor-order">
                             <form action="" method="">
@@ -208,7 +204,7 @@
                                     <div style="color: #333333;font-weight: bold">Tổng tiền:</div>
                                 </div>
                                 <div class="price-total">
-                                    <div style="float: right;color: #dd0000;font-weight: bold">${totalPrice} đ</div>
+                                    <div style="float: right;color: #dd0000;font-weight: bold">${sessionScope.myCartTotal} đ</div>
                                 </div>
                             </div>
                             <div>
@@ -278,4 +274,3 @@
     </div>
 </body>
 </html>
-

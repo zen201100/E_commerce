@@ -34,7 +34,6 @@ public class ProductController {
     @GetMapping(value = {"/","home"})
     public String getHome(Model model){
         Page<Product> productPage = productService.getPageProduct(PageRequest.of(0,8));
-        model.addAttribute("count",shoppingCartService.getCount());
         model.addAttribute("listProviders",providersService.PROVIDERS());
         model.addAttribute("listTypePhone",typePhoneService.TYPE_PHONES());
         model.addAttribute("listCaparity",capacityService.CAPACITIES());
@@ -46,7 +45,6 @@ public class ProductController {
     public String getProduct(@RequestParam(name = "page") Optional<Integer> page, Model model){
 
         Page<Product> productPage = productService.getPageProduct(PageRequest.of(page.orElse(0),8));
-        model.addAttribute("count",shoppingCartService.getCount());
         model.addAttribute("productPage",productPage);
         model.addAttribute("listProviders",providersService.PROVIDERS());
         model.addAttribute("listTypePhone",typePhoneService.TYPE_PHONES());
@@ -61,7 +59,6 @@ public class ProductController {
                                Model model){
 
         Page<Product> productPage = productService.findProductByProviders_ProviderName(providerName,PageRequest.of(page.orElse(0),8));
-        model.addAttribute("count",shoppingCartService.getCount());
         model.addAttribute("productPage",productPage);
         model.addAttribute("providerName",providerName);
         model.addAttribute("listProviders",providersService.PROVIDERS());
@@ -77,7 +74,6 @@ public class ProductController {
                                Model model){
 
         Page<Product> productPage = productService.findProductByTypePhone_TypePhone(typePhone,PageRequest.of(page.orElse(0),8));
-        model.addAttribute("count",shoppingCartService.getCount());
         model.addAttribute("productPage",productPage);
         model.addAttribute("typePhone",typePhone);
         model.addAttribute("listProviders",providersService.PROVIDERS());
@@ -93,7 +89,6 @@ public class ProductController {
                                Model model){
 
         Page<Product> productPage = productService.findProductByCapacity_Capacity(capacity,PageRequest.of(page.orElse(0),8));
-        model.addAttribute("count",shoppingCartService.getCount());
         model.addAttribute("productPage",productPage);
         model.addAttribute("capacity",capacity);
         model.addAttribute("listProviders",providersService.PROVIDERS());
@@ -103,12 +98,38 @@ public class ProductController {
         return "capacity";
     }
 
+    @GetMapping(value = "searchByMoney")
+    private String getSearchByMoney(@RequestParam(name = "page",defaultValue = "0")Optional<Integer> page,
+                                    @RequestParam(name = "searchByMoney",required = false) String searchByMoney,
+                                    Model model){
+        model.addAttribute("listProviders",providersService.PROVIDERS());
+        model.addAttribute("listTypePhone",typePhoneService.TYPE_PHONES());
+        model.addAttribute("listCaparity",capacityService.CAPACITIES());
+        if(searchByMoney.equals("duoi5")){
+            model.addAttribute("productPage",productService.getPriceDuoi5(PageRequest.of(page.orElse(0),8)));
+            model.addAttribute("sizeByMoney",productService.getSizeDuoi5().size());
+        }
+        else if(searchByMoney.equals("tu5den13")){
+            model.addAttribute("productPage",productService.getPriceTu5Den13(PageRequest.of(page.orElse(0),8)));
+            model.addAttribute("sizeByMoney",productService.getSizeTu5Den13().size());
+        }
+        else if(searchByMoney.equals("tu13den20")){
+            model.addAttribute("productPage",productService.getPriceTu13Den20(PageRequest.of(page.orElse(0),8)));
+            model.addAttribute("sizeByMoney",productService.getSizeTu13Den20().size());
+        }
+        else if(searchByMoney.equals("tren20")){
+            model.addAttribute("productPage",productService.getPriceTren20(PageRequest.of(page.orElse(0),8)));
+            model.addAttribute("sizeByMoney",productService.getSizeTren20().size());
+        }
+        model.addAttribute("searchByMoney",searchByMoney);
+        return "searchprice";
+    }
+
     @GetMapping(value = "searchProduct")
     public String getSearchProduct(@RequestParam(name = "page",defaultValue = "0")Optional<Integer> page,
                                    @RequestParam(name = "searchproduct",required = false) String searchproduct, Model model) {
 
         Page<Product> productPage = productService.getPageProductByName(searchproduct, PageRequest.of(page.orElse(0), 8));
-        model.addAttribute("count",shoppingCartService.getCount());
         model.addAttribute("listProviders",providersService.PROVIDERS());
         model.addAttribute("listTypePhone",typePhoneService.TYPE_PHONES());
         model.addAttribute("listCaparity",capacityService.CAPACITIES());
@@ -122,7 +143,6 @@ public class ProductController {
     public String getProductDetails(@RequestParam(name = "id") int id,Model model){
 
         model.addAttribute("productDetails",productService.getProductById(id));
-        model.addAttribute("count",shoppingCartService.getCount());
         model.addAttribute("listProviders",providersService.PROVIDERS());
         model.addAttribute("listTypePhone",typePhoneService.TYPE_PHONES());
         model.addAttribute("listCaparity",capacityService.CAPACITIES());
@@ -132,7 +152,6 @@ public class ProductController {
     @GetMapping(value = "registCustomer")
     public String getRegistCustomer(Model model){
         model.addAttribute("customer",new Customer());
-        model.addAttribute("count",shoppingCartService.getCount());
         model.addAttribute("listProviders",providersService.PROVIDERS());
         model.addAttribute("listTypePhone",typePhoneService.TYPE_PHONES());
         model.addAttribute("listCaparity",capacityService.CAPACITIES());
@@ -151,7 +170,6 @@ public class ProductController {
 
     @GetMapping(value = "login")
     public String getLogin(Model model){
-        model.addAttribute("count",shoppingCartService.getCount());
         model.addAttribute("listProviders",providersService.PROVIDERS());
         model.addAttribute("listTypePhone",typePhoneService.TYPE_PHONES());
         model.addAttribute("listCaparity",capacityService.CAPACITIES());

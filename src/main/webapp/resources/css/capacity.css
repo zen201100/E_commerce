@@ -161,39 +161,6 @@ body{
     border: 1px solid #1a73e8;
 }
 
-.name-title:hover>.form-price{
-    position: absolute;
-    display: block;
-}
-.form-price{
-    display: none;
-    width: 600px;
-    background: #fff;
-    box-shadow: 0 0 20px rgba(0,0,0,0.9);
-    border-radius: 4px;
-}
-.row-price{
-    display: flex;
-    flex-wrap: wrap;
-    padding: 10px;
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
-    border-radius: 4px;
-}
-.col-price{
-    flex-basis: 20%;
-    box-sizing: border-box;
-}
-.name-price{
-    padding: 5px;
-    margin: 2px;
-    color: rgba(0,0,0,0.9);
-    font-weight: bold;
-    border: 1px solid #e0e0e0;
-}
-.name-price:hover{
-    border: 1px solid #1a73e8;
-}
-
 .name-title:hover>.form-typephone{
     position: absolute;
     display: block;
@@ -257,11 +224,11 @@ body{
 .name-caparity-ram:hover{
     border: 1px solid #1a73e8;
 }
-.name-title:hover>.form-pin-sac-feature{
+.name-title:hover>.form-price{
     position: absolute;
     display: block;
 }
-.form-pin-sac-feature{
+.form-price{
     display: none;
     right: 0;
     width: 600px;
@@ -269,24 +236,24 @@ body{
     box-shadow: 0 0 20px rgba(0,0,0,0.9);
     border-radius: 4px;
 }
-.row-pin-sac-feature{
+.row-price{
     display: flex;
     flex-wrap: wrap;
     padding: 10px;
     box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
     border-radius: 4px;
 }
-.col-pin-sac-feature{
+.col-price{
     box-sizing: border-box;
 }
-.name-pin-sac-feature{
+.name-price{
     padding: 5px 7px;
     margin: 2px;
     color: rgba(0,0,0,0.9);
     font-weight: bold;
     border: 1px solid #e0e0e0;
 }
-.name-pin-sac-feature:hover{
+.name-price:hover{
     border: 1px solid #1a73e8;
 }
 .product {
@@ -318,16 +285,22 @@ body{
     flex-basis: 25%;
 }
 .product-item{
+    height: 420px;
+    border-radius: 3px;
     background: #fff;
 }
+.product-item:hover{
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+}
+.product-item:hover >a .img{
+    margin: 0;
+}
 .img{
-    padding-top: 10px;
     width: 100%;
-    height: 300px;
+    margin-top: 10px;
 }
 .col-item{
     padding:10px;
-    height: 150px;
 }
 .product-name:hover{
     color: #54a0ff;

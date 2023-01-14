@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/stylehomes.css" type="text/css"/>
     <title>Home</title>
 </head>
 <body>
@@ -32,7 +32,7 @@
 
                     <div class="col-dndk">
                         <div class="cart">
-                            <a class="link-cart" href="cart"><div class="name-cart"><c:if test="${count !=0}">${count} </c:if>Giỏ hàng</div></a>
+                            <a class="link-cart" href="cart"><div class="name-cart"><c:if test="${sessionScope.myCartNum !=0}">${sessionScope.myCartNum} </c:if>Giỏ hàng</div></a>
                         </div>
                         <div class="dn-dk">
                             <div class="row-dn-dk">
@@ -86,13 +86,13 @@
                         </div>
                     </div>
                     <div class="name-title">
-                        <div class="name-type">Pin & Sạc</div>
-                        <div class="form-pin-sac-feature">
-                            <div class="row-pin-sac-feature">
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Pin khủng trên 5000 mAh</div></a></div>
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Sạc nhanh (từ 18W)</div></a></div>
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Sạc siêu nhanh (từ 33W)</div></a></div>
-                                <div class="col-pin-sac-feature"><a class="link-head-dow" href=""><div class="name-pin-sac-feature">Sạc không dây</div></a></div>
+                        <div class="name-type">Giá</div>
+                        <div class="form-price">
+                            <div class="row-price">
+                                <div class="col-price"><a class="link-head-dow" href="searchByMoney?searchByMoney=duoi5"><div class="name-price">Dưới 5 triệu</div></a></div>
+                                <div class="col-price"><a class="link-head-dow" href="searchByMoney?searchByMoney=tu5den13"><div class="name-price">Từ 5-13 triệu</div></a></div>
+                                <div class="col-price"><a class="link-head-dow" href="searchByMoney?searchByMoney=tu13den20"><div class="name-price">Từ 13-20 triệu</div></a></div>
+                                <div class="col-price"><a class="link-head-dow" href="searchByMoney?searchByMoney=tren20"><div class="name-price">Trên 20 triệu</div></a></div>
                             </div>
                         </div>
                     </div>
@@ -105,8 +105,52 @@
         <div class="form-sale-pr">
             <div class="sale-product">
                 <div class="sale-l">
-                    <a href=""><img src="${pageContext.request.contextPath}/resources/image/slide-tet-phat-loc-vang-01-768x373.jpg" class="img-sale"></a>
-                    <a href=""><img src="${pageContext.request.contextPath}/resources/image/bgw-iphone-chinh-hang-bao-hanh-24-thang-01.png" class="advertisement"></a>
+                    <div class="slidershow">
+                        <div class="slides">
+                            <div class="slide">
+                                <a href=""><img src="${pageContext.request.contextPath}/resources/image/slide-tet-phat-loc-vang-01-768x373.jpg" class="img-sale"></a>
+                            </div>
+                            <div class="slide">
+                                <a href=""><img src="${pageContext.request.contextPath}/resources/image/slide-galaxy-z.png" class="img-sale"></a>
+                            </div>
+                            <div class="slide">
+                                <a href=""><img src="${pageContext.request.contextPath}/resources/image/slide-iphone-don-tet-02-01.png" class="img-sale"></a>
+                            </div>
+                            <div class="slide">
+                                <a href=""><img src="${pageContext.request.contextPath}/resources/image/slide-apple-watch-sr8-san-hang-01.png" class="img-sale"></a>
+                            </div>
+                            <div class="slide">
+                                <a href=""><img src="${pageContext.request.contextPath}/resources/image/XIAOMI1.png" class="img-sale"></a>
+                            </div>
+                            <div class="slide">
+                                <a href=""><img src="${pageContext.request.contextPath}/resources/image/GALAXY-S.png" class="img-sale"></a>
+                            </div>
+                            <div class="slide">
+                                <a href=""><img src="${pageContext.request.contextPath}/resources/image/slide-khuyen-mai-01slide.png" class="img-sale"></a>
+                            </div>
+                        </div>
+
+                        <div class="control-slide">
+                            <div class="control prev">&lsaquo;</div>
+                            <div class="control next">&rsaquo;</div>
+                        </div>
+
+                        <div class="navigation">
+                            <div class="bar active" data-index="0"></div>
+                            <div class="bar" data-index="1"></div>
+                            <div class="bar" data-index="2"></div>
+                            <div class="bar" data-index="3"></div>
+                            <div class="bar" data-index="4"></div>
+                            <div class="bar" data-index="5"></div>
+                            <div class="bar" data-index="6"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 10px">
+                        <a href="">
+                            <img src="${pageContext.request.contextPath}/resources/image/bgw-iphone-chinh-hang-bao-hanh-24-thang-01.png" class="advertisement">
+                        </a>
+                    </div>
                 </div>
                 <div class="sale-r">
                     <div class="name-km">Khuyến mãi nổi bật</div>
@@ -122,16 +166,36 @@
                 <div class="name-sale">FLASH SALE MỖI NGÀY</div>
                 <div class="row-sale">
                     <div class="col-sale-everyday">
-                        <a href=""><img src="${pageContext.request.contextPath}/resources/image/iphone-14.jpg" class="link-sevrd"></a>
+                        <a href=""><div class="form-img"><img src="${pageContext.request.contextPath}/resources/image/iphone-14.jpg" class="link-sevrd"></div></a>
                     </div>
                     <div class="col-sale-everyday">
-                        <a href=""><img src="${pageContext.request.contextPath}/resources/image/iphone-14-pro.jpg" class="link-sevrd"></a>
+                        <a href=""><div class="form-img"><img src="${pageContext.request.contextPath}/resources/image/iphone-14-pro.jpg" class="link-sevrd"></div></a>
                     </div>
                     <div class="col-sale-everyday">
-                        <a href=""><img src="${pageContext.request.contextPath}/resources/image/iphone-14-pro-max.jpg" class="link-sevrd"></a>
+                        <a href=""><div class="form-img"><img src="${pageContext.request.contextPath}/resources/image/iphone-14-pro-max.jpg" class="link-sevrd"></div></a>
                     </div>
                     <div class="col-sale-everyday">
-                        <a href=""><img src="${pageContext.request.contextPath}/resources/image/iphone-14-pro-max-1tb.jpg" class="link-sevrd"></a>
+                        <a href=""><div class="form-img"><img src="${pageContext.request.contextPath}/resources/image/iphone-14-pro-max-1tb.jpg" class="link-sevrd"></div></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-sp-bc">
+            <div class="sp-bc">
+                <div class="name-sp-bc">SẢN PHẨM BÁN CHẠY</div>
+                <div class="row-sp-bc">
+                    <div class="col-sp-bc">
+                        <a href=""><div class="form-img"><img src="${pageContext.request.contextPath}/resources/image/iphone-14.jpg" class="link-sevrd"></div></a>
+                    </div>
+                    <div class="col-sale-everyday">
+                        <a href=""><div class="form-img"><img src="${pageContext.request.contextPath}/resources/image/iphone-14-pro.jpg" class="link-sevrd"></div></a>
+                    </div>
+                    <div class="col-sale-everyday">
+                        <a href=""><div class="form-img"><img src="${pageContext.request.contextPath}/resources/image/iphone-14-pro-max.jpg" class="link-sevrd"></div></a>
+                    </div>
+                    <div class="col-sale-everyday">
+                        <a href=""><div class="form-img"><img src="${pageContext.request.contextPath}/resources/image/iphone-14-pro-max-1tb.jpg" class="link-sevrd"></div></a>
                     </div>
                 </div>
             </div>
@@ -147,7 +211,9 @@
                         <div class="col-p">
                             <div class="product-item">
                                 <a class="main-contain" href="productDetails?id=${p.id}">
-                                    <img class="img" src="${pageContext.request.contextPath}/resources/image/${p.image}.jpg">
+                                    <div style="padding: 25px 25px 0;height: 220px">
+                                        <img class="img" src="${pageContext.request.contextPath}/resources/image/${p.image}.jpg">
+                                    </div>
                                     <div class="col-item">
                                         <div class="product-name">${p.name}</div>
                                         <div class="size-pr">
@@ -277,5 +343,6 @@
             </div>
         </div>
     </div>
+    <script src="${pageContext.request.contextPath}/resources/home.js"></script>
 </body>
 </html>

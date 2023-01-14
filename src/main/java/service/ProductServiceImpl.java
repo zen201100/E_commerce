@@ -69,5 +69,47 @@ public class ProductServiceImpl implements ProductService{
         return (List<Product>) productRepository.getSizeCapacity(capacity);
     }
 
+    @Override
+    public Page<Product> getPriceDuoi5(Pageable pageable) {
+        return (Page<Product>) productRepository.getPriceDuoi5(pageable);
+    }
+
+    @Override
+    public List<Product> getSizeDuoi5() {
+        return (List<Product>) productRepository.getSizeDuoi5();
+    }
+
+
+    @Override
+    public Page<Product> getPriceTu5Den13(Pageable pageable) {
+        return (Page<Product>) productRepository.getPriceTu5Den13(pageable);
+    }
+
+    @Override
+    public List<Product> getSizeTu5Den13() {
+        return (List<Product>) productRepository.getSizeTu5Den13();
+    }
+
+    @Override
+    public Page<Product> getPriceTu13Den20(Pageable pageable) {
+        return (Page<Product>) productRepository.getPriceTu13Den20(pageable);
+    }
+
+    @Override
+    public List<Product> getSizeTu13Den20() {
+        return (List<Product>) productRepository.getSizeTu13Den20();
+    }
+
+
+    @Override
+    public Page<Product> getPriceTren20(Pageable pageable) {
+        return (Page<Product>) productRepository.getPriceTren20(pageable);
+    }
+
+    @Override
+    public List<Product> getSizeTren20() {
+        return (List<Product>) productRepository.getSizeTren20();
+    }
+
 
 }

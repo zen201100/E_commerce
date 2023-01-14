@@ -22,6 +22,7 @@
         <option value="Interface" />
         <option value="Class" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
         <option value="Jsp File" />
       </list>
     </option>
@@ -54,7 +55,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="F:/intellij/Buy_WebMVC" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
@@ -66,19 +67,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Tomcat 8.5.822" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" activateToolWindowBeforeRun="false" APPLICATION_SERVER_NAME="Tomcat 8.5.822" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/E_commerce_war_exploded/" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -253,7 +241,28 @@
       <workItem from="1673278081464" duration="2196000" />
       <workItem from="1673280648481" duration="4662000" />
       <workItem from="1673285505755" duration="717000" />
-      <workItem from="1673294250385" duration="84000" />
+      <workItem from="1673294250385" duration="6348000" />
+      <workItem from="1673351064241" duration="15501000" />
+      <workItem from="1673435979224" duration="6899000" />
+      <workItem from="1673447451325" duration="5388000" />
+      <workItem from="1673454056403" duration="3894000" />
+      <workItem from="1673463127704" duration="1398000" />
+      <workItem from="1673465188091" duration="1692000" />
+      <workItem from="1673471091589" duration="3525000" />
+      <workItem from="1673513738452" duration="26686000" />
+      <workItem from="1673544645808" duration="203000" />
+      <workItem from="1673544973745" duration="1386000" />
+      <workItem from="1673547016281" duration="504000" />
+      <workItem from="1673548088116" duration="995000" />
+      <workItem from="1673556582116" duration="218000" />
+      <workItem from="1673593959714" duration="4781000" />
+      <workItem from="1673606073054" duration="4775000" />
+      <workItem from="1673622826604" duration="126000" />
+      <workItem from="1673679429516" duration="3819000" />
+      <workItem from="1673707596171" duration="2266000" />
+      <workItem from="1673711700539" duration="1109000" />
+      <workItem from="1673717442290" duration="1030000" />
+      <workItem from="1673721036487" duration="6623000" />
     </task>
     <servers />
   </component>
