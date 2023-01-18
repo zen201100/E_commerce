@@ -10,7 +10,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/login.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/loginstyle.css" type="text/css"/>
     <title>Login</title>
 </head>
 <body>
@@ -33,7 +33,13 @@
 
                     <div class="col-dndk">
                         <div class="cart">
-                            <a class="link-cart" href="cart"><div class="name-cart"><c:if test="${sessionScope.myCartNum !=0}">${sessionScope.myCartNum} </c:if>Giỏ hàng</div></a>
+                            <div style="width: 90px">
+                                <a class="link-cart" href="cart">
+                                    <div class="name-cart">
+                                        <div style="width: 100%;padding: 10px 0;"><c:if test="${sessionScope.myCartNum !=0}">${sessionScope.myCartNum} </c:if>Giỏ hàng</div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                         <div class="dn-dk">
                             <div class="row-dn-dk">
@@ -111,11 +117,23 @@
                     <div class="login-r">
                         <div class="row-f">
                             <div class="title">Đăng nhập</div>
-                            <form:form modelAttribute="customer" method="post" action="account">
-                                <form:input class="col-input" type="text" path="userName" placeholder="Tên đăng nhập"></form:input>
-                                <form:input class="col-input" type="password" path="password" placeholder="Mật khẩu"></form:input>
+                            <form method="post" action="account">
+                                <input class="col-input" type="text" name="userName" value="${sessionScope.userName}" placeholder="Tên đăng nhập">
+                                <input class="col-input" type="password" name="password" value="${sessionScope.password}" placeholder="Mật khẩu">
+                                <div style="width: 280px;margin: 0 auto;padding-bottom: 10px;">
+                                    <c:choose>
+                                        <c:when test="${sessionScope.remember!=null}">
+                                            <input style="float:left;transform: translateY(3px)" type="checkbox" name="remember" value="remember" checked>
+                                            <label style="color: #e0e0e0;margin-right: 160px">Remember me</label>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <input style="float:left;transform: translateY(3px)" type="checkbox" name="remember" value="remember">
+                                            <label style="color: #e0e0e0;margin-right: 160px">Remember me</label>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </div>
                                 <input class="col-submit" type="submit" value="ĐĂMG NHẬP">
-                            </form:form>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -178,5 +196,6 @@
             </div>
         </div>
     </div>
+    <script src="${pageContext.request.contextPath}/resources/js/nametitle.js"></script>
 </body>
 </html>

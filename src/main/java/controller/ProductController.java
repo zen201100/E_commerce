@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import service.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,8 +29,6 @@ public class ProductController {
     private TypePhoneService typePhoneService;
     @Autowired
     private CapacityService capacityService;
-    @Autowired
-    private ShoppingCartService shoppingCartService;
 
     @GetMapping(value = {"/","home"})
     public String getHome(Model model){
@@ -149,55 +148,5 @@ public class ProductController {
         return "productdetails";
     }
 
-    @GetMapping(value = "registCustomer")
-    public String getRegistCustomer(Model model){
-        model.addAttribute("customer",new Customer());
-        model.addAttribute("listProviders",providersService.PROVIDERS());
-        model.addAttribute("listTypePhone",typePhoneService.TYPE_PHONES());
-        model.addAttribute("listCaparity",capacityService.CAPACITIES());
-        return "registcustomer";
-    }
 
-    @PostMapping(value = "registAccount")
-    public String getRegistAccount(@ModelAttribute Customer customer,
-                                   @RequestParam(name = "passWord") String passWord){
-        if(customer.getPassword().equals(passWord)){
-            customerService.getRegistCustomer(customer);
-            return "redirect:login";
-        }
-        return "redirect:registCustomer";
-    }
-
-    @GetMapping(value = "login")
-    public String getLogin(Model model){
-        model.addAttribute("listProviders",providersService.PROVIDERS());
-        model.addAttribute("listTypePhone",typePhoneService.TYPE_PHONES());
-        model.addAttribute("listCaparity",capacityService.CAPACITIES());
-        model.addAttribute("customer",new Customer());
-        return "login";
-    }
-    @GetMapping(value = "homeaccount")
-    public String getHomeAccount(@RequestParam(name = "userName") String userName,
-                                 @RequestParam(name = "password") String password,
-                                 Model model){
-        model.addAttribute(userName);
-        model.addAttribute(password);
-        return "redirect:account";
-    }
-
-    @PostMapping (value = "account")
-    public String getLoginAccount(@ModelAttribute Customer customer,
-                                  @RequestParam(name = "page") Optional<Integer> page,
-                                  Model model){
-        List<Customer> customers = customerService.getAllCustomer();
-        Page<Product> productPage = productService.getPageProduct(PageRequest.of(page.orElse(0),4));
-        for(Customer c:customers){
-            if(customer.getUserName().equals(c.getUserName()) && customer.getPassword().equals(c.getPassword())){
-                model.addAttribute("productPage",productPage);
-                model.addAttribute("customer",customerService.getCustomerByUserName(customer.getUserName()));
-                return "customer";
-            }
-        }
-        return "redirect:login";
-    }
 }

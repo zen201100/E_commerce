@@ -61,11 +61,9 @@ body{
 .link-cart{
     text-decoration: none;
 }
-
 .name-cart{
     background: #1a73e8;
-    margin: 0 30px;
-    padding: 10px;
+    height: 100%;
     text-align: center;
     color: #ffffff;
     border-radius: 4px;
@@ -97,6 +95,46 @@ body{
     margin-left: 5px;
     color: #ffffff;
 }
+.col-acc{
+    width: 50%;
+}
+
+.avata-lg{
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+.form-avata{
+    width: 40px;
+    height: 40px;
+    border-radius:50%;
+    overflow: hidden;
+}
+.avata{
+    width: 38.4px;
+    height: 38.4px;
+    border: 1px solid #fff;
+}
+.form-my-account{
+    display: none;
+    right: 0;
+    transform: translateX(-50px);
+    bottom: -212px;
+    position: absolute;
+    width: 250px;
+    background: black;
+    box-shadow: 0 0 20px rgba(0,0,0,0.9);
+    border-radius: 4px;
+    z-index: 10000;
+}
+.col-my-account{
+    border-bottom: 1px solid #ffffff;
+}
+.my-account{
+    padding: 10px 10px 10px;
+    color: #d1d1d1;
+}
+
 .head-dow{
     background: #ffffff;
 }
@@ -108,6 +146,7 @@ body{
 .row-cd{
     display: flex;
 }
+
 .name-title{
     flex-basis: 20%;
     border-right: 1px solid #e0e0e0;
@@ -128,12 +167,10 @@ body{
     color: #1a73e8;
 }
 
-.name-title:hover>.form-providers{
-    position: absolute;
-    display: block;
-}
 .form-providers{
     display: none;
+    position: absolute;
+    height: 130px;
     width: 600px;
     background: #fff;
     box-shadow: 0 0 20px rgba(0,0,0,0.9);
@@ -161,13 +198,11 @@ body{
     border: 1px solid #1a73e8;
 }
 
-.name-title:hover>.form-typephone{
-    position: absolute;
-    display: block;
-}
 .form-typephone{
     display: none;
-    width: 206px;
+    position: absolute;
+    height: 130px;
+    width: 300px;
     background: #fff;
     box-shadow: 0 0 20px rgba(0,0,0,0.9);
     border-radius: 4px;
@@ -193,12 +228,10 @@ body{
     border: 1px solid #1a73e8;
 }
 
-.name-title:hover>.form-caparity-ram{
-    position: absolute;
-    display: block;
-}
 .form-caparity-ram{
     display: none;
+    position: absolute;
+    height: 130px;
     width: 350px;
     background: #fff;
     box-shadow: 0 0 20px rgba(0,0,0,0.9);
@@ -225,12 +258,10 @@ body{
     border: 1px solid #1a73e8;
 }
 
-.name-title:hover>.form-price{
-    position: absolute;
-    display: block;
-}
 .form-price{
     display: none;
+    position: absolute;
+    height: 130px;
     right: 0;
     width: 600px;
     background: #fff;
@@ -257,6 +288,7 @@ body{
 .name-price:hover{
     border: 1px solid #1a73e8;
 }
+
 .sale-product{
     width: 1080px;
     margin: 0 auto;
@@ -265,39 +297,190 @@ body{
     box-sizing: border-box;
 }
 .sale-l{
-    width: 65%;
-    margin-right:4px ;
+    width: 67%;
 }
+.slidershow{
+    -webkit-user-select: none;
+    border-radius: 10px;
+    width: 100%;
+    overflow: hidden;
+}
+.slides{
+    width: 700%;
+    display: flex;
+    transition: all 0.5s ease 0s;
+}
+.slide{
+    width: 100%;
+}
+.navigation{
+    -webkit-user-select: none;
+    position: absolute;
+    transform: translateX(229px);
+    display: flex;
+    top: 479px;
+}
+.bar{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin: 10px;
+    cursor: pointer;
+    background: #333333;
+    opacity: 0.5;
+}
+.active{
+    background: #ffffff
+}
+.bar:hover{
+    background: #ffffff;
+    transition: 0.6s;
+    opacity: unset;
+}
+
+.control-slide{
+    top: 300px;
+    position: absolute;
+    width: 100%;
+    display: none;
+}
+.control{
+    -webkit-user-select: none;
+    display: inline-block;
+    position: absolute;
+    line-height: 1;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.3);
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    font-size: 40px;
+    color: #ffffff;
+    cursor: pointer;
+}
+.prev{
+    left: 10px;
+}
+.next{
+    right: 823px;
+}
+
+.control:hover{
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
+}
+.slidershow:hover>.control-slide{
+    display: block;
+    position: absolute;
+}
+
 .sale-r{
-    width: 35%;
-    margin-left: 4px;
+    background: #4a4a4a;
+    border-radius: 10px;
+    width: 33%;
+    margin-left: 10px;
+    padding: 8px;
 }
 .col-sale{
     width: 100%;
-    height: 97px;
-    background: #ff685f;;
+    margin-top: 6px;
+    height: 150px;
+    border-radius: 10px;
+    -webkit-user-select: none;
 }
 .img-sale{
     width: 100%;
-    background: #1a73e8;
-    height: 200px;
+    height: 370px;
+}
+.advertisement{
+    width: 100%;
+    background: #333333;
+    height: 122px;
+    border-radius: 10px;
+    -webkit-user-select: none;
+}
+.sale-pevrd{
+    width: 1080px;
+    margin: 0 auto;
+    background: #ED174B;
+}
+.row-sale{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4px
+}
+.col-sale-everyday{
+    flex-basis: 25%;
+    box-sizing: border-box;
+    padding: 4px
+}
+.link-sevrd{
+    margin-top: 10px;
+    width: 100%;
+}
+.link-sevrd:hover{
+    margin: 0;
+}
+.form-img{
+    padding: 25px 25px 0;
+    background: #ffffff;
+    border-radius: 3px;
+    height: 250px;
+}
+.form-img:hover{
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+}
+.sp-bc{
+    width: 1080px;
+    margin: 0 auto;
+    margin-top: 25px;
+    background: #ED4514;
+}
+.name-sp-bc{
+    font-size: 30px;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+}
+.row-sp-bc{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4px
+}
+.col-sp-bc{
+    flex-basis: 25%;
+    box-sizing: border-box;
+    padding: 4px
+}
+.name-sale{
+    font-size: 30px;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 0;
+}
+.name-km{
+    text-align: center;
+    color:#ffff00;
+    font-size: 16px;
+    font-weight: bold;
 }
 .product{
-    padding-bottom: 25px;
+    padding: 25px 0;
 }
 .b-color{
     width: 1080px;
     margin: 0 auto;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.8);
 }
-.form-size-product{
+.form-name-pr{
+    width: 1080px;
+    margin: 0 auto;
 }
-.size-product{
-    color: #ffffff;
-    font-size: 15px;
+.name-pr{
+    color: #ffff00;
+    font-size: 30px;
     font-weight: bold;
     padding: 10px 0;
-    margin-left: 8px;
+    text-align: center;
 }
 .row-p{
     display: flex;
@@ -372,30 +555,103 @@ body{
 .main-contain{
     text-decoration: none;
 }
-.home-page{
+.view-product{
     width: 1080px;
     margin: 0 auto;
     padding: 20px 0;
 }
-.page-item{
+.view-pr{
     width: 300px;
     margin: 0 auto;
-    display: flex;
 }
-.page-link{
-    background: rgba(0,0,0,0.8);
-    padding: 5px;
-    border: 1px solid #ffffff;
+.view-pr a{
     text-decoration: none;
-    color: #ffffff;
-    width: 25%;
-    text-align: center;
-    margin:1px;
 }
-.page-link:hover{
-    border: 1px solid #1a73e8;
+.link-view{
+    border: 1px solid #f1f1f1;
+    text-align: center;
+    border-radius: 2px;
+    padding: 6px;
+    color: #f1f1f1;
+    font-size: 20px;
+    font-weight: bold;
+}
+.link-view:hover{
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
     color: #1a73e8;
 }
+.payment-online{
+    padding-bottom: 25px;
+}
+.name-payment{
+    text-align: center;
+    padding: 10px;
+    color: #f1f1f1;
+    font-size: 20px;
+    font-weight: bold;
+}
+.form-payment-ol{
+    background-color: #ED4514;
+    width: 1080px;
+    margin: 0 auto;
+}
+.row-payment-ol{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4px;
+}
+.col-payment{
+    box-sizing: border-box;
+    flex-basis: 33.3333%;
+    padding: 4px;
+}
+.payment-link{
+    border-radius: 10px;
+    width: 100%;
+    height: 200px;
+}
+
+.form-service{
+    padding-bottom: 25px;
+}
+.service{
+    border-radius: 10px;
+    width: 1080px;
+    margin: 0 auto;
+    padding-bottom: 10px;
+    background: #D60208;
+}
+.row-service{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4px;
+}
+.col-service{
+    flex-basis: 25%;
+    box-sizing: border-box;
+    padding: 4px
+}
+.link-sv{
+    text-decoration: none;
+}
+.name-sv{
+    font-size: 20px;
+    color: #333333;
+    padding:20px 0;
+}
+.link-service{
+    padding: 0 40px;
+    height: 170px;
+    border-radius: 10px;
+}
+.name-service{
+    font-size: 30px;
+    color: #ffe818;
+    text-align: center;
+    padding: 10px 0;
+}
+
+
 #form-footer{
     border-top: 1px solid #e0e0e0;
     background: #fff;

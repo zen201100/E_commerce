@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/stylecart.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/cart.css" type="text/css"/>
     <title>Cart</title>
 </head>
 <body>
@@ -32,18 +32,70 @@
 
                     <div class="col-dndk">
                         <div class="cart">
-                            <a class="link-cart" href="cart"><div class="name-cart"><c:if test="${sessionScope.myCartNum !=0}">${sessionScope.myCartNum} </c:if>Giỏ hàng</div></a>
-                        </div>
-                        <div class="dn-dk">
-                            <div class="row-dn-dk">
-                                <a class="dn" href="login">Đăng nhập</a>
-                                <div class="chan">|</div>
-                                <a class="dk" href="registCustomer">Đăng ký</a>
+                            <div style="width: 90px">
+                                <a class="link-cart" href="cart">
+                                    <div class="name-cart">
+                                        <div style="width: 100%;padding: 10px 0;"><c:if test="${sessionScope.myCartNum !=0}">${sessionScope.myCartNum} </c:if></i>Giỏ hàng</div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
+                        <c:choose>
+                            <c:when test="${sessionScope.customer == null}">
+                                <div class="dn-dk">
+                                    <div class="row-dn-dk">
+                                        <a class="dn" href="login">Đăng nhập</a>
+                                        <div class="chan">|</div>
+                                        <a class="dk" href="registCustomer">Đăng ký</a>
+                                    </div>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="col-acc">
+                                    <div class="row-acc">
+                                        <div class="avata-lg">
+                                            <div style="display: flex">
+                                                <div style="border-radius:50%;overflow: hidden">
+                                                    <div class="avata">
+                                                    </div>
+                                                </div>
+                                                <c:choose>
+                                                    <c:when test="${sessionScope.khoangtrong ==0}">
+                                                        <div class="name-tt-cn" style="color: #e0e0e0;padding: 11px">
+                                                                ${sessionScope.customer.fullName}
+                                                        </div>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <div class="name-tt-cn" style="color: #e0e0e0;padding: 11px">
+                                                                ${sessionScope.customer.fullName.substring(sessionScope.customer.fullName.lastIndexOf(" ")).trim()}
+                                                        </div>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </div>
+                                            <div class="form-my-account">
+                                                <div class="col-my-account"><a style="text-decoration: none" href="myAccount">
+                                                    <div class="my-account">Tài khoản của tôi</div>
+                                                </a></div>
+                                                <div class="col-my-account"><a style="text-decoration: none" href="">
+                                                    <div class="my-account">Kho hàng</div>
+                                                </a></div>
+                                                <div class="col-my-account"><a style="text-decoration: none" href="">
+                                                    <div class="my-account">Lịch sử đặt hàng</div>
+                                                </a></div>
+                                                <div class="col-my-account"><a style="text-decoration: none" href="">
+                                                    <div class="my-account">Sảm phẩm yêu thích</div>
+                                                </a></div>
+                                                <div class="col-my-account" ><a style="text-decoration: none" href="logoutAccount">
+                                                    <div class="my-account" style="color: #1a73e8">Đăng xuất</div>
+                                                </a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -172,21 +224,27 @@
                             </div>
                         </div>
                         <div class="infor-order">
-                            <form action="" method="">
+                            <form action="inforOrder" method="post">
                                 <div style="font-weight: bold;font-size: 15px">THÔNG TIN KHÁCH HÀNG</div>
                                 <div class="infor-numberphone">
-                                    <div class="infor-name"><input class="input-infor-number" type="text" name="name" placeholder="Họ và Tên"></div>
-                                    <div class="infor-number"><input class="input-infor-number" type="text" name="numberphone" placeholder="Số điện thoại"></div>
+                                    <div class="infor-name"><input class="input-infor-number" type="text" name="name" placeholder="Họ và Tên"
+                                                                   value="${sessionScope.customer.fullName}"></div>
+                                    <div class="infor-number"><input class="input-infor-number" type="text" name="numberphone" placeholder="Số điện thoại"
+                                                                     value="${sessionScope.customer.phone}"></div>
                                 </div>
                                 <div class="place-cart">
                                     <div>Chọn địa chỉ để biết thời gian nhận hàng và phí vận chuyển (nếu có)</div>
                                     <div class="row-address">
-                                        <div class="addess-phuong"><input class="input-address" type="text" name="thanhpho" placeholder="Thành phố"></div>
-                                        <div class="addess-huyen"><input class="input-address" type="text" name="quan" placeholder="Quận / Huyện"></div>
+                                        <div class="addess-phuong"><input class="input-address" type="text" name="thanhpho" placeholder="Thành phố"
+                                                                          value="${sessionScope.customer.city}"></div>
+                                        <div class="addess-huyen"><input class="input-address" type="text" name="quan" placeholder="Quận / Huyện"
+                                                                         value="${sessionScope.customer.district}"></div>
                                     </div>
                                     <div class="row-address">
-                                        <div class="addess-phuong"><input class="input-address" type="text" name="phuong" placeholder="Phường / Xã"></div>
-                                        <div class="addess-huyen"><input class="input-address" type="text" name="address" placeholder="Số nhà, tên đường"></div>
+                                        <div class="addess-phuong"><input class="input-address" type="text" name="phuong" placeholder="Phường / Xã"
+                                                                          value="${sessionScope.customer.ward}"></div>
+                                        <div class="addess-huyen"><input class="input-address" type="text" name="address" placeholder="Số nhà, tên đường"
+                                                                         value="${sessionScope.customer.address}"></div>
                                     </div>
                                 </div>
                                 <input style="width: 100%;padding: 10px;margin: 15px 0" type="text" name="need" placeholder="Yêu cầu khác (không bắt buộc)"><br>
@@ -196,20 +254,23 @@
                                 <label >Chuyển danh bạ, dữ liệu qua máy mới</label><br>
                                 <input type="checkbox" name="noteThree" value="Xuất hóa đơn công ty">
                                 <label >Xuất hóa đơn công ty</label>
+
+                                <div class="order-product">
+                                    <div class="row-total-price">
+                                        <div class="name-total">
+                                            <div style="color: #333333;font-weight: bold">Tổng tiền:</div>
+                                        </div>
+                                        <div class="price-total">
+                                            <div style="float: right;color: #dd0000;font-weight: bold">${sessionScope.myCartTotal} đ</div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <input type="hidden" name="totalPrice" value="${sessionScope.myCartTotal}" readonly="true">
+                                        <input type="hidden" name="customerID" value="${sessionScope.customer.id}" readonly="true">
+                                        <input class="submit-order" type="submit" value="ĐẶT HÀNG">
+                                    </div>
+                                </div>
                             </form>
-                        </div>
-                        <div class="order-product">
-                            <div class="row-total-price">
-                                <div class="name-total">
-                                    <div style="color: #333333;font-weight: bold">Tổng tiền:</div>
-                                </div>
-                                <div class="price-total">
-                                    <div style="float: right;color: #dd0000;font-weight: bold">${sessionScope.myCartTotal} đ</div>
-                                </div>
-                            </div>
-                            <div>
-                                <input class="submit-order" type="submit" value="ĐẶT HÀNG">
-                            </div>
                         </div>
                     </c:otherwise>
                 </c:choose>
@@ -272,5 +333,6 @@
             </div>
         </div>
     </div>
+    <script src="${pageContext.request.contextPath}/resources/js/information.js"></script>
 </body>
 </html>

@@ -22,7 +22,7 @@ window.addEventListener("load",function (){
             const slideIndex = parseInt(e.target.dataset.index);
             index=slideIndex;
             postionX=index * (-sliderItemWidth);
-            slides.style=`margin-left:${postionX}px`;
+            slides.style=`  margin-left:${postionX}px`;
         })
     );
 
@@ -34,7 +34,7 @@ window.addEventListener("load",function (){
                 index=0;
                 postionX=0;
             }
-            slides.style=`margin-left:${postionX}px`;
+            slides.style=` margin-left:${postionX}px`;
         }
         else if (direction == -1){
             index--;
@@ -43,7 +43,7 @@ window.addEventListener("load",function (){
                 index = slidesLength-1;
                 postionX= -(sliderItemWidth * index);
             }
-            slides.style=`margin-left:${postionX}px`;
+            slides.style=` margin-left:${postionX}px`;
         }
         [...bar].forEach(el =>el.classList.remove("active"));
         bar[index].classList.add("active");
@@ -53,4 +53,36 @@ window.addEventListener("load",function (){
         handleChangeSlide(1);
     },4000);
 
+    const nametype = document.querySelectorAll(".name-type");
+    const providers = document.querySelector(".form-providers");
+    const typePhone = document.querySelector(".form-typephone");
+    const caparityRam = document.querySelector(".form-caparity-ram");
+    const price = document.querySelector(".form-price");
+    document.addEventListener("click",(e)=>{
+       let click =e.target;
+        if (click == nametype.item(1)){
+            providers.style=`display:block`;
+        }
+        else {
+            providers.style=`display:none`;
+        }
+        if (click == nametype.item(2)){
+            typePhone.style=`display:block`;
+        }
+        else {
+            typePhone.style=`display:none`;
+        }
+        if (click == nametype.item(3)){
+            caparityRam.style=`display:block`;
+        }
+        else {
+            caparityRam.style=`display:none`;
+        }
+        if (click == nametype.item(4)){
+            price.style=`display:block`;
+        }
+        else {
+            price.style=`display:none`;
+        }
+    });
 });

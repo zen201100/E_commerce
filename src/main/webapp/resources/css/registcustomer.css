@@ -64,8 +64,7 @@ body{
 
 .name-cart{
     background: #1a73e8;
-    margin: 0 30px;
-    padding: 10px;
+    height: 100%;
     text-align: center;
     color: #ffffff;
     border-radius: 4px;
@@ -128,12 +127,30 @@ body{
     color: #1a73e8;
 }
 
-.name-title:hover>.form-providers{
-    position: absolute;
+.name-title{
+    flex-basis: 20%;
+    border-right: 1px solid #e0e0e0;
+    text-align: center;
     display: block;
+    position: relative;
 }
+.link-head-dow{
+    text-decoration: none;
+}
+.name-type{
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px 0;
+    color: rgba(0,0,0,0.9);
+}
+.name-type:hover{
+    color: #1a73e8;
+}
+
 .form-providers{
     display: none;
+    position: absolute;
+    height: 130px;
     width: 600px;
     background: #fff;
     box-shadow: 0 0 20px rgba(0,0,0,0.9);
@@ -161,13 +178,11 @@ body{
     border: 1px solid #1a73e8;
 }
 
-.name-title:hover>.form-typephone{
-    position: absolute;
-    display: block;
-}
 .form-typephone{
     display: none;
-    width: 206px;
+    position: absolute;
+    height: 130px;
+    width: 300px;
     background: #fff;
     box-shadow: 0 0 20px rgba(0,0,0,0.9);
     border-radius: 4px;
@@ -193,12 +208,10 @@ body{
     border: 1px solid #1a73e8;
 }
 
-.name-title:hover>.form-caparity-ram{
-    position: absolute;
-    display: block;
-}
 .form-caparity-ram{
     display: none;
+    position: absolute;
+    height: 130px;
     width: 350px;
     background: #fff;
     box-shadow: 0 0 20px rgba(0,0,0,0.9);
@@ -225,12 +238,10 @@ body{
     border: 1px solid #1a73e8;
 }
 
-.name-title:hover>.form-price{
-    position: absolute;
-    display: block;
-}
 .form-price{
     display: none;
+    position: absolute;
+    height: 130px;
     right: 0;
     width: 600px;
     background: #fff;

@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/productdetails.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/styleproductdetails.css" type="text/css"/>
     <title>Product Details</title>
 </head>
 <body>
@@ -32,18 +32,70 @@
 
                     <div class="col-dndk">
                         <div class="cart">
-                            <a class="link-cart" href="cart"><div class="name-cart"><c:if test="${sessionScope.myCartNum !=0}">${sessionScope.myCartNum} </c:if>Giỏ hàng</div></a>
-                        </div>
-                        <div class="dn-dk">
-                            <div class="row-dn-dk">
-                                <a class="dn" href="login">Đăng nhập</a>
-                                <div class="chan">|</div>
-                                <a class="dk" href="registCustomer">Đăng ký</a>
+                            <div style="width: 90px">
+                                <a class="link-cart" href="cart">
+                                    <div class="name-cart">
+                                        <div style="width: 100%;padding: 10px 0;"><c:if test="${sessionScope.myCartNum !=0}">${sessionScope.myCartNum} </c:if></i>Giỏ hàng</div>
+                                    </div>
+                                </a>
                             </div>
                         </div>
+                        <c:choose>
+                            <c:when test="${sessionScope.customer == null}">
+                                <div class="dn-dk">
+                                    <div class="row-dn-dk">
+                                        <a class="dn" href="login">Đăng nhập</a>
+                                        <div class="chan">|</div>
+                                        <a class="dk" href="registCustomer">Đăng ký</a>
+                                    </div>
+                                </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div class="col-acc">
+                                    <div class="row-acc">
+                                        <div class="avata-lg">
+                                            <div style="display: flex">
+                                                <div class="form-avata">
+                                                    <div class="avata">
+                                                    </div>
+                                                </div>
+                                                <c:choose>
+                                                    <c:when test="${sessionScope.khoangtrong ==0}">
+                                                        <div class="name-tt-cn" style="color: #e0e0e0;padding: 11px">
+                                                                ${sessionScope.customer.fullName}
+                                                        </div>
+                                                    </c:when>
+                                                    <c:otherwise>
+                                                        <div class="name-tt-cn" style="color: #e0e0e0;padding: 11px">
+                                                                ${sessionScope.customer.fullName.substring(sessionScope.customer.fullName.lastIndexOf(" ")).trim()}
+                                                        </div>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </div>
+                                            <div class="form-my-account">
+                                                <div class="col-my-account"><a style="text-decoration: none" href="myAccount">
+                                                    <div class="my-account">Tài khoản của tôi</div>
+                                                </a></div>
+                                                <div class="col-my-account"><a style="text-decoration: none" href="">
+                                                    <div class="my-account">Kho hàng</div>
+                                                </a></div>
+                                                <div class="col-my-account"><a style="text-decoration: none" href="">
+                                                    <div class="my-account">Lịch sử đặt hàng</div>
+                                                </a></div>
+                                                <div class="col-my-account"><a style="text-decoration: none" href="">
+                                                    <div class="my-account">Sảm phẩm yêu thích</div>
+                                                </a></div>
+                                                <div class="col-my-account" ><a style="text-decoration: none" href="logoutAccount">
+                                                    <div class="my-account" style="color: #1a73e8">Đăng xuất</div>
+                                                </a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:otherwise>
+                        </c:choose>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -221,5 +273,7 @@
             </div>
         </div>
     </div>
+    <script src="${pageContext.request.contextPath}/resources/js/information.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/nametitle.js"></script>
 </body>
 </html>

@@ -19,11 +19,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="spring-beans.schema" />
-        <option value="Interface" />
-        <option value="Class" />
         <option value="CSS File" />
         <option value="JavaScript File" />
         <option value="Jsp File" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -55,15 +55,16 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="F:/intellij/Buy_WebMVC" />
+    <property name="last_opened_file_path" value="F:/intellij/J51_Employee" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\E_commerce\src\main\webapp\WEB-INF\view" />
+      <recent name="E:\E_commerce\src\main\webapp\resources\js" />
       <recent name="E:\E_commerce\src\main\webapp\resources\image" />
       <recent name="E:\E_commerce\src\main\webapp\resources" />
       <recent name="E:\E_commerce\src\main\webapp\resources\img" />
-      <recent name="E:\E_commerce\src\main\webapp" />
     </key>
   </component>
   <component name="RunManager">
@@ -262,7 +263,31 @@
       <workItem from="1673707596171" duration="2266000" />
       <workItem from="1673711700539" duration="1109000" />
       <workItem from="1673717442290" duration="1030000" />
-      <workItem from="1673721036487" duration="6623000" />
+      <workItem from="1673721036487" duration="6760000" />
+      <workItem from="1673728334452" duration="946000" />
+      <workItem from="1673730170613" duration="3587000" />
+      <workItem from="1673734671976" duration="1135000" />
+      <workItem from="1673740130089" duration="3433000" />
+      <workItem from="1673745414388" duration="4919000" />
+      <workItem from="1673763745521" duration="1059000" />
+      <workItem from="1673769783724" duration="2409000" />
+      <workItem from="1673772742131" duration="4818000" />
+      <workItem from="1673816119793" duration="2669000" />
+      <workItem from="1673850588090" duration="13880000" />
+      <workItem from="1673866899546" duration="19971000" />
+      <workItem from="1673893271421" duration="4416000" />
+      <workItem from="1673898558650" duration="4311000" />
+      <workItem from="1673903737155" duration="1230000" />
+      <workItem from="1673909792562" duration="3802000" />
+      <workItem from="1673914246174" duration="9504000" />
+      <workItem from="1673924952431" duration="787000" />
+      <workItem from="1673926253275" duration="306000" />
+      <workItem from="1673944135523" duration="9435000" />
+      <workItem from="1673958288591" duration="404000" />
+      <workItem from="1673966747164" duration="7793000" />
+      <workItem from="1673980527721" duration="9805000" />
+      <workItem from="1673996078301" duration="5348000" />
+      <workItem from="1674001643722" duration="3212000" />
     </task>
     <servers />
   </component>

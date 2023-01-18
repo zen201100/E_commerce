@@ -64,8 +64,7 @@ body{
 
 .name-cart{
     background: #1a73e8;
-    margin: 0 30px;
-    padding: 10px;
+    height: 100%;
     text-align: center;
     color: #ffffff;
     border-radius: 4px;
@@ -97,6 +96,48 @@ body{
     margin-left: 5px;
     color: #ffffff;
 }
+
+.col-acc{
+    width: 50%;
+}
+
+.avata-lg{
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+.form-avata{
+    width: 40px;
+    height: 40px;
+    border-radius:50%;
+    overflow: hidden;
+}
+.avata{
+    width: 38.4px;
+    height: 38.4px;
+    border: 1px solid #fff;
+}
+
+.form-my-account{
+    display: none;
+    right: 0;
+    transform: translateX(-50px);
+    bottom: -212px;
+    position: absolute;
+    width: 250px;
+    background: black;
+    box-shadow: 0 0 20px rgba(0,0,0,0.9);
+    border-radius: 4px;
+    z-index: 10000;
+}
+.col-my-account{
+    border-bottom: 1px solid #ffffff;
+}
+.my-account{
+    padding: 10px 10px 10px;
+    color: #d1d1d1;
+}
+
 .head-dow{
     background: #ffffff;
 }
@@ -108,6 +149,7 @@ body{
 .row-cd{
     display: flex;
 }
+
 .name-title{
     flex-basis: 20%;
     border-right: 1px solid #e0e0e0;
@@ -128,12 +170,30 @@ body{
     color: #1a73e8;
 }
 
-.name-title:hover>.form-providers{
-    position: absolute;
+.name-title{
+    flex-basis: 20%;
+    border-right: 1px solid #e0e0e0;
+    text-align: center;
     display: block;
+    position: relative;
 }
+.link-head-dow{
+    text-decoration: none;
+}
+.name-type{
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px 0;
+    color: rgba(0,0,0,0.9);
+}
+.name-type:hover{
+    color: #1a73e8;
+}
+
 .form-providers{
     display: none;
+    position: absolute;
+    height: 130px;
     width: 600px;
     background: #fff;
     box-shadow: 0 0 20px rgba(0,0,0,0.9);
@@ -161,13 +221,11 @@ body{
     border: 1px solid #1a73e8;
 }
 
-.name-title:hover>.form-typephone{
-    position: absolute;
-    display: block;
-}
 .form-typephone{
     display: none;
-    width: 206px;
+    position: absolute;
+    height: 130px;
+    width: 300px;
     background: #fff;
     box-shadow: 0 0 20px rgba(0,0,0,0.9);
     border-radius: 4px;
@@ -193,12 +251,10 @@ body{
     border: 1px solid #1a73e8;
 }
 
-.name-title:hover>.form-caparity-ram{
-    position: absolute;
-    display: block;
-}
 .form-caparity-ram{
     display: none;
+    position: absolute;
+    height: 130px;
     width: 350px;
     background: #fff;
     box-shadow: 0 0 20px rgba(0,0,0,0.9);
@@ -224,12 +280,11 @@ body{
 .name-caparity-ram:hover{
     border: 1px solid #1a73e8;
 }
-.name-title:hover>.form-price{
-    position: absolute;
-    display: block;
-}
+
 .form-price{
     display: none;
+    position: absolute;
+    height: 130px;
     right: 0;
     width: 600px;
     background: #fff;
@@ -256,6 +311,7 @@ body{
 .name-price:hover{
     border: 1px solid #1a73e8;
 }
+
 .product {
     padding: 25px 0;
 }

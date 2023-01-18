@@ -33,7 +33,13 @@
 
                     <div class="col-dndk">
                         <div class="cart">
-                            <a class="link-cart" href="cart"><div class="name-cart"><c:if test="${sessionScope.myCartNum !=0}">${sessionScope.myCartNum} </c:if>Giỏ hàng</div></a>
+                            <div style="width: 90px">
+                                <a class="link-cart" href="cart">
+                                    <div class="name-cart">
+                                        <div style="width: 100%;padding: 10px 0;"><c:if test="${sessionScope.myCartNum !=0}">${sessionScope.myCartNum} </c:if>Giỏ hàng</div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                         <div class="dn-dk">
                             <div class="row-dn-dk">
@@ -183,5 +189,6 @@
             </div>
         </div>
     </div>
+    <script src="${pageContext.request.contextPath}/resources/js/nametitle.js"></script>
 </body>
 </html>
