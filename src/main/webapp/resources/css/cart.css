@@ -104,7 +104,6 @@ body{
 .avata-lg{
     position: relative;
     display: block;
-    cursor: pointer;
 }
 .form-avata{
     width: 40px;
@@ -116,25 +115,39 @@ body{
     width: 38.4px;
     height: 38.4px;
     border: 1px solid #fff;
+    cursor: pointer;
+}
+.name-tt-cn{
+    cursor: pointer;
 }
 
 .form-my-account{
     display: none;
     right: 0;
     transform: translateX(-50px);
-    bottom: -212px;
+    bottom: -397px;
     position: absolute;
-    width: 250px;
+    width: 330px;
     background: black;
     box-shadow: 0 0 20px rgba(0,0,0,0.9);
-    border-radius: 4px;
     z-index: 10000;
+}
+.form-avata-infor{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.avata-infor{
+    width: 38.4px;
+    height: 38.4px;
+    border:1px solid #ffffff;
 }
 .col-my-account{
     border-bottom: 1px solid #ffffff;
 }
 .my-account{
-    padding: 10px 10px 10px;
+    padding: 20px 40px;
     color: #d1d1d1;
 }
 
@@ -326,10 +339,6 @@ body{
     display: flex;
     flex-wrap: wrap;
 }
-.col-name-product{
-    flex-basis: 55%;
-    display: flex;
-}
 .quantity{
     display: flex;
     padding-top: 22px;
@@ -360,6 +369,10 @@ body{
     flex-basis: 11%;
     text-align: center;
 }
+.col-name-product{
+    flex-basis: 55%;
+    display: flex;
+}
 .img-product{
     width: 20%;
     padding: 0px 10px 0px 25px
@@ -386,6 +399,7 @@ body{
     text-align: center;
     margin: 0 auto;
 }
+
 .home-cart{
     padding: 10px 20px ;
     border: 1px solid #1a73e8;

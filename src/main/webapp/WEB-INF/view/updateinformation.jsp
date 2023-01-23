@@ -10,497 +10,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
-    <style>
-        *{
-            padding: 0;
-            margin: 0;
-        }
-        body{
-            background: #f3f3f3;
-        }
-        .head-top{
-            padding: 15px 0;
-            background: rgba(0,0,0,0.9);
-        }
-        .container{
-            width: 1080px;
-            margin: 0 auto;
-            display: flex;
-        }
-        .search form{
-            display: flex;
-        }
-        .row-cs{
-            width: 100%;
-            display: flex;
-        }
-        .col-cs{
-            width: 54%;
-            display: flex;
-        }
-        .logo {
-            width: 16%;
-        }
-        .logo a{
-            font-size: 210%;
-            text-decoration: none;
-            margin-right: 30px;
-        }
-        .search{
-            border-radius:4px ;
-            background: #f3f3f3;
-        }
-        .search-control{
-            width: 400px;
-            padding: 11px;
-            outline: 0;
-            border: none;
-            background: transparent;
-            color: #333333;
-            font-size: 15px;
-        }
-        .search input::placeholder {
-            color: rgba(0,0,0,0.9);
-        }
-        .submit-search{
-            padding: 0 5px;
-            border: 0;
-            background: #e0e0e0;
-            border-radius: 4px;
-        }
-        .cart{
-            width: 50%;
-        }
-        .link-cart{
-            text-decoration: none;
-        }
-        .name-cart{
-            background: #1a73e8;
-            height: 100%;
-            text-align: center;
-            color: #ffffff;
-            border-radius: 4px;
-        }
-        .name-cart:hover{
-            color: #333333;
-            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
-        }
-        .dn-dk{
-            width: 50%;
-        }
-        .col-dndk{
-            width: 30%;
-            display: flex;
-        }
-        .row-dn-dk{
-            display: flex;
-            padding: 10px;
-        }
-        .dn-dk a{
-            text-decoration: none;
-            color: #ffffff;
-        }
-        .dn-dk a:hover{
-            color: #1a73e8;
-        }
-        .chan{
-            margin-right: 5px;
-            margin-left: 5px;
-            color: #ffffff;
-        }
-        .col-acc{
-            width: 50%;
-        }
-
-        .avata-lg{
-            position: relative;
-            display: block;
-            cursor: pointer;
-        }
-        .form-avata{
-            width: 40px;
-            height: 40px;
-            border-radius:50%;
-            overflow: hidden;
-        }
-        .avata{
-            width: 38.4px;
-            height: 38.4px;
-            border: 1px solid #fff;
-        }
-
-        .head-dow{
-            background: #ffffff;
-        }
-        .row-dow{
-            width: 1080px;
-            margin: 0 auto;
-            padding: 10px 0;
-        }
-        .row-cd{
-            display: flex;
-        }
-
-        .name-title{
-            flex-basis: 20%;
-            border-right: 1px solid #e0e0e0;
-            text-align: center;
-            display: block;
-            position: relative;
-        }
-        .link-head-dow{
-            text-decoration: none;
-        }
-        .name-type{
-            cursor: pointer;
-            font-size: 16px;
-            padding: 8px 0;
-            color: rgba(0,0,0,0.9);
-        }
-        .name-type:hover{
-            color: #1a73e8;
-        }
-
-        .name-title{
-            flex-basis: 20%;
-            border-right: 1px solid #e0e0e0;
-            text-align: center;
-            display: block;
-            position: relative;
-        }
-        .link-head-dow{
-            text-decoration: none;
-        }
-        .name-type{
-            cursor: pointer;
-            font-size: 16px;
-            padding: 8px 0;
-            color: rgba(0,0,0,0.9);
-        }
-        .name-type:hover{
-            color: #1a73e8;
-        }
-
-        .form-providers{
-            display: none;
-            position: absolute;
-            height: 130px;
-            width: 600px;
-            background: #fff;
-            box-shadow: 0 0 20px rgba(0,0,0,0.9);
-            border-radius: 4px;
-        }
-        .row-providers{
-            display: flex;
-            flex-wrap: wrap;
-            padding: 10px;
-            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
-            border-radius: 4px;
-        }
-        .col-providers{
-            flex-basis: 20%;
-            box-sizing: border-box;
-        }
-        .name-providers{
-            padding: 5px;
-            margin: 2px;
-            color: rgba(0,0,0,0.9);
-            font-weight: bold;
-            border: 1px solid #e0e0e0;
-        }
-        .name-providers:hover{
-            border: 1px solid #1a73e8;
-        }
-
-        .form-typephone{
-            display: none;
-            position: absolute;
-            height: 130px;
-            width: 300px;
-            background: #fff;
-            box-shadow: 0 0 20px rgba(0,0,0,0.9);
-            border-radius: 4px;
-        }
-        .row-typephone{
-            display: flex;
-            flex-wrap: wrap;
-            padding: 10px;
-            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
-            border-radius: 4px;
-        }
-        .col-typephone{
-            box-sizing: border-box;
-        }
-        .name-typephone{
-            padding: 5px 7px;
-            margin: 2px;
-            color: rgba(0,0,0,0.9);
-            font-weight: bold;
-            border: 1px solid #e0e0e0;
-        }
-        .name-typephone:hover{
-            border: 1px solid #1a73e8;
-        }
-
-        .form-caparity-ram{
-            display: none;
-            position: absolute;
-            height: 130px;
-            width: 350px;
-            background: #fff;
-            box-shadow: 0 0 20px rgba(0,0,0,0.9);
-            border-radius: 4px;
-        }
-        .row-caparity-ram{
-            display: flex;
-            flex-wrap: wrap;
-            padding: 10px;
-            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
-            border-radius: 4px;
-        }
-        .col-caparity-ram{
-            box-sizing: border-box;
-        }
-        .name-caparity-ram{
-            padding: 5px 7px;
-            margin: 2px;
-            color: rgba(0,0,0,0.9);
-            font-weight: bold;
-            border: 1px solid #e0e0e0;
-        }
-        .name-caparity-ram:hover{
-            border: 1px solid #1a73e8;
-        }
-
-        .form-price{
-            display: none;
-            position: absolute;
-            height: 130px;
-            right: 0;
-            width: 600px;
-            background: #fff;
-            box-shadow: 0 0 20px rgba(0,0,0,0.9);
-            border-radius: 4px;
-        }
-        .row-price{
-            display: flex;
-            flex-wrap: wrap;
-            padding: 10px;
-            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
-            border-radius: 4px;
-        }
-        .col-price{
-            box-sizing: border-box;
-        }
-        .name-price{
-            padding: 5px 7px;
-            margin: 2px;
-            color: rgba(0,0,0,0.9);
-            font-weight: bold;
-            border: 1px solid #e0e0e0;
-        }
-        .name-price:hover{
-            border: 1px solid #1a73e8;
-        }
-
-
-
-        .form-information{
-            width: 1080px;
-            margin: 0 auto;
-            padding: 25px 0;
-        }
-        .information{
-            display: flex;
-            background: rgba(0,0,0,0.9);
-        }
-        .inf-l{
-            width: 30%;
-            padding: 30px 0 30px 15px;
-        }
-        .inf-r{
-            width: 70%;
-            padding: 30px;
-        }
-
-        .col-i-f{
-            width: 100%;
-        }
-
-        .row-tt{
-            padding: 15px 30px;
-            color: #e0e0e0;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 4px;
-            margin-right: 15px;
-        }
-        .row-inf{
-            padding: 15px;
-            color: #e0e0e0;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 4px;
-            margin: 0 15px;
-        }
-        .row-inf:hover{
-            background: linear-gradient(90deg,hsla(0,0%,100%,.16),hsla(0,0%,100%,0));
-        }
-
-        .row-tt-cn{
-            display: none;
-            padding: 15px 30px;
-            color: #e0e0e0;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        .row-infor{
-            padding: 15px 30px;
-            color: #e0e0e0;
-            font-size: 18px;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        .form-tt-cn{
-            border-radius: 4px;
-            margin-right: 15px;
-        }
-        .form-tt-cn:hover{
-            background: linear-gradient(90deg,hsla(0,0%,100%,.16),hsla(0,0%,100%,0));
-        }
-        .row-tt:hover{
-            background: linear-gradient(90deg,hsla(0,0%,100%,.16),hsla(0,0%,100%,0));
-        }
-        .row-tt-cn:hover{
-            background: linear-gradient(90deg,hsla(0,0%,100%,.16),hsla(0,0%,100%,0));
-        }
-
-        .form-update-infomation{
-            height: 435px;
-        }
-        .name-upd{
-            font-size: 25px;
-            color: #ffffff;
-            font-weight: bold;
-        }
-        .avata-preview{
-            width: 120px;
-            margin: 0 auto;
-            height: 120px;
-            border-radius: 50%;
-            background: #e0e0e0;
-        }
-        .name-user{
-            color: #ffffff;
-            padding: 10px;
-            text-align: center;
-            font-size: 20px;
-
-        }
-        .form-update{
-            display: flex;
-            padding-bottom: 15px;
-        }
-        .input-update-l{
-            width: 50%;
-            margin-right: 15px;
-        }
-        .input-update-r{
-            width: 50%;
-        }
-        input{
-            outline: 0;
-            border: 0;
-            background: transparent;
-            width: 100%;
-            padding: 15px;
-            color: #ffffff;
-            border: 1px solid #ffffff;
-            border-radius: 4px;
-        }
-        input::placeholder{
-            color: #e0e0e0;
-        }
-        .submit-update{
-            width: 200px;
-            background: #1a73e8;
-            border: 1px solid #1a73e8;
-        }
-        .submit-update:hover{
-            box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
-        }
-
-
-
-
-
-
-
-
-
-        #form-footer{
-            border-top: 1px solid #e0e0e0;
-            background: #fff;
-        }
-        .footer{
-            width: 1080px;
-            margin: 0 auto;
-            display: flex;
-            padding: 20px 0
-        }
-        .footer-tt{
-            width: 33.3333333%;
-        }
-        .link-hover{
-            text-decoration: none;
-            color: #4a4a4a;;
-        }
-        .link-hover:hover{
-            color: #dd0000;
-        }
-        .col-tt-footer{
-            color: rgba(0,0,0,0.8);
-            padding: 8px 0;
-        }
-        .footer-bottom{
-            background-color: #f1f1f1;
-        }
-        .bottom{
-            width: 1080px;
-            margin: 0 auto;
-        }
-        .bottom p{
-            color: #666;
-            padding: 20px 0;
-            font-size: 13px;
-        }
-
-        .form-my-account{
-            display: none;
-            right: 0;
-            transform: translateX(54px);
-            bottom: -212px;
-            position: absolute;
-            width: 250px;
-            background: black;
-            box-shadow: 0 0 20px rgba(0,0,0,0.9);
-            border-radius: 4px;
-            z-index: 10000;
-        }
-        .col-my-account{
-            border-bottom: 1px solid #ffffff;
-        }
-        .my-account{
-            padding: 10px 10px 10px;
-            color: #d1d1d1;
-        }
-        .form-tt{
-            padding-bottom:10px;
-        }
-
-    </style>
-<%--    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/myaccount.css" type="text/css"/>--%>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/updateinformation.css" type="text/css"/>
     <title>Update Information</title>
 </head>
 <body>
@@ -564,20 +74,35 @@
                                                 </c:choose>
                                             </div>
                                             <div class="form-my-account">
+                                                <div class="col-my-account" style="display: flex;padding: 20px 40px">
+                                                    <div>
+                                                        <div class="form-avata-infor">
+                                                            <a href="updateInformation"><div class="avata-infor"></div></a>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="userid-name" style="color: #e0e0e0;padding-left:10px;padding-bottom: 4px">
+                                                            UserID : ${sessionScope.customer.id}
+                                                        </div>
+                                                        <div class="userid-name" style="color: #e0e0e0;padding-left:10px">
+                                                                ${sessionScope.customer.fullName.trim()}
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="myAccount">
-                                                    <div class="my-account">Tài khoản của tôi </div>
+                                                    <div class="my-account">Tài khoản của tôi</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="">
                                                     <div class="my-account">Kho hàng</div>
                                                 </a></div>
-                                                <div class="col-my-account"><a style="text-decoration: none" href="">
+                                                <div class="col-my-account"><a style="text-decoration: none" href="orderHistory">
                                                     <div class="my-account">Lịch sử đặt hàng</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="">
                                                     <div class="my-account">Sảm phẩm yêu thích</div>
                                                 </a></div>
-                                                <div class="col-my-account" ><a style="text-decoration: none" href="logoutAccount">
-                                                    <div class="my-account" style="color: #1a73e8">Đăng xuất</div>
+                                                <div class="col-my-account"><a style="text-decoration: none" href="logoutAccount">
+                                                    <div class="my-account" style="color: #ffe818">Đăng xuất</div>
                                                 </a></div>
                                             </div>
                                         </div>
@@ -655,24 +180,23 @@
         <div class="form-information">
             <div class="information">
                 <div class="inf-l">
-                    <div style="border-right: 1px solid #e0e0e0;height: 525px">
-                        <div class="col-i-f">
-                            <div class="form-tt-cn">
-                                <div class="row-tt-cn"> Tài khoản của tôi <span style="float: right">&#10010;</span></div>
-                                <div class="form-tt">
-                                    <div class="row-infor"> Tài khoản của tôi <span style="float: right">&#10010;</span></div>
-                                    <a style="text-decoration: none" href="myAccount"><div class="row-inf" style="background: linear-gradient(90deg,hsla(0,0%,100%,.16),hsla(0,0%,100%,0));">Thông tin cá nhân</div></a>
-                                    <a style="text-decoration: none" href="changePassword"><div class="row-inf">Đổi mật khẩu</div></a>
-                                    <a style="text-decoration: none" href=""><div class="row-inf">Lịch sử đăng nhập</div></a>
-                                </div>
-
+                    <div class="col-i-f">
+                        <div class="form-tt-cn">
+                            <div class="row-tt-cn"> Tài khoản của tôi <span style="float: right">&#10010;</span></div>
+                            <div class="form-tt">
+                                <div class="row-infor"> Tài khoản của tôi <span style="float: right">&#10010;</span></div>
+                                <a style="text-decoration: none" href="myAccount"><div class="row-inf" style="background: linear-gradient(90deg,hsla(0,0%,100%,.16),hsla(0,0%,100%,0));">Thông tin cá nhân</div></a>
+                                <a style="text-decoration: none" href="changePassword"><div class="row-inf">Đổi mật khẩu</div></a>
+                                <a style="text-decoration: none" href=""><div class="row-inf">Lịch sử đăng nhập</div></a>
                             </div>
-                            <a style="text-decoration: none" href=""><div class="row-tt"> Đổi điểm</div></a>
-                            <a style="text-decoration: none" href=""><div class="row-tt"> Kho Voucher</div></a>
-                            <a style="text-decoration: none" href=""><div class="row-tt"> Nạp tiền</div></a>
-                            <a style="text-decoration: none" href=""><div class="row-tt"> Kho Hàng</div></a>
-                            <a style="text-decoration: none" href=""><div class="row-tt"> Sảng phẩm yêu thích</div></a>
+
                         </div>
+                        <a style="text-decoration: none" href=""><div class="row-tt"> Đổi điểm</div></a>
+                        <a style="text-decoration: none" href=""><div class="row-tt"> Kho Voucher</div></a>
+                        <a style="text-decoration: none" href=""><div class="row-tt"> Nạp tiền</div></a>
+                        <a style="text-decoration: none" href="orderHistory"><div class="row-tt"> Lịch sử đặt hàng</div></a>
+                        <a style="text-decoration: none" href=""><div class="row-tt"> Kho Hàng</div></a>
+                        <a style="text-decoration: none" href=""><div class="row-tt"> Sảng phẩm yêu thích</div></a>
                     </div>
                 </div>
                 <div class="inf-r">
@@ -684,28 +208,27 @@
                             <form method="post" action="updateInfor" style=" padding-top: 10px;">
                                 <div class="form-update">
                                     <div class="input-update-l">
-                                        <input type="text" readonly="true" value="UserID : ${sessionScope.customer.id}">
-                                        <input type="hidden" name="userName" value="${sessionScope.customer.userName}">
+                                        <input class="input-infor" type="text" readonly="true" value="UserID : ${sessionScope.customer.id}">
                                     </div>
-                                    <div class="input-update-r"><input type="text" name="fullname"
+                                    <div class="input-update-r"><input class="input-infor" type="text" name="fullname"
                                                                        placeholder="Họ và tên" value="${sessionScope.customer.fullName}"></div>
                                 </div>
                                 <div class="form-update">
-                                    <div class="input-update-l"><input type="text" name="email"
+                                    <div class="input-update-l"><input class="input-infor" type="text" name="email"
                                                                        placeholder="Email" value="${sessionScope.customer.email}"></div>
-                                    <div class="input-update-r"><input type="text" name="phone"
+                                    <div class="input-update-r"><input class="input-infor" type="text" name="phone"
                                                                        placeholder="Số điện thoại" value="${sessionScope.customer.phone}"></div>
                                 </div>
                                 <div class="form-update">
-                                    <div class="input-update-l"><input type="text" name="address"
+                                    <div class="input-update-l"><input class="input-infor" type="text" name="address"
                                                                        placeholder="Địa chỉ" value="${sessionScope.customer.address}"></div>
-                                    <div class="input-update-r"><input type="text" name="city"
+                                    <div class="input-update-r"><input class="input-infor" type="text" name="city"
                                                                        placeholder="Thành phố" value="${sessionScope.customer.city}"></div>
                                 </div>
                                 <div class="form-update">
-                                    <div class="input-update-l"><input type="text" name="district"
+                                    <div class="input-update-l"><input class="input-infor" type="text" name="district"
                                                                        placeholder="Quận / Huyện" value="${sessionScope.customer.district}"></div>
-                                    <div class="input-update-r"><input type="text" name="ward"
+                                    <div class="input-update-r"><input class="input-infor" type="text" name="ward"
                                                                        placeholder="Phường / Xã" value="${sessionScope.customer.ward}"></div>
                                 </div>
                                 <input class="submit-update" type="submit" value="Cập nhật">
@@ -778,7 +301,7 @@
             </div>
         </div>
     </div>
-    <script src="${pageContext.request.contextPath}/resources/js/information.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jsinformation.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/myaccount.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/nametitle.js"></script>
 </body>

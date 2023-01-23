@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/stylehome.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/home.css" type="text/css"/>
     <title>Home</title>
 </head>
 <body>
@@ -73,20 +73,35 @@
                                                 </c:choose>
                                             </div>
                                             <div class="form-my-account">
+                                                <div class="col-my-account" style="display: flex;padding: 20px 40px">
+                                                    <div>
+                                                        <div class="form-avata-infor">
+                                                            <a href="updateInformation"><div class="avata-infor"></div></a>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="userid-name" style="color: #e0e0e0;padding-left:10px;padding-bottom: 4px">
+                                                                UserID : ${sessionScope.customer.id}
+                                                        </div>
+                                                        <div class="userid-name" style="color: #e0e0e0;padding-left:10px">
+                                                                ${sessionScope.customer.fullName.trim()}
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="myAccount">
                                                     <div class="my-account">Tài khoản của tôi</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="">
                                                     <div class="my-account">Kho hàng</div>
                                                 </a></div>
-                                                <div class="col-my-account"><a style="text-decoration: none" href="">
+                                                <div class="col-my-account"><a style="text-decoration: none" href="orderHistory">
                                                     <div class="my-account">Lịch sử đặt hàng</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="">
                                                     <div class="my-account">Sảm phẩm yêu thích</div>
                                                 </a></div>
-                                                <div class="col-my-account" ><a style="text-decoration: none" href="logoutAccount">
-                                                    <div class="my-account" style="color: #1a73e8">Đăng xuất</div>
+                                                <div class="col-my-account"><a style="text-decoration: none" href="logoutAccount">
+                                                    <div class="my-account" style="color: #ffe818">Đăng xuất</div>
                                                 </a></div>
                                             </div>
                                         </div>
@@ -216,17 +231,36 @@
             <div class="sale-pevrd">
                 <div class="name-sale">FLASH SALE MỖI NGÀY</div>
                 <div class="row-sale">
-                    <div class="col-sale-everyday">
-                        <a href=""><div class="form-img"><img src="${pageContext.request.contextPath}/resources/image/iphone-14.jpg" class="link-sevrd"></div></a>
+                    <div class="form-promotion">
+                        <c:forEach var="p" items="${promotions}">
+                            <div class="col-promotion">
+                                <a class="main-contain" href="productDetails?id=${p.id}">
+                                    <div class="product-item" style="position: relative">
+                                        <div class="promotion">Giảm ${p.promotion.amount}<strong style="font-weight: 100">%</strong></div>
+                                        <div style="padding: 25px 25px 0;height: 220px">
+                                            <img class="img" src="${pageContext.request.contextPath}/resources/image/${p.image}.jpg">
+                                        </div>
+                                        <div class="col-item">
+                                            <div class="product-name">${p.name}</div>
+                                            <div class="size-pr">
+                                                <div class="size">${p.size}</div>
+                                            </div>
+                                            <div class="gb-product">
+                                                <div class="gb-cl">${p.capacity.capacity}</div>
+                                                <div class="gb-cl">${p.color.color}</div>
+                                            </div>
+                                            <div class="price">${currencyFormat.format(p.price -  (p.price*p.promotion.amount/100))}
+                                                <c:if test="${p.promotion.amount != 0}"><del style="color: #9e9e9e;font-size: 15px;padding-left: 10px">${currencyFormat.format(p.price)}</del></c:if>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </c:forEach>
                     </div>
-                    <div class="col-sale-everyday">
-                        <a href=""><div class="form-img"><img src="${pageContext.request.contextPath}/resources/image/iphone-14-pro.jpg" class="link-sevrd"></div></a>
-                    </div>
-                    <div class="col-sale-everyday">
-                        <a href=""><div class="form-img"><img src="${pageContext.request.contextPath}/resources/image/iphone-14-pro-max.jpg" class="link-sevrd"></div></a>
-                    </div>
-                    <div class="col-sale-everyday">
-                        <a href=""><div class="form-img"><img src="${pageContext.request.contextPath}/resources/image/iphone-14-pro-max-1tb.jpg" class="link-sevrd"></div></a>
+                    <div class="control-promotion">
+                        <div class="ctpmt prev-pmt">&lsaquo;</div>
+                        <div class="ctpmt next-pmt">&rsaquo;</div>
                     </div>
                 </div>
             </div>
@@ -236,17 +270,37 @@
             <div class="sp-bc">
                 <div class="name-sp-bc">SẢN PHẨM BÁN CHẠY</div>
                 <div class="row-sp-bc">
-                    <div class="col-sp-bc">
-                        <a href=""><div class="form-img"><img src="${pageContext.request.contextPath}/resources/image/iphone-14.jpg" class="link-sevrd"></div></a>
+                    <div class="products-sale">
+                        <c:forEach var="p" items="${productSale}">
+
+                            <div class="col-prsl">
+                                <a class="main-contain" href="productDetails?id=${p.id}">
+                                    <div class="product-item">
+                                        <div style="padding: 25px 25px 0;height: 220px">
+                                            <img class="img" src="${pageContext.request.contextPath}/resources/image/${p.image}.jpg">
+                                        </div>
+                                        <div class="col-item">
+                                            <div class="product-name">${p.name}</div>
+                                            <div class="size-pr">
+                                                <div class="size">${p.size}</div>
+                                            </div>
+                                            <div class="gb-product">
+                                                <div class="gb-cl">${p.capacity.capacity}</div>
+                                                <div class="gb-cl">${p.color.color}</div>
+                                            </div>
+                                            <div class="price">${currencyFormat.format(p.price -  (p.price*p.promotion.amount/100))}
+                                                <c:if test="${p.promotion.amount != 0}"><del style="color: #9e9e9e;font-size: 15px;padding-left: 10px">${currencyFormat.format(p.price)}</del></c:if>
+                                            </div>
+                                            <div style="color: #333333;padding-top: 15px">Đã bán : ${p.productSale}</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </c:forEach>
                     </div>
-                    <div class="col-sale-everyday">
-                        <a href=""><div class="form-img"><img src="${pageContext.request.contextPath}/resources/image/iphone-14-pro.jpg" class="link-sevrd"></div></a>
-                    </div>
-                    <div class="col-sale-everyday">
-                        <a href=""><div class="form-img"><img src="${pageContext.request.contextPath}/resources/image/iphone-14-pro-max.jpg" class="link-sevrd"></div></a>
-                    </div>
-                    <div class="col-sale-everyday">
-                        <a href=""><div class="form-img"><img src="${pageContext.request.contextPath}/resources/image/iphone-14-pro-max-1tb.jpg" class="link-sevrd"></div></a>
+                    <div class="control-prsl">
+                        <div class="ctprs prev-prsl">&lsaquo;</div>
+                        <div class="ctprs next-prsl">&rsaquo;</div>
                     </div>
                 </div>
             </div>
@@ -260,8 +314,8 @@
                 <div class="row-p">
                     <c:forEach var="p" items="${productPage.content}">
                         <div class="col-p">
-                            <div class="product-item">
-                                <a class="main-contain" href="productDetails?id=${p.id}">
+                            <a class="main-contain" href="productDetails?id=${p.id}">
+                                <div class="product-item">
                                     <div style="padding: 25px 25px 0;height: 220px">
                                         <img class="img" src="${pageContext.request.contextPath}/resources/image/${p.image}.jpg">
                                     </div>
@@ -274,10 +328,12 @@
                                             <div class="gb-cl">${p.capacity.capacity}</div>
                                             <div class="gb-cl">${p.color.color}</div>
                                         </div>
-                                        <div class="price">${p.price} đ</div>
+                                        <div class="price">${currencyFormat.format(p.price -  (p.price*p.promotion.amount/100))}
+                                            <c:if test="${p.promotion.amount != 0}"><del style="color: #9e9e9e;font-size: 15px;padding-left: 10px">${currencyFormat.format(p.price)}</del></c:if>
+                                        </div>
                                     </div>
-                                </a>
-                            </div>
+                                </div>
+                            </a>
                         </div>
                     </c:forEach>
                     <div class="view-product">
@@ -395,7 +451,9 @@
         </div>
     </div>
     <script src="${pageContext.request.contextPath}/resources/js/home.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/js/information.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/promotion.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jsproductsale.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jsinformation.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/nametitle.js"></script>
 </body>
 </html>

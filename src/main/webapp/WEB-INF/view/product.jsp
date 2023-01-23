@@ -73,20 +73,35 @@
                                                 </c:choose>
                                             </div>
                                             <div class="form-my-account">
+                                                <div class="col-my-account" style="display: flex;padding: 20px 40px">
+                                                    <div>
+                                                        <div class="form-avata-infor">
+                                                            <a href="updateInformation"><div class="avata-infor"></div></a>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="userid-name" style="color: #e0e0e0;padding-left:10px;padding-bottom: 4px">
+                                                            UserID : ${sessionScope.customer.id}
+                                                        </div>
+                                                        <div class="userid-name" style="color: #e0e0e0;padding-left:10px">
+                                                                ${sessionScope.customer.fullName.trim()}
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="myAccount">
                                                     <div class="my-account">Tài khoản của tôi</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="">
                                                     <div class="my-account">Kho hàng</div>
                                                 </a></div>
-                                                <div class="col-my-account"><a style="text-decoration: none" href="">
+                                                <div class="col-my-account"><a style="text-decoration: none" href="orderHistory">
                                                     <div class="my-account">Lịch sử đặt hàng</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="">
                                                     <div class="my-account">Sảm phẩm yêu thích</div>
                                                 </a></div>
-                                                <div class="col-my-account" ><a style="text-decoration: none" href="logoutAccount">
-                                                    <div class="my-account" style="color: #1a73e8">Đăng xuất</div>
+                                                <div class="col-my-account"><a style="text-decoration: none" href="logoutAccount">
+                                                    <div class="my-account" style="color: #ffe818">Đăng xuất</div>
                                                 </a></div>
                                             </div>
                                         </div>
@@ -171,8 +186,8 @@
                 <div class="row-p">
                     <c:forEach var="p" items="${productPage.content}">
                         <div class="col-p">
-                            <div class="product-item">
-                                <a class="main-contain" href="productDetails?id=${p.id}">
+                            <a class="main-contain" href="productDetails?id=${p.id}">
+                                <div class="product-item">
                                     <div style="padding: 25px 25px 0;height: 220px"><img class="img" src="${pageContext.request.contextPath}/resources/image/${p.image}.jpg"></div>
                                     <div class="col-item">
                                         <div class="product-name">${p.name}</div>
@@ -185,10 +200,12 @@
                                                 <div class="gb-cl">${p.color.color}</div>
                                             </div>
                                         </div>
-                                        <div class="price">${p.price} đ</div>
+                                        <div class="price">${currencyFormat.format(p.price -  (p.price*p.promotion.amount/100))}
+                                            <c:if test="${p.promotion.amount != 0}"><del style="color: #9e9e9e;font-size: 15px;padding-left: 10px">${currencyFormat.format(p.price)}</del></c:if>
+                                        </div>
                                     </div>
-                                </a>
-                            </div>
+                                </div>
+                            </a>
                         </div>
                     </c:forEach>
 
@@ -275,7 +292,7 @@
             </div>
         </div>
     </div>
-    <script src="${pageContext.request.contextPath}/resources/js/information.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jsinformation.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/nametitle.js"></script>
 </body>
 </html>

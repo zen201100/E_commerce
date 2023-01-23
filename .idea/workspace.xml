@@ -19,11 +19,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="spring-beans.schema" />
-        <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="Jsp File" />
-        <option value="Interface" />
+        <option value="CSS File" />
         <option value="Class" />
+        <option value="Interface" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -60,9 +60,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\E_commerce\src\main\webapp\resources\image" />
       <recent name="E:\E_commerce\src\main\webapp\WEB-INF\view" />
       <recent name="E:\E_commerce\src\main\webapp\resources\js" />
-      <recent name="E:\E_commerce\src\main\webapp\resources\image" />
       <recent name="E:\E_commerce\src\main\webapp\resources" />
       <recent name="E:\E_commerce\src\main\webapp\resources\img" />
     </key>
@@ -288,6 +288,23 @@
       <workItem from="1673980527721" duration="9805000" />
       <workItem from="1673996078301" duration="5348000" />
       <workItem from="1674001643722" duration="3212000" />
+      <workItem from="1674029237626" duration="29768000" />
+      <workItem from="1674079158039" duration="8335000" />
+      <workItem from="1674093656038" duration="18912000" />
+      <workItem from="1674123789927" duration="22139000" />
+      <workItem from="1674180051549" duration="661000" />
+      <workItem from="1674180967788" duration="3291000" />
+      <workItem from="1674211412433" duration="6513000" />
+      <workItem from="1674219073234" duration="676000" />
+      <workItem from="1674224713574" duration="6971000" />
+      <workItem from="1674261041864" duration="2698000" />
+      <workItem from="1674268968405" duration="8840000" />
+      <workItem from="1674282526950" duration="12016000" />
+      <workItem from="1674303381584" duration="1230000" />
+      <workItem from="1674322919353" duration="694000" />
+      <workItem from="1674360165195" duration="16983000" />
+      <workItem from="1674378117677" duration="1183000" />
+      <workItem from="1674386069026" duration="5528000" />
     </task>
     <servers />
   </component>

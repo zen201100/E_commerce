@@ -1,11 +1,13 @@
 package service;
 
 import entity.Product;
+import entity.Promotion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import repository.ProductRepository;
+import repository.PromotionRepository;
 
 import java.util.List;
 
@@ -17,6 +19,17 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public List<Product> getAllProduct() {
         return (List<Product>) productRepository.findAll();
+    }
+
+    @Override
+    public List<Product> getListPromotion() {
+        return (List<Product>) productRepository.getListPromotion() ;
+    }
+
+
+    @Override
+    public List<Product> getProductSale() {
+        return (List<Product>) productRepository.getProductSale();
     }
 
     @Override

@@ -104,7 +104,6 @@ body{
 .avata-lg{
     position: relative;
     display: block;
-    cursor: pointer;
 }
 .form-avata{
     width: 40px;
@@ -116,6 +115,10 @@ body{
     width: 38.4px;
     height: 38.4px;
     border: 1px solid #fff;
+    cursor: pointer;
+}
+.name-tt-cn{
+    cursor: pointer;
 }
 
 
@@ -123,19 +126,29 @@ body{
     display: none;
     right: 0;
     transform: translateX(-50px);
-    bottom: -212px;
+    bottom: -397px;
     position: absolute;
-    width: 250px;
-    background: black;
+    width: 330px;
+    background: #0B0F17;
     box-shadow: 0 0 20px rgba(0,0,0,0.9);
-    border-radius: 4px;
     z-index: 10000;
 }
+.form-avata-infor{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.avata-infor{
+    width: 38.4px;
+    height: 38.4px;
+    border:1px solid #ffffff;
+}
 .col-my-account{
-    border-bottom: 1px solid #ffffff;
+    border: 1px solid hsla(0,0%,100%,.12);
 }
 .my-account{
-    padding: 10px 10px 10px;
+    padding: 20px 40px;
     color: #d1d1d1;
 }
 
@@ -374,7 +387,7 @@ body{
 .product-item:hover{
     box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
 }
-.product-item:hover >a .img{
+.product-item:hover >div .img{
     margin: 0;
 }
 .img{
@@ -421,7 +434,7 @@ body{
 }
 .price{
     margin-top: 5px;
-    color: #1a73e8;
+    color: #e10c00;
     font-size: 18px;
     font-weight: bold;
 }
@@ -439,9 +452,8 @@ body{
     display: flex;
 }
 .page-link{
-    background: rgba(0,0,0,0.8);
     padding: 5px;
-    border: 1px solid #ffffff;
+    border: 1px solid hsla(0,0%,100%,.12);
     text-decoration: none;
     color: #ffffff;
     width: 25%;

@@ -1,6 +1,8 @@
 package controller;
 
 import entity.CartItem;
+import entity.Customer;
+import entity.OrderDetails;
 import entity.Product;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.net.CookieStore;
+import java.text.NumberFormat;
 import java.util.*;
 
 @Controller
@@ -40,6 +43,11 @@ public class ShoppingCartController {
 
     @GetMapping(value = "cart")
     public String cart(Model model,@CookieValue(value = "cart",defaultValue = "") String nameProduct){
+
+        Locale localeVN = new Locale("vi", "VN");
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(localeVN);
+        model.addAttribute("currencyFormat",currencyFormat);
+
         model.addAttribute("listProviders",providersService.PROVIDERS());
         model.addAttribute("listTypePhone",typePhoneService.TYPE_PHONES());
         model.addAttribute("listCaparity",capacityService.CAPACITIES());
@@ -49,6 +57,7 @@ public class ShoppingCartController {
     @GetMapping(value = "addItem")
     public String addItem(HttpSession session, @RequestParam(name = "productID")int productID, Model model){
         HashMap<Integer,CartItem> cartItems = (HashMap<Integer, CartItem>) session.getAttribute(("myCartItems"));
+
         if(cartItems==null){
             cartItems = new HashMap<>();
         }
@@ -63,13 +72,15 @@ public class ShoppingCartController {
             else {
                 CartItem item = new CartItem();
                 item.setProduct(product);
+                item.setName(product.getName());
                 item.setQuantity(1);
+                item.setUnitPrice(product.getPrice()-(product.getPrice()*product.getPromotion().getAmount()/100));
                 cartItems.put(productID,item);
             }
         }
         session.setAttribute("myCartItems",cartItems);
         session.setAttribute("myCartNum",cartItems.size());
-        session.setAttribute("myCartTotal",totalPrice(cartItems));
+        session.setAttribute("myCartTotal",shoppingCartService.totalPrice(cartItems));
         return "redirect:cart";
     }
     @GetMapping(value = "removeItem")
@@ -84,7 +95,7 @@ public class ShoppingCartController {
         }
         session.setAttribute("myCartItems",cartItems);
         session.setAttribute("myCartNum",cartItems.size());
-        session.setAttribute("myCartTotal",totalPrice(cartItems));
+        session.setAttribute("myCartTotal",shoppingCartService.totalPrice(cartItems));
         return "redirect:cart";
     }
 
@@ -110,15 +121,9 @@ public class ShoppingCartController {
 
         session.setAttribute("myCartItems",cartItems);
         session.setAttribute("myCartNum",cartItems.size());
-        session.setAttribute("myCartTotal",totalPrice(cartItems));
+        session.setAttribute("myCartTotal",shoppingCartService.totalPrice(cartItems));
         return "redirect:cart";
     }
 
-    public double totalPrice(HashMap<Integer,CartItem> cartItems){
-        int count =0;
-        for (Map.Entry<Integer,CartItem> list : cartItems.entrySet()){
-            count += list.getValue().getProduct().getPrice() * list.getValue().getQuantity();
-        }
-        return count;
-    }
+
 }

@@ -1,6 +1,7 @@
 package entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "product")
@@ -13,6 +14,7 @@ public class Product {
     private String size;
     private double price;
     private String image;
+    private int productSale;
 
     @ManyToOne
     @JoinColumn(name = "capacityID")
@@ -37,17 +39,23 @@ public class Product {
     private TypePhone typePhone;
     @OneToOne(mappedBy = "product")
     private CartItem cartItems;
+    @OneToMany(mappedBy = "product")
+    private List<OrderDetails> orderDetails;
+    @ManyToOne
+    @JoinColumn(name = "promotionID")
+    private Promotion promotion;
 
     public Product() {
     }
 
-    public Product(int id, String name, int quantity, String size, double price, String image, Capacity capacity, Providers providers, Camera camera, Sim sim, Pin pin, Color color, TypePhone typePhone, CartItem cartItems) {
+    public Product(int id, String name, int quantity, String size, double price, String image, int productSale, Capacity capacity, Providers providers, Camera camera, Sim sim, Pin pin, Color color, TypePhone typePhone, CartItem cartItems, List<OrderDetails> orderDetails, Promotion promotion) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
         this.size = size;
         this.price = price;
         this.image = image;
+        this.productSale = productSale;
         this.capacity = capacity;
         this.providers = providers;
         this.camera = camera;
@@ -56,6 +64,8 @@ public class Product {
         this.color = color;
         this.typePhone = typePhone;
         this.cartItems = cartItems;
+        this.orderDetails = orderDetails;
+        this.promotion = promotion;
     }
 
     public int getId() {
@@ -104,6 +114,14 @@ public class Product {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public int getProductSale() {
+        return productSale;
+    }
+
+    public void setProductSale(int productSale) {
+        this.productSale = productSale;
     }
 
     public Capacity getCapacity() {
@@ -168,5 +186,21 @@ public class Product {
 
     public void setCartItems(CartItem cartItems) {
         this.cartItems = cartItems;
+    }
+
+    public List<OrderDetails> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetails> orderDetails) {
+        this.orderDetails = orderDetails;
+    }
+
+    public Promotion getPromotion() {
+        return promotion;
+    }
+
+    public void setPromotion(Promotion promotion) {
+        this.promotion = promotion;
     }
 }

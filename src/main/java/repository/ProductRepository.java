@@ -13,6 +13,12 @@ public interface ProductRepository extends PagingAndSortingRepository<Product,In
     @Query(value="select  * from product ",nativeQuery = true)
     public Page<Product> getPageProduct(Pageable pageable);
 
+    @Query(value="select  * from product inner join promotion on product.promotionID=promotion.id where promotion.amount>0",nativeQuery = true)
+    public List<Product> getListPromotion();
+
+    @Query(value="select  * from product order by productsale desc ",nativeQuery = true)
+    public List<Product> getProductSale();
+
     @Query(value="select  * from product where name like %?1% ",nativeQuery = true)
     public Page<Product> getPageProductByName(String name,Pageable pageable);
     @Query(value="select  * from product where name like %?1% ",nativeQuery = true)

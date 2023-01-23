@@ -61,7 +61,6 @@ body{
 .link-cart{
     text-decoration: none;
 }
-
 .name-cart{
     background: #1a73e8;
     height: 100%;
@@ -96,7 +95,6 @@ body{
     margin-left: 5px;
     color: #ffffff;
 }
-
 .col-acc{
     width: 50%;
 }
@@ -104,7 +102,6 @@ body{
 .avata-lg{
     position: relative;
     display: block;
-    cursor: pointer;
 }
 .form-avata{
     width: 40px;
@@ -116,26 +113,10 @@ body{
     width: 38.4px;
     height: 38.4px;
     border: 1px solid #fff;
+    cursor: pointer;
 }
-
-.form-my-account{
-    display: none;
-    right: 0;
-    transform: translateX(-50px);
-    bottom: -212px;
-    position: absolute;
-    width: 250px;
-    background: black;
-    box-shadow: 0 0 20px rgba(0,0,0,0.9);
-    border-radius: 4px;
-    z-index: 10000;
-}
-.col-my-account{
-    border-bottom: 1px solid #ffffff;
-}
-.my-account{
-    padding: 10px 10px 10px;
-    color: #d1d1d1;
+.name-tt-cn{
+    cursor: pointer;
 }
 
 .head-dow{
@@ -148,14 +129,6 @@ body{
 }
 .row-cd{
     display: flex;
-}
-.name-title{
-    flex-basis: 20%;
-    border-right: 1px solid #e0e0e0;
-    text-align: center;
-}
-.link-head-dow{
-    text-decoration: none;
 }
 
 .name-title{
@@ -320,125 +293,92 @@ body{
     border: 1px solid #1a73e8;
 }
 
-#form-pr{
-    width: 100%;
-    padding-bottom: 25px;
-}
-.provider-pr{
-    display: flex;
-}
-.prov{
-    text-decoration: none;
-    font-size: 14px;
-    color: #1a73e8;
-    padding: 6px 0
-}
-.form-np{
-    padding-bottom: 15px;
-    border-bottom: 1px solid #e0e0e0;
-}
-.name-pr{
-    font-weight: bold;
-    font-size: 20px;
-    color:rgba(0,0,0,0.8);
-}
-.pr-dt{
+
+
+
+.form-information{
     width: 1080px;
     margin: 0 auto;
+    padding: 25px 0;
 }
-.row-pr{
-    padding-top: 10px;
-    width: 1080px;
-    margin: 0 auto;
+.information{
     display: flex;
-    box-sizing: border-box;
+    padding: 30px;
+    background: rgba(0,0,0,0.9);
 }
-.col-l{
-    width: 60%;
-    background: #ffffff;
-    padding-right:5px;
-    margin-right: 5px;
-    border: 1px solid #e0e0e0;
+.inf-l{
+    width: 30%;
 }
-.col-r{
-    width: 40%;
-    background: #ffffff;
-    padding-left: 5px;
-    margin-left: 5px;
-    border: 1px solid #e0e0e0;
+.inf-r{
+    width: 70%;
 }
-.od-pr{
-    padding: 8px;
+.form-infor-acc{
+    padding: 0 50px;
+    border-left: 1px solid hsla(0,0%,100%,.12);
 }
-.gb-cl{
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 12px;
-}
-.g-l{
-    border: 1px solid #e0e0e0;
-    padding: 7px 12px;
-    margin-right: 4px;
-    text-decoration: none;
-    color: #333;
-}
-.g-l:hover{
-    border: 1px solid #1a73e8;
-    color: #1a73e8;
-}
-.price{
-    font-size: 20px;
-    color: #1a73e8;
-    font-weight: bold;
-}
-.cf-pr{
-    border: 1px solid #e0e0e0;
-}
-.form-config{
-    width: 100%;
-    padding-top: 15px;
-}
-.col-config{
-    background: #f3f3f3;
-    padding: 10px 5px;
-    display: flex;
-    box-sizing: border-box;
-}
-.config-l{
-    width:35%;
-}
-.config-r{
-    width: 65%;
-}
-.config-name{
-    font-size: 20px;
-    font-weight: bold;
-    padding: 6px 0;
-}
-.form-buynow{
+
+.col-i-f{
     width: 100%;
 }
-.row-buynow{
-    padding-top: 10px;
-}
-.buynow{
-    text-align: center;
-    padding: 15px 0;
-    background: #1a73e8;
-    font-size: 15px;
-    font-weight: bold;
-    color: #ffffff;
-}
-.buy-now{
-    text-decoration: none;
-}
-.buynow:hover{
-    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5);
-    color: rgba(0,0,0,0.8);
-}
-.config-ct {
+.col-view-tt{
     width: 100%;
 }
+
+.row-tt{
+    padding: 15px 30px;
+    color: #e0e0e0;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-right: 15px;
+}
+.row-inf{
+    padding: 15px;
+    color: #e0e0e0;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 0 15px;
+}
+.row-inf:hover{
+    background: linear-gradient(90deg,hsla(0,0%,100%,.16),hsla(0,0%,100%,0));
+}
+
+.row-tt-cn{
+    padding: 15px 30px;
+    color: #e0e0e0;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.row-infor{
+    padding: 15px 30px;
+    color: #e0e0e0;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.form-tt-cn{
+    border-radius: 4px;
+    margin-right: 15px;
+}
+.form-tt-cn:hover{
+    background: linear-gradient(90deg,hsla(0,0%,100%,.16),hsla(0,0%,100%,0));
+}
+.row-tt:hover{
+    background: linear-gradient(90deg,hsla(0,0%,100%,.16),hsla(0,0%,100%,0));
+}
+.row-tt-cn:hover{
+    background: linear-gradient(90deg,hsla(0,0%,100%,.16),hsla(0,0%,100%,0));
+}
+
+
+
+
+
+
+
+
 #form-footer{
     border-top: 1px solid #e0e0e0;
     background: #fff;
@@ -474,4 +414,96 @@ body{
     color: #666;
     padding: 20px 0;
     font-size: 13px;
+}
+
+.form-my-account{
+    display: none;
+    right: 0;
+    transform: translateX(-50px);
+    bottom: -397px;
+    position: absolute;
+    width: 330px;
+    background: #0B0F17;
+    box-shadow: 0 0 20px rgba(0,0,0,0.9);
+    z-index: 10000;
+}
+.form-avata-infor{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.avata-infor{
+    width: 38.4px;
+    height: 38.4px;
+    border:1px solid #ffffff;
+}
+.col-my-account{
+    border: 1px solid hsla(0,0%,100%,.12);
+}
+.my-account{
+    padding: 20px 40px;
+    color: #d1d1d1;
+}
+.form-tt{
+    display: none;
+}
+.infor-avata{
+    border-radius: 10px;
+    border: 1px solid hsla(0,0%,100%,.12);
+    padding: 20px;
+}
+.row-update-inf{
+    display: flex;
+    padding-bottom: 20px;
+    border-bottom: 1px solid hsla(0,0%,100%,.12);
+}
+.col-upd-ava{
+    width: 10%;
+}
+.col-upd-name{
+    width: 60%;
+}
+.col-update{
+    width: 30%;
+    padding: 10px 20px;
+}
+.avata-logo{
+    width: 49px;
+    height: 49px;
+    border: 1px solid #fff;
+}
+.uptate-tt{
+    padding: 10px;
+    color: #e0e0e0;
+    border-radius: 10px;
+    background: #3a3e64;
+    text-align: center;
+}
+.form-money-dt{
+    padding-top:25px ;
+    height: 100px;
+    display: flex;
+}
+.money-l{
+    width: 50%;
+    margin-right: 10px;
+    border: 1px solid hsla(0,0%,100%,.12);
+    border-radius: 10px;
+    padding: 20px;
+}
+.dd-r{
+    width: 50%;
+    margin-left: 10px;
+    border: 1px solid hsla(0,0%,100%,.12);
+    border-radius: 10px;
+    padding: 20px;
+}
+.form-khohang{
+    padding-top: 25px;
+}
+.khohang{
+    border: 1px solid hsla(0,0%,100%,.12);
+    height: 100px;
+    border-radius: 10px;
 }

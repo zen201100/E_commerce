@@ -18,4 +18,14 @@ import java.util.*;
 @Service(value = "shoppingCartService")
 public class ShoppingCartServiceImpl implements ShoppingCartService{
 
+    @Override
+    public double totalPrice(HashMap<Integer, CartItem> cartItems) {
+        int count =0;
+        for (Map.Entry<Integer,CartItem> list : cartItems.entrySet()){
+            count += (list.getValue().getProduct().getPrice()-
+                    (list.getValue().getProduct().getPrice()*list.getValue().getProduct().getPromotion().getAmount()/100))
+                    * list.getValue().getQuantity();
+        }
+        return count;
+    }
 }

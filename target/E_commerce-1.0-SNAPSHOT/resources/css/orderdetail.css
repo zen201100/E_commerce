@@ -102,7 +102,6 @@ body{
 .avata-lg{
     position: relative;
     display: block;
-    cursor: pointer;
 }
 .form-avata{
     width: 40px;
@@ -114,6 +113,10 @@ body{
     width: 38.4px;
     height: 38.4px;
     border: 1px solid #fff;
+    cursor: pointer;
+}
+.name-tt-cn{
+    cursor: pointer;
 }
 
 .head-dow{
@@ -291,9 +294,6 @@ body{
 }
 
 
-
-
-
 .form-information{
     width: 1080px;
     margin: 0 auto;
@@ -301,21 +301,21 @@ body{
 }
 .information{
     display: flex;
+    padding: 30px;
     background: rgba(0,0,0,0.9);
 }
 .inf-l{
     width: 30%;
-    padding: 30px 0 30px 15px;
 }
 .inf-r{
     width: 70%;
-    padding: 30px;
+}
+.form-infor-oddt{
+    padding: 0 50px;
+    border-left: 1px solid hsla(0,0%,100%,.12);
 }
 
 .col-i-f{
-    width: 100%;
-}
-.col-view-tt{
     width: 100%;
 }
 
@@ -367,11 +367,82 @@ body{
     background: linear-gradient(90deg,hsla(0,0%,100%,.16),hsla(0,0%,100%,0));
 }
 
-
-
-
-
-
+.form-my-account{
+    display: none;
+    right: 0;
+    transform: translateX(-50px);
+    bottom: -397px;
+    position: absolute;
+    width: 330px;
+    background: #0B0F17;
+    box-shadow: 0 0 20px rgba(0,0,0,0.9);
+    z-index: 10000;
+}
+.form-avata-infor{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.avata-infor{
+    width: 38.4px;
+    height: 38.4px;
+    border:1px solid #ffffff;
+}
+.col-my-account{
+    border: 1px solid hsla(0,0%,100%,.12);
+}
+.my-account{
+    padding: 20px 40px;
+    color: #d1d1d1;
+}
+.form-tt{
+    display: none;
+}
+.name-orhis{
+    font-size: 25px;
+    color: #ffffff;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+.form-order-detail{
+    border: 1px solid hsla(0,0%,100%,.12);
+    padding: 15px 25px;
+    display: flex;
+}
+.infor-transport{
+    color: #e0e0e0;
+}
+.col-name-product{
+    flex-basis: 55%;
+    display: flex;
+}
+.img-product{
+    width: 20%;
+    padding-right: 10px;
+}
+.row-product{
+    width: 80%;
+}
+.col-infor{
+    margin: 5px 0;
+    color: #1a73e8;
+    font-size: 15px;
+}
+.col-tt-price{
+    width: 45%;
+    display: flex;
+}
+.name-oddt{
+    font-size: 17px;
+    font-weight: bold;
+    color: #ffe818;
+}
+.col-infor-od{
+    border: 1px solid hsla(0,0%,100%,.12);
+    padding: 15px 25px;
+    display: flex;
+}
 
 
 #form-footer{
@@ -409,86 +480,4 @@ body{
     color: #666;
     padding: 20px 0;
     font-size: 13px;
-}
-
-.form-my-account{
-    display: none;
-    right: 0;
-    transform: translateX(54px);
-    bottom: -212px;
-    position: absolute;
-    width: 250px;
-    background: black;
-    box-shadow: 0 0 20px rgba(0,0,0,0.9);
-    border-radius: 4px;
-    z-index: 10000;
-}
-.col-my-account{
-    border-bottom: 1px solid #ffffff;
-}
-.my-account{
-    padding: 10px 10px 10px;
-    color: #d1d1d1;
-}
-.form-tt{
-    display: none;
-}
-.infor-avata{
-    border-radius: 10px;
-    border: 1px solid #e0e0e0;
-    padding: 20px;
-}
-.row-update-inf{
-    display: flex;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ffff;
-}
-.col-upd-ava{
-    width: 10%;
-}
-.col-upd-name{
-    width: 65%;
-}
-.col-update{
-    width: 25%;
-    padding: 10px 20px;
-}
-.avata-logo{
-    width: 49px;
-    height: 49px;
-    border: 1px solid #fff;
-}
-.uptate-tt{
-    padding: 10px;
-    color: #e0e0e0;
-    border-radius: 10px;
-    background: #3a3e64;
-    text-align: center;
-}
-.form-money-dt{
-    padding-top:25px ;
-    height: 100px;
-    display: flex;
-}
-.money-l{
-    width: 50%;
-    margin-right: 10px;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 20px;
-}
-.dd-r{
-    width: 50%;
-    margin-left: 10px;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 20px;
-}
-.form-khohang{
-    padding-top: 25px;
-}
-.khohang{
-    border: 1px solid #e0e0e0;
-    height: 100px;
-    border-radius: 10px;
 }

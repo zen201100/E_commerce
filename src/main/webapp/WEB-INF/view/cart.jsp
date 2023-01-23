@@ -73,20 +73,35 @@
                                                 </c:choose>
                                             </div>
                                             <div class="form-my-account">
+                                                <div class="col-my-account" style="display: flex;padding: 20px">
+                                                    <div>
+                                                        <div class="form-avata-infor">
+                                                            <a href=""><div class="avata-infor"></div></a>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div style="color: #e0e0e0;padding-left:10px;padding-bottom: 4px">
+                                                            UserID : ${sessionScope.customer.id}
+                                                        </div>
+                                                        <div style="color: #e0e0e0;padding-left:10px">
+                                                                ${sessionScope.customer.fullName.trim()}
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="myAccount">
                                                     <div class="my-account">Tài khoản của tôi</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="">
                                                     <div class="my-account">Kho hàng</div>
                                                 </a></div>
-                                                <div class="col-my-account"><a style="text-decoration: none" href="">
+                                                <div class="col-my-account"><a style="text-decoration: none" href="orderHistory">
                                                     <div class="my-account">Lịch sử đặt hàng</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="">
                                                     <div class="my-account">Sảm phẩm yêu thích</div>
                                                 </a></div>
-                                                <div class="col-my-account" ><a style="text-decoration: none" href="logoutAccount">
-                                                    <div class="my-account" style="color: #1a73e8">Đăng xuất</div>
+                                                <div class="col-my-account" style="border: 0" ><a style="text-decoration: none" href="logoutAccount">
+                                                    <div class="my-account" style="color: #ffe818">Đăng xuất</div>
                                                 </a></div>
                                             </div>
                                         </div>
@@ -179,7 +194,7 @@
                                     </div>
                                 </div>
                                 <div class="col-cart">
-                                    <div style="color: #333333;float: left;padding-top: 30px">${c.value.product.price} <strong style="color: #1a73e8">đ</strong></div>
+                                    <div style="color: #333333;float: left;padding-top: 30px">${currencyFormat.format(c.value.unitPrice)}</div>
                                 </div>
                                 <div class="col-cart">
                                     <div class="quantity">
@@ -220,7 +235,7 @@
                         <div class="total-product">
                             <div class="size-cart">Tạm tính (${sessionScope.myCartNum} sản phầm)</div>
                             <div class="total-price">
-                                <div style="float: right;font-weight: bold">Thành tiền: <strong style="color: #dd0000">${sessionScope.myCartTotal}</strong> đ</div>
+                                <div style="float: right;font-weight: bold">Thành tiền: <span style="color: #dd0000">${currencyFormat.format(sessionScope.myCartTotal)}</span></div>
                             </div>
                         </div>
                         <div class="infor-order">
@@ -229,19 +244,19 @@
                                 <div class="infor-numberphone">
                                     <div class="infor-name"><input class="input-infor-number" type="text" name="name" placeholder="Họ và Tên"
                                                                    value="${sessionScope.customer.fullName}"></div>
-                                    <div class="infor-number"><input class="input-infor-number" type="text" name="numberphone" placeholder="Số điện thoại"
+                                    <div class="infor-number"><input class="input-infor-number" type="text" name="phone" placeholder="Số điện thoại"
                                                                      value="${sessionScope.customer.phone}"></div>
                                 </div>
                                 <div class="place-cart">
                                     <div>Chọn địa chỉ để biết thời gian nhận hàng và phí vận chuyển (nếu có)</div>
                                     <div class="row-address">
-                                        <div class="addess-phuong"><input class="input-address" type="text" name="thanhpho" placeholder="Thành phố"
+                                        <div class="addess-phuong"><input class="input-address" type="text" name="city" placeholder="Thành phố"
                                                                           value="${sessionScope.customer.city}"></div>
-                                        <div class="addess-huyen"><input class="input-address" type="text" name="quan" placeholder="Quận / Huyện"
+                                        <div class="addess-huyen"><input class="input-address" type="text" name="district" placeholder="Quận / Huyện"
                                                                          value="${sessionScope.customer.district}"></div>
                                     </div>
                                     <div class="row-address">
-                                        <div class="addess-phuong"><input class="input-address" type="text" name="phuong" placeholder="Phường / Xã"
+                                        <div class="addess-phuong"><input class="input-address" type="text" name="ward" placeholder="Phường / Xã"
                                                                           value="${sessionScope.customer.ward}"></div>
                                         <div class="addess-huyen"><input class="input-address" type="text" name="address" placeholder="Số nhà, tên đường"
                                                                          value="${sessionScope.customer.address}"></div>
@@ -265,8 +280,6 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <input type="hidden" name="totalPrice" value="${sessionScope.myCartTotal}" readonly="true">
-                                        <input type="hidden" name="customerID" value="${sessionScope.customer.id}" readonly="true">
                                         <input class="submit-order" type="submit" value="ĐẶT HÀNG">
                                     </div>
                                 </div>
@@ -333,6 +346,6 @@
             </div>
         </div>
     </div>
-    <script src="${pageContext.request.contextPath}/resources/js/information.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jsinformation.js"></script>
 </body>
 </html>

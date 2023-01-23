@@ -115,7 +115,6 @@
         .avata-lg{
             position: relative;
             display: block;
-            cursor: pointer;
         }
         .form-avata{
             width: 40px;
@@ -127,6 +126,10 @@
             width: 38.4px;
             height: 38.4px;
             border: 1px solid #fff;
+            cursor: pointer;
+        }
+        .name-tt-cn{
+            cursor: pointer;
         }
 
         .head-dow{
@@ -312,17 +315,19 @@
         }
         .information{
             display: flex;
+            padding: 30px;
             background: rgba(0,0,0,0.9);
         }
         .inf-l{
             width: 30%;
-            padding: 30px 0 30px 15px;
         }
         .inf-r{
             width: 70%;
-            padding: 30px;
         }
-
+        .form-change-password{
+            padding: 0 50px;
+            border-left: 1px solid hsla(0,0%,100%,.12);
+        }
         .col-i-f{
             width: 100%;
         }
@@ -386,7 +391,7 @@
         }
         .row-change-password{
             display: flex;
-            padding-bottom: 20px;
+            padding-bottom: 30px;
         }
         .change-password-l{
             width: 30%;
@@ -397,7 +402,7 @@
         .name-password{
             font-size: 15px;
             color: #ffffff;
-            padding: 15px 0;
+            transform: translateY(20px);
         }
         .name-kyty{
             font-size: 14px;
@@ -406,20 +411,20 @@
         }
         .input-password{
             width: 350px;
-            padding: 15px;
+            padding: 20px;
             color: #ffffff;
             outline: 0;
             border: 0;
             background: transparent;
-            border-radius: 4px;
-            border: 1px solid #ffffff;
+            border-radius: 5px;
+            border: 1px solid hsla(0,0%,100%,.12);
         }
         .submit-change-pass{
             width: 350px;
-            padding: 15px;
+            padding: 20px;
             outline: 0;
             border: 0;
-            border-radius: 4px;
+            border-radius: 5px;
             color: #ffffff;
             background: #1a73e8;
             cursor: pointer;
@@ -476,20 +481,30 @@
         .form-my-account{
             display: none;
             right: 0;
-            transform: translateX(54px);
-            bottom: -212px;
+            transform: translateX(-50px);
+            bottom: -397px;
             position: absolute;
-            width: 250px;
-            background: black;
+            width: 330px;
+            background: #0B0F17;
             box-shadow: 0 0 20px rgba(0,0,0,0.9);
-            border-radius: 4px;
             z-index: 10000;
         }
+        .form-avata-infor{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .avata-infor{
+            width: 38.4px;
+            height: 38.4px;
+            border:1px solid #ffffff;
+        }
         .col-my-account{
-            border-bottom: 1px solid #ffffff;
+            border: 1px solid hsla(0,0%,100%,.12);
         }
         .my-account{
-            padding: 10px 10px 10px;
+            padding: 20px 40px;
             color: #d1d1d1;
         }
         .form-tt{
@@ -498,7 +513,6 @@
         }
 
     </style>
-    <%--    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/myaccount.css" type="text/css"/>--%>
     <title>Change Password</title>
 </head>
 <body>
@@ -549,7 +563,7 @@
                                                     </div>
                                                 </div>
                                                 <c:choose>
-                                                    <c:when test="${sessionScope.khoangtrong<=1}">
+                                                    <c:when test="${sessionScope.khoangtrong == 0}">
                                                         <div class="name-tt-cn" style="color: #e0e0e0;padding: 11px">
                                                                 ${sessionScope.customer.fullName}
                                                         </div>
@@ -562,20 +576,35 @@
                                                 </c:choose>
                                             </div>
                                             <div class="form-my-account">
+                                                <div class="col-my-account" style="display: flex;padding: 20px 40px">
+                                                    <div>
+                                                        <div class="form-avata-infor">
+                                                            <a href="updateInformation"><div class="avata-infor"></div></a>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="userid-name" style="color: #e0e0e0;padding-left:10px;padding-bottom: 4px">
+                                                            UserID : ${sessionScope.customer.id}
+                                                        </div>
+                                                        <div class="userid-name" style="color: #e0e0e0;padding-left:10px">
+                                                                ${sessionScope.customer.fullName.trim()}
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="myAccount">
-                                                    <div class="my-account">Tài khoản của tôi </div>
+                                                    <div class="my-account">Tài khoản của tôi</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="">
                                                     <div class="my-account">Kho hàng</div>
                                                 </a></div>
-                                                <div class="col-my-account"><a style="text-decoration: none" href="">
+                                                <div class="col-my-account"><a style="text-decoration: none" href="orderHistory">
                                                     <div class="my-account">Lịch sử đặt hàng</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="">
                                                     <div class="my-account">Sảm phẩm yêu thích</div>
                                                 </a></div>
-                                                <div class="col-my-account" ><a style="text-decoration: none" href="logoutAccount">
-                                                    <div class="my-account" style="color: #1a73e8">Đăng xuất</div>
+                                                <div class="col-my-account"><a style="text-decoration: none" href="logoutAccount">
+                                                    <div class="my-account" style="color: #ffe818">Đăng xuất</div>
                                                 </a></div>
                                             </div>
                                         </div>
@@ -653,24 +682,23 @@
         <div class="form-information">
             <div class="information">
                 <div class="inf-l">
-                    <div style="border-right: 1px solid #e0e0e0;height: 475px">
-                        <div class="col-i-f">
-                            <div class="form-tt-cn">
-                                <div class="row-tt-cn"> Tài khoản của tôi <span style="float: right">&#10010;</span></div>
-                                <div class="form-tt">
-                                    <div class="row-infor"> Tài khoản của tôi <span style="float: right">&#10010;</span></div>
-                                    <a style="text-decoration: none" href="myAccount"><div class="row-inf">Thông tin cá nhân</div></a>
-                                    <a style="text-decoration: none" href="changePassword"><div class="row-inf"  style="background: linear-gradient(90deg,hsla(0,0%,100%,.16),hsla(0,0%,100%,0))">Đổi mật khẩu</div></a>
-                                    <a style="text-decoration: none" href=""><div class="row-inf">Lịch sử đăng nhập</div></a>
-                                </div>
-
+                    <div class="col-i-f">
+                        <div class="form-tt-cn">
+                            <div class="row-tt-cn"> Tài khoản của tôi <span style="float: right">&#10010;</span></div>
+                            <div class="form-tt">
+                                <div class="row-infor"> Tài khoản của tôi <span style="float: right">&#10010;</span></div>
+                                <a style="text-decoration: none" href="myAccount"><div class="row-inf">Thông tin cá nhân</div></a>
+                                <a style="text-decoration: none" href="changePassword"><div class="row-inf"  style="background: linear-gradient(90deg,hsla(0,0%,100%,.16),hsla(0,0%,100%,0))">Đổi mật khẩu</div></a>
+                                <a style="text-decoration: none" href=""><div class="row-inf">Lịch sử đăng nhập</div></a>
                             </div>
-                            <a style="text-decoration: none" href=""><div class="row-tt"> Đổi điểm</div></a>
-                            <a style="text-decoration: none" href=""><div class="row-tt"> Kho Voucher</div></a>
-                            <a style="text-decoration: none" href=""><div class="row-tt"> Nạp tiền</div></a>
-                            <a style="text-decoration: none" href=""><div class="row-tt"> Kho Hàng</div></a>
-                            <a style="text-decoration: none" href=""><div class="row-tt"> Sảng phẩm yêu thích</div></a>
+
                         </div>
+                        <a style="text-decoration: none" href=""><div class="row-tt"> Đổi điểm</div></a>
+                        <a style="text-decoration: none" href=""><div class="row-tt"> Kho Voucher</div></a>
+                        <a style="text-decoration: none" href=""><div class="row-tt"> Nạp tiền</div></a>
+                        <a style="text-decoration: none" href="orderHistory"><div class="row-tt"> Lịch sử đặt hàng</div></a>
+                        <a style="text-decoration: none" href=""><div class="row-tt"> Kho Hàng</div></a>
+                        <a style="text-decoration: none" href=""><div class="row-tt"> Sảng phẩm yêu thích</div></a>
                     </div>
                 </div>
                 <div class="inf-r">
@@ -683,31 +711,21 @@
                                     <div class="name-password">Mật khẩu hiện tại</div>
                                 </div>
                                 <div class="change-password-r">
-                                    <input type="hidden" name="userName" value="${sessionScope.customer.userName}">
                                     <input class="input-password" name="password" type="password">
+                                    <c:if test="${sessionScope.passnull !=null}">
+                                        <div style="color: red;font-size: 14px;padding: 5px 0">${sessionScope.passnull}</div>
+                                    </c:if>
                                     <c:if test="${sessionScope.errorpass !=null}">
-                                        <div style="color: red;font-size: 14px;padding: 5px 0">
-                                                ${sessionScope.errorpass}
-                                        </div>
+                                        <div style="color: red;font-size: 14px;padding: 5px 0">${sessionScope.errorpass}</div>
                                     </c:if>
                                 </div>
                             </div>
                             <div class="row-change-password">
                                 <div class="change-password-l">
-                                    <div class="name-password" style="transform: translateY(32px)">Mật khẩu mới</div>
+                                    <div class="name-password" style="transform: translateY(55px)">Mật khẩu mới</div>
                                 </div>
                                 <div class="change-password-r">
                                     <input class="input-password" name="password1" type="password">
-                                    <c:if test="${sessionScope.errornewpass  !=null}">
-                                        <div style="color: red;font-size: 14px;padding: 5px 0">
-                                                ${sessionScope.errornewpass}
-                                        </div>
-                                    </c:if>
-                                    <c:if test="${sessionScope.mkkt !=null}">
-                                        <div style="color: red;font-size: 14px;padding: 5px 0">
-                                                ${sessionScope.mkkt}
-                                        </div>
-                                    </c:if>
                                     <div class="name-kyty"><span>&#10003; </span>Gồm 6 ~ 20 ký tự</div>
                                     <div class="name-kyty"><span>&#10003; </span>Gồm ký tự in hoa, in thường và số</div>
                                     <div class="name-kyty"><span>&#10003; </span>Gồm ký tự đặc biệt</div>
@@ -719,11 +737,8 @@
                                 </div>
                                 <div class="change-password-r">
                                     <input class="input-password" name="password2" type="password">
-
-                                    <c:if test="${sessionScope.errornewpass1 !=null}">
-                                        <div style="color: red;font-size: 14px;padding: 5px 0">
-                                                ${sessionScope.errornewpass1}
-                                        </div>
+                                    <c:if test="${sessionScope.errornewpass !=null}">
+                                        <div style="color: red;font-size: 14px;padding: 5px 0">${sessionScope.errornewpass}</div>
                                     </c:if>
                                 </div>
                             </div>
@@ -801,7 +816,7 @@
             </div>
         </div>
     </div>
-    <script src="${pageContext.request.contextPath}/resources/js/information.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jsinformation.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/myaccount.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/nametitle.js"></script>
 </body>

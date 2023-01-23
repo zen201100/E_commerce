@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/myaccount.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/stylemyaccount.css" type="text/css"/>
     <title>Information</title>
 </head>
 <body>
@@ -73,20 +73,35 @@
                                                 </c:choose>
                                             </div>
                                             <div class="form-my-account">
+                                                <div class="col-my-account" style="display: flex;padding: 20px 40px">
+                                                    <div>
+                                                        <div class="form-avata-infor">
+                                                            <a href="updateInformation"><div class="avata-infor"></div></a>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <div class="userid-name" style="color: #e0e0e0;padding-left:10px;padding-bottom: 4px">
+                                                            UserID : ${sessionScope.customer.id}
+                                                        </div>
+                                                        <div class="userid-name" style="color: #e0e0e0;padding-left:10px">
+                                                                ${sessionScope.customer.fullName.trim()}
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="myAccount">
-                                                    <div class="my-account">Tài khoản của tôi </div>
+                                                    <div class="my-account">Tài khoản của tôi</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="">
                                                     <div class="my-account">Kho hàng</div>
                                                 </a></div>
-                                                <div class="col-my-account"><a style="text-decoration: none" href="">
+                                                <div class="col-my-account"><a style="text-decoration: none" href="orderHistory">
                                                     <div class="my-account">Lịch sử đặt hàng</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="">
                                                     <div class="my-account">Sảm phẩm yêu thích</div>
                                                 </a></div>
-                                                <div class="col-my-account" ><a style="text-decoration: none" href="logoutAccount">
-                                                    <div class="my-account" style="color: #1a73e8">Đăng xuất</div>
+                                                <div class="col-my-account"><a style="text-decoration: none" href="logoutAccount">
+                                                    <div class="my-account" style="color: #ffe818">Đăng xuất</div>
                                                 </a></div>
                                             </div>
                                         </div>
@@ -164,64 +179,65 @@
         <div class="form-information">
             <div class="information">
                 <div class="inf-l">
-                    <div style="border-right: 1px solid #e0e0e0;height: 450px">
-                        <div class="col-i-f">
-                            <div class="form-tt-cn">
-                                <div class="row-tt-cn"> Tài khoản của tôi <span style="float: right">&#10010;</span></div>
-                                <div class="form-tt">
-                                    <div class="row-infor"> Tài khoản của tôi <span style="float: right">&#10010;</span></div>
-                                    <a style="text-decoration: none" href="myAccount"><div class="row-inf" style="background: linear-gradient(90deg,hsla(0,0%,100%,.16),hsla(0,0%,100%,0));">Thông tin cá nhân</div></a>
-                                    <a style="text-decoration: none" href="changePassword"><div class="row-inf">Đổi mật khẩu</div></a>
-                                    <a style="text-decoration: none" href=""><div class="row-inf">Lịch sử đăng nhập</div></a>
-                                </div>
-
+                    <div class="col-i-f">
+                        <div class="form-tt-cn">
+                            <div class="row-tt-cn"> Tài khoản của tôi <span style="float: right">&#10010;</span></div>
+                            <div class="form-tt">
+                                <div class="row-infor"> Tài khoản của tôi <span style="float: right">&#10010;</span></div>
+                                <a style="text-decoration: none" href="myAccount"><div class="row-inf" style="background: linear-gradient(90deg,hsla(0,0%,100%,.16),hsla(0,0%,100%,0));">Thông tin cá nhân</div></a>
+                                <a style="text-decoration: none" href="changePassword"><div class="row-inf">Đổi mật khẩu</div></a>
+                                <a style="text-decoration: none" href=""><div class="row-inf">Lịch sử đăng nhập</div></a>
                             </div>
-                            <a style="text-decoration: none" href=""><div class="row-tt"> Đổi điểm</div></a>
-                            <a style="text-decoration: none" href=""><div class="row-tt"> Kho Voucher</div></a>
-                            <a style="text-decoration: none" href=""><div class="row-tt"> Nạp tiền</div></a>
-                            <a style="text-decoration: none" href=""><div class="row-tt"> Kho Hàng</div></a>
-                            <a style="text-decoration: none" href=""><div class="row-tt"> Sảng phẩm yêu thích</div></a>
+
                         </div>
+                        <a style="text-decoration: none" href=""><div class="row-tt"> Đổi điểm</div></a>
+                        <a style="text-decoration: none" href=""><div class="row-tt"> Kho Voucher</div></a>
+                        <a style="text-decoration: none" href=""><div class="row-tt"> Nạp tiền</div></a>
+                        <a style="text-decoration: none" href="orderHistory"><div class="row-tt"> Lịch sử đặt hàng</div></a>
+                        <a style="text-decoration: none" href=""><div class="row-tt"> Kho Hàng</div></a>
+                        <a style="text-decoration: none" href=""><div class="row-tt"> Sảng phẩm yêu thích</div></a>
                     </div>
+
                 </div>
                 <div class="inf-r">
-                    <div class="col-view-tt">
-                        <div class="infor-avata">
-                            <div class="row-update-inf">
-                                <div class="col-upd-ava">
-                                    <div style="border-radius:50%;overflow: hidden;width: 50.6px">
-                                        <div class="avata-logo"></div>
+                    <div class="form-infor-acc">
+                        <div class="col-view-tt">
+                            <div class="infor-avata">
+                                <div class="row-update-inf">
+                                    <div class="col-upd-ava">
+                                        <div style="border-radius:50%;overflow: hidden;width: 50.6px">
+                                            <div class="avata-logo"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-upd-name" style="padding: 8px">
+                                        <div style="color: #e0e0e0">UserID : ${sessionScope.customer.id}</div>
+                                        <div style="color: #e0e0e0">${sessionScope.customer.fullName}</div>
+                                    </div>
+                                    <div class="col-update">
+                                        <a style="text-decoration: none" href="updateInformation"><div class="uptate-tt">Cập nhật thông tin</div></a>
                                     </div>
                                 </div>
-                                <div class="col-upd-name" style="padding: 8px">
-                                    <div style="color: #e0e0e0">UserID : ${sessionScope.customer.id}</div>
-                                    <div style="color: #e0e0e0">${sessionScope.customer.fullName}</div>
-                                </div>
-                                <div class="col-update">
-                                    <a style="text-decoration: none" href="updateInformation"><div class="uptate-tt">Cập nhật thông tin</div></a>
+                                <div class="row-tt-email">
+                                    <div style="color: #e0e0e0;margin-top: 20px"><span>&#9993; </span>${sessionScope.customer.email} <span>&#10003;</span></div>
+                                    <div style="color: #e0e0e0"><span>&#9990; </span> ${sessionScope.customer.phone}</div>
                                 </div>
                             </div>
-                            <div class="row-tt-email">
-                                <div style="color: #e0e0e0;margin-top: 20px"><span>&#9993; </span>${sessionScope.customer.email} <span>&#10003;</span></div>
-                                <div style="color: #e0e0e0"><span>&#9990; </span> ${sessionScope.customer.phone}</div>
+                        </div>
+
+                        <div class="form-money-dt">
+                            <div class="money-l">
+                                <div style="color: #e0e0e0">Số dư hiện tại</div>
+                            </div>
+                            <div class="dd-r">
+                                <div style="color: #e0e0e0">Điểm thưởng</div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-money-dt">
-                        <div class="money-l">
-                            <div style="color: #e0e0e0">Số dư hiện tại</div>
+                        <div class="form-khohang"><div class="khohang"><d/>
                         </div>
-                        <div class="dd-r">
-                            <div style="color: #e0e0e0">Điểm thưởng</div>
-                        </div>
-                    </div>
 
-                    <div class="form-khohang">
-                        <div class="khohang"><d/>
                     </div>
                 </div>
-            </div>
 
             </div>
         </div>
@@ -288,7 +304,7 @@
             </div>
         </div>
     </div>
-    <script src="${pageContext.request.contextPath}/resources/js/information.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jsinformation.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/myaccount.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/nametitle.js"></script>
 </body>

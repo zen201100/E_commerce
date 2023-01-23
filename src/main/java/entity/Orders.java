@@ -12,20 +12,29 @@ public class Orders {
     private int Id;
     private LocalDate date;
     private String note;
+    private int totalProduct;
     private double totalPrice;
     @ManyToOne
     @JoinColumn(name = "customerID")
     private Customer customer;
+    @OneToOne(mappedBy = "orders")
+    private Transport transport;
+    @OneToMany(mappedBy = "orders")
+    private List<OrderDetails> orderDetails;
+
 
     public Orders() {
     }
 
-    public Orders(int id, LocalDate date, String note, double totalPrice, Customer customer) {
+    public Orders(int id, LocalDate date, String note, int totalProduct, double totalPrice, Customer customer, Transport transport, List<OrderDetails> orderDetails) {
         Id = id;
         this.date = date;
         this.note = note;
+        this.totalProduct = totalProduct;
         this.totalPrice = totalPrice;
         this.customer = customer;
+        this.transport = transport;
+        this.orderDetails = orderDetails;
     }
 
     public int getId() {
@@ -52,6 +61,14 @@ public class Orders {
         this.note = note;
     }
 
+    public int getTotalProduct() {
+        return totalProduct;
+    }
+
+    public void setTotalProduct(int totalProduct) {
+        this.totalProduct = totalProduct;
+    }
+
     public double getTotalPrice() {
         return totalPrice;
     }
@@ -66,5 +83,21 @@ public class Orders {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public Transport getTransport() {
+        return transport;
+    }
+
+    public void setTransport(Transport transport) {
+        this.transport = transport;
+    }
+
+    public List<OrderDetails> getOrderDetails() {
+        return orderDetails;
+    }
+
+    public void setOrderDetails(List<OrderDetails> orderDetails) {
+        this.orderDetails = orderDetails;
     }
 }

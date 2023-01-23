@@ -38,7 +38,7 @@ window.addEventListener("load",function (){
         }
         else if (direction == -1){
             index--;
-            postionX=postionX + sliderItemWidth
+            postionX=postionX + sliderItemWidth;
             if(index <0){
                 index = slidesLength-1;
                 postionX= -(sliderItemWidth * index);
