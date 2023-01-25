@@ -21,12 +21,13 @@ public class Orders {
     private Transport transport;
     @OneToMany(mappedBy = "orders")
     private List<OrderDetails> orderDetails;
-
+    @OneToOne(mappedBy = "orders")
+    private Payment payment;
 
     public Orders() {
     }
 
-    public Orders(int id, LocalDate date, String note, int totalProduct, double totalPrice, Customer customer, Transport transport, List<OrderDetails> orderDetails) {
+    public Orders(int id, LocalDate date, String note, int totalProduct, double totalPrice, Customer customer, Transport transport, List<OrderDetails> orderDetails, Payment payment) {
         Id = id;
         this.date = date;
         this.note = note;
@@ -35,6 +36,7 @@ public class Orders {
         this.customer = customer;
         this.transport = transport;
         this.orderDetails = orderDetails;
+        this.payment = payment;
     }
 
     public int getId() {
@@ -99,5 +101,13 @@ public class Orders {
 
     public void setOrderDetails(List<OrderDetails> orderDetails) {
         this.orderDetails = orderDetails;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
     }
 }

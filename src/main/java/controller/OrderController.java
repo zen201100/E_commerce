@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import repository.CustomerRepository;
 import service.*;
 
 import javax.servlet.http.HttpSession;
@@ -31,13 +32,15 @@ public class OrderController {
     private OrderService orderService;
     @Autowired
     private ShoppingCartService shoppingCartService;
+    @Autowired
+    private CustomerRepository customerRepository;
 
 
     @PostMapping(value = "inforOrder")
     public String getInforOrder(HttpSession session, Model model,@RequestParam(name = "name") String name,
                                 @RequestParam(name = "phone") String phone,@RequestParam(name ="city") String city,
                                 @RequestParam(name = "district") String district,@RequestParam(name = "ward") String ward,
-                                @RequestParam(name = "address") String address){
+                                @RequestParam(name = "address") String address,@RequestParam(name = "pttt") int pttt){
 
         if (session.getAttribute("customer") == null){
             return "redirect:login";
@@ -66,13 +69,26 @@ public class OrderController {
             else {
                 HashMap<Integer, CartItem> cartItems = (HashMap<Integer, CartItem>) session.getAttribute(("myCartItems"));
                 Customer customer = (Customer) session.getAttribute("customer");
-
-                orderService.getOrder(customer.getId(),shoppingCartService.totalPrice(cartItems),cartItems,
-                        name,phone,city,district,ward,address);
-                session.removeAttribute("myCartItems");
-                session.removeAttribute("myCartNum");
-                session.removeAttribute("myCartTotal");
-                return "redirect:myAccount";
+                if(pttt == 1){
+                    orderService.getOrder(customer.getId(),shoppingCartService.totalPrice(cartItems),cartItems,
+                            name,phone,city,district,ward,address,pttt);
+                    session.removeAttribute("myCartItems");
+                    session.removeAttribute("myCartNum");
+                    session.removeAttribute("myCartTotal");
+                    return "redirect:myAccount";
+                }
+                else if(pttt == 2 && customer.getMoney() > shoppingCartService.totalPrice(cartItems)){
+                    orderService.getOrder(customer.getId(),shoppingCartService.totalPrice(cartItems),cartItems,
+                            name,phone,city,district,ward,address,pttt);
+                    session.setAttribute("customer",customerRepository.getCustomerByUserName(customer.getUserName()));
+                    session.removeAttribute("myCartItems");
+                    session.removeAttribute("myCartNum");
+                    session.removeAttribute("myCartTotal");
+                    return "redirect:myAccount";
+                }
+                else {
+                    return "redirect:cart";
+                }
             }
         }
     }

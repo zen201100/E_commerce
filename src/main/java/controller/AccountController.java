@@ -15,8 +15,10 @@ import service.*;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
+import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 @Controller
 public class AccountController {
@@ -127,6 +129,10 @@ public class AccountController {
             return "redirect:login";
         }
         else {
+            Locale localeVN = new Locale("vi", "VN");
+            NumberFormat currencyFormat = NumberFormat.getCurrencyInstance(localeVN);
+            model.addAttribute("currencyFormat",currencyFormat);
+
             model.addAttribute("listProviders",providersService.PROVIDERS());
             model.addAttribute("listTypePhone",typePhoneService.TYPE_PHONES());
             model.addAttribute("listCaparity",capacityService.CAPACITIES());

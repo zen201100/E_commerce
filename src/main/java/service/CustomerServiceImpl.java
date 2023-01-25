@@ -21,6 +21,7 @@ public class CustomerServiceImpl implements CustomerService{
                                   String address, String city, String district, String ward) {
         Customer customer = customerRepository.getCustomerByUserName(userName);
         customer.setFullName(fullname.trim());
+        customer.setMoney(0);
         customer.setEmail(email);
         customer.setPhone(phone);
         customer.setAddress(address);

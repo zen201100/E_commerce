@@ -262,13 +262,14 @@
                                                                          value="${sessionScope.customer.address}"></div>
                                     </div>
                                 </div>
-                                <input style="width: 100%;padding: 10px;margin: 15px 0" type="text" name="need" placeholder="Yêu cầu khác (không bắt buộc)"><br>
-                                <input type="checkbox" name="noteOne" value="Gọi người khác nhận hàng (nếu có)">
-                                <label >Gọi người khác nhận hàng (nếu có)</label><br>
-                                <input type="checkbox" name="noteTwo" value="Chuyển danh bạ, dữ liệu qua máy mới">
-                                <label >Chuyển danh bạ, dữ liệu qua máy mới</label><br>
-                                <input type="checkbox" name="noteThree" value="Xuất hóa đơn công ty">
-                                <label >Xuất hóa đơn công ty</label>
+                                <input style="width: 100%;padding: 10px;margin: 15px 0" type="text" name="need" placeholder="Yêu cầu khác (không bắt buộc)">
+                                <div style="font-weight: bold;font-size: 15px">PHƯƠNG THỨC THANH TOÁN</div>
+                                <div style="padding: 10px 0">
+                                    <input style="transform: translateY(1px)" type="radio" name="pttt" value="1" checked>
+                                    <label >Thanh toán khi nhận hàng</label><br>
+                                    <input style="transform: translateY(1px)" type="radio" name="pttt" value="2">
+                                    <label >Thanh toán online</label><br>
+                                </div>
 
                                 <div class="order-product">
                                     <div class="row-total-price">
@@ -276,7 +277,7 @@
                                             <div style="color: #333333;font-weight: bold">Tổng tiền:</div>
                                         </div>
                                         <div class="price-total">
-                                            <div style="float: right;color: #dd0000;font-weight: bold">${sessionScope.myCartTotal} đ</div>
+                                            <div style="float: right;color: #dd0000;font-weight: bold">${currencyFormat.format(sessionScope.myCartTotal)}</div>
                                         </div>
                                     </div>
                                     <div>

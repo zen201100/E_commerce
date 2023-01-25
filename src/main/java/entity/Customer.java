@@ -10,6 +10,7 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String role;
+    private double money;
     private String userName;
     private String password;
     private String email;
@@ -25,9 +26,10 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int id, String role, String userName, String password, String email, String fullName, String city, String district, String ward, String address, String phone, List<Orders> orders) {
+    public Customer(int id, String role, double money, String userName, String password, String email, String fullName, String city, String district, String ward, String address, String phone, List<Orders> orders) {
         this.id = id;
         this.role = role;
+        this.money = money;
         this.userName = userName;
         this.password = password;
         this.email = email;
@@ -54,6 +56,14 @@ public class Customer {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public double getMoney() {
+        return money;
+    }
+
+    public void setMoney(double money) {
+        this.money = money;
     }
 
     public String getUserName() {

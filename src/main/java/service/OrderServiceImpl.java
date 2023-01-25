@@ -24,11 +24,13 @@ public class OrderServiceImpl implements OrderService{
     private OrderDetailRepository orderDetailRepository;
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private PaymentRepository paymentRepository;
 
 
     @Override
     public void getOrder(int customerID, double totalPrice, HashMap<Integer, CartItem> cartItems,
-                         String name,String phone,String city,String district,String ward,String address) {
+                         String name,String phone,String city,String district,String ward,String address,int pttt) {
         Customer customer = customerRepository.findById(customerID).get();
 
         Orders orders = new Orders();
@@ -37,6 +39,25 @@ public class OrderServiceImpl implements OrderService{
         orders.setTotalProduct(cartItems.size());
         orders.setTotalPrice(totalPrice);
         orderRepository.save(orders);
+
+        Payment payment = new Payment();
+        if(pttt == 1){
+            payment.setOrders(orders);
+            payment.setPaymentType("Thanh toán khi nhận hàng");
+            payment.setAmount(totalPrice);
+            paymentRepository.save(payment);
+        }
+        else if(pttt == 2){
+            payment.setOrders(orders);
+            payment.setPaymentType("Thanh toán online");
+            payment.setAmount(totalPrice);
+            paymentRepository.save(payment);
+
+            customer.setMoney(customer.getMoney()-totalPrice);
+            customerRepository.save(customer);
+
+        }
+
 
         Transport transport = new Transport();
         transport.setOrders(orders);

@@ -227,13 +227,15 @@
                         <div class="form-money-dt">
                             <div class="money-l">
                                 <div style="color: #e0e0e0">Số dư hiện tại</div>
+                                <div>${currencyFormat.format(sessionScope.customer.money)}</div>
                             </div>
                             <div class="dd-r">
                                 <div style="color: #e0e0e0">Điểm thưởng</div>
                             </div>
                         </div>
 
-                        <div class="form-khohang"><div class="khohang"><d/>
+                        <div class="form-khohang">
+                            <div class="khohang"></div>
                         </div>
 
                     </div>
