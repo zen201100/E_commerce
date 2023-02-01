@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/capacity.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/stylecapacity.css" type="text/css"/>
     <title>Capacity</title>
 </head>
 <body>
@@ -60,9 +60,9 @@
                                                     </div>
                                                 </div>
                                                 <c:choose>
-                                                    <c:when test="${sessionScope.khoangtrong<=1}">
+                                                    <c:when test="${sessionScope.khoangtrong ==0}">
                                                         <div class="name-tt-cn" style="color: #e0e0e0;padding: 11px">
-                                                                ${sessionScope.customer.fullName}
+                                                                ${sessionScope.customer.fullName.trim()}
                                                         </div>
                                                     </c:when>
                                                     <c:otherwise>
@@ -91,16 +91,13 @@
                                                 <div class="col-my-account"><a style="text-decoration: none" href="myAccount">
                                                     <div class="my-account">Tài khoản của tôi</div>
                                                 </a></div>
-                                                <div class="col-my-account"><a style="text-decoration: none" href="">
-                                                    <div class="my-account">Kho hàng</div>
-                                                </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="orderHistory">
                                                     <div class="my-account">Lịch sử đặt hàng</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="">
-                                                    <div class="my-account">Sảm phẩm yêu thích</div>
+                                                    <div class="my-account">Sản phẩm yêu thích</div>
                                                 </a></div>
-                                                <div class="col-my-account" style="border: 0" ><a style="text-decoration: none" href="logoutAccount">
+                                                <div class="col-my-account"><a style="text-decoration: none" href="logoutAccount">
                                                     <div class="my-account" style="color: #ffe818">Đăng xuất</div>
                                                 </a></div>
                                             </div>

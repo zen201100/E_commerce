@@ -48,24 +48,13 @@ public class AccountController {
 
         List<Customer> customers = customerService.getAllCustomer();
         for (Customer c:customers){
-            if (customer.getUserName().equals(c.getUserName())){
+            if(customer.getUserName().equals(c.getUserName())){
                 return "redirect:registCustomer";
             }
-            else if(customer.getPassword().length()==0){
-                return "redirect:registCustomer";
-            }
-            else if(passWord.length()==0){
-                return "redirect:registCustomer";
-            }
-            else if(customer.getEmail().length()==0){
-                return "redirect:registCustomer";
-            }
-            else if(customer.getFullName().length()==0){
-                return "redirect:registCustomer";
-            }
-            else if(customer.getPhone().length()==0){
-                return "redirect:registCustomer";
-            }
+        }
+        if(customer.getPassword().equals(passWord)){
+            customerService.getRegistCustomer(customer);
+            return "redirect:login";
         }
         return "redirect:registCustomer";
     }
@@ -115,6 +104,7 @@ public class AccountController {
             }
 
             if(userName.equals(c.getUserName()) && password.equals(c.getPassword()) && c.getRole().equals("admin")){
+                session.setAttribute("admin",customerService.getCustomerByUserName(userName));
                 return "redirect:admin";
             }
         }

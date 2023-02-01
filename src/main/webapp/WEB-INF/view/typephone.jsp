@@ -91,14 +91,11 @@
                                                 <div class="col-my-account"><a style="text-decoration: none" href="myAccount">
                                                     <div class="my-account">Tài khoản của tôi</div>
                                                 </a></div>
-                                                <div class="col-my-account"><a style="text-decoration: none" href="">
-                                                    <div class="my-account">Kho hàng</div>
-                                                </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="orderHistory">
                                                     <div class="my-account">Lịch sử đặt hàng</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="">
-                                                    <div class="my-account">Sảm phẩm yêu thích</div>
+                                                    <div class="my-account">Sản phẩm yêu thích</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="logoutAccount">
                                                     <div class="my-account" style="color: #ffe818">Đăng xuất</div>

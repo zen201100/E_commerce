@@ -91,14 +91,11 @@
                                                 <div class="col-my-account"><a style="text-decoration: none" href="myAccount">
                                                     <div class="my-account">Tài khoản của tôi</div>
                                                 </a></div>
-                                                <div class="col-my-account"><a style="text-decoration: none" href="">
-                                                    <div class="my-account">Kho hàng</div>
-                                                </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="orderHistory">
                                                     <div class="my-account">Lịch sử đặt hàng</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="">
-                                                    <div class="my-account">Sảm phẩm yêu thích</div>
+                                                    <div class="my-account">Sản phẩm yêu thích</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="logoutAccount">
                                                     <div class="my-account" style="color: #ffe818">Đăng xuất</div>
@@ -194,8 +191,7 @@
                         <a style="text-decoration: none" href=""><div class="row-tt"> Kho Voucher</div></a>
                         <a style="text-decoration: none" href=""><div class="row-tt"> Nạp tiền</div></a>
                         <a style="text-decoration: none" href="orderHistory"><div class="row-tt"> Lịch sử đặt hàng</div></a>
-                        <a style="text-decoration: none" href=""><div class="row-tt"> Kho Hàng</div></a>
-                        <a style="text-decoration: none" href=""><div class="row-tt"> Sảng phẩm yêu thích</div></a>
+                        <a style="text-decoration: none" href=""><div class="row-tt"> Sản phẩm yêu thích</div></a>
                     </div>
 
                 </div>
@@ -227,7 +223,7 @@
                         <div class="form-money-dt">
                             <div class="money-l">
                                 <div style="color: #e0e0e0">Số dư hiện tại</div>
-                                <div>${currencyFormat.format(sessionScope.customer.money)}</div>
+                                <div style="color: #ffca06;font-size: 20px;padding-top: 10px">${currencyFormat.format(sessionScope.customer.money)}</div>
                             </div>
                             <div class="dd-r">
                                 <div style="color: #e0e0e0">Điểm thưởng</div>

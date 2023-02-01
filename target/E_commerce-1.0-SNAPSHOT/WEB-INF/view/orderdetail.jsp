@@ -91,14 +91,11 @@
                                                 <div class="col-my-account"><a style="text-decoration: none" href="myAccount">
                                                     <div class="my-account">Tài khoản của tôi</div>
                                                 </a></div>
-                                                <div class="col-my-account"><a style="text-decoration: none" href="">
-                                                    <div class="my-account">Kho hàng</div>
-                                                </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="orderHistory">
                                                     <div class="my-account">Lịch sử đặt hàng</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="">
-                                                    <div class="my-account">Sảm phẩm yêu thích</div>
+                                                    <div class="my-account">Sản phẩm yêu thích</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="logoutAccount">
                                                     <div class="my-account" style="color: #ffe818">Đăng xuất</div>
@@ -198,8 +195,7 @@
                                 Lịch sử đặt hàng
                             </div>
                         </a>
-                        <a style="text-decoration: none" href=""><div class="row-tt"> Kho Hàng</div></a>
-                        <a style="text-decoration: none" href=""><div class="row-tt"> Sảng phẩm yêu thích</div></a>
+                        <a style="text-decoration: none" href=""><div class="row-tt"> Sản phẩm yêu thích</div></a>
                     </div>
 
                 </div>
@@ -245,12 +241,12 @@
                         <div class="col-infor-od">
                             <div class="name-oddt" style="width: 50%">Thành tiền :</div>
                             <div style="width: 50%">
-                                <div class="name-oddt" style="color:#dd0000;font-size: 18px;font-weight:bold;float: right">${currencyFormat.format(transport.orders.totalPrice)}</div>
+                                <div class="name-oddt" style="color:#dd0000;font-size: 18px;font-weight:bold;float: right">${currencyFormat.format(payment.amount)}</div>
                             </div>
                         </div>
                         <div class="col-infor-od">
                             <div style="width: 50%" class="name-oddt">Phương thức thanh toán :</div>
-                            <div style="color: #e0e0e0;width: 50%">Thanh toán khi nhận hàng</div>
+                            <div style="color: #e0e0e0;width: 50%">${payment.paymentType}</div>
                         </div>
                         <div class="col-infor-od" style="flex-wrap: wrap;">
                             <div style="width: 50%" class="name-oddt">Mã đơn hàng :</div>

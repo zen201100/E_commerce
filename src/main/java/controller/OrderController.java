@@ -40,7 +40,8 @@ public class OrderController {
     public String getInforOrder(HttpSession session, Model model,@RequestParam(name = "name") String name,
                                 @RequestParam(name = "phone") String phone,@RequestParam(name ="city") String city,
                                 @RequestParam(name = "district") String district,@RequestParam(name = "ward") String ward,
-                                @RequestParam(name = "address") String address,@RequestParam(name = "pttt") int pttt){
+                                @RequestParam(name = "address") String address,@RequestParam(name = "pttt") int pttt,
+                                @RequestParam(name = "password",required = false) String password){
 
         if (session.getAttribute("customer") == null){
             return "redirect:login";
@@ -75,20 +76,23 @@ public class OrderController {
                     session.removeAttribute("myCartItems");
                     session.removeAttribute("myCartNum");
                     session.removeAttribute("myCartTotal");
-                    return "redirect:myAccount";
+                    return "redirect:orderHistory";
                 }
-                else if(pttt == 2 && customer.getMoney() > shoppingCartService.totalPrice(cartItems)){
-                    orderService.getOrder(customer.getId(),shoppingCartService.totalPrice(cartItems),cartItems,
-                            name,phone,city,district,ward,address,pttt);
-                    session.setAttribute("customer",customerRepository.getCustomerByUserName(customer.getUserName()));
-                    session.removeAttribute("myCartItems");
-                    session.removeAttribute("myCartNum");
-                    session.removeAttribute("myCartTotal");
-                    return "redirect:myAccount";
+                if(pttt == 2){
+                    if(customer.getPassword().equals(password) &&
+                            customer.getMoney() >= shoppingCartService.totalPrice(cartItems)){
+                        orderService.getOrder(customer.getId(),shoppingCartService.totalPrice(cartItems),cartItems,
+                                name,phone,city,district,ward,address,pttt);
+                        session.setAttribute("customer",customerRepository.getCustomerByUserName(customer.getUserName()));
+
+                        session.removeAttribute("myCartItems");
+                        session.removeAttribute("myCartNum");
+                        session.removeAttribute("myCartTotal");
+                        return "redirect:orderHistory";
+
+                    }
                 }
-                else {
-                    return "redirect:cart";
-                }
+                return "redirect:cart";
             }
         }
     }
@@ -139,6 +143,7 @@ public class OrderController {
                 if(o.getId() == orderID){
                     model.addAttribute("orderDetail",orderService.getOrderDetailByID(orderID));
                     model.addAttribute("transport",orderService.getTransportByOrderID(orderID));
+                    model.addAttribute("payment",orderService.getPaymentByOrderID(orderID));
                     return "orderdetail";
                 }
             }
@@ -148,4 +153,8 @@ public class OrderController {
         }
 
     }
+
+
+
+
 }

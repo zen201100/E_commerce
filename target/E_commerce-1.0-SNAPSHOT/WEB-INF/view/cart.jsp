@@ -91,16 +91,13 @@
                                                 <div class="col-my-account"><a style="text-decoration: none" href="myAccount">
                                                     <div class="my-account">Tài khoản của tôi</div>
                                                 </a></div>
-                                                <div class="col-my-account"><a style="text-decoration: none" href="">
-                                                    <div class="my-account">Kho hàng</div>
-                                                </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="orderHistory">
                                                     <div class="my-account">Lịch sử đặt hàng</div>
                                                 </a></div>
                                                 <div class="col-my-account"><a style="text-decoration: none" href="">
-                                                    <div class="my-account">Sảm phẩm yêu thích</div>
+                                                    <div class="my-account">Sản phẩm yêu thích</div>
                                                 </a></div>
-                                                <div class="col-my-account" style="border: 0" ><a style="text-decoration: none" href="logoutAccount">
+                                                <div class="col-my-account"><a style="text-decoration: none" href="logoutAccount">
                                                     <div class="my-account" style="color: #ffe818">Đăng xuất</div>
                                                 </a></div>
                                             </div>
@@ -265,9 +262,9 @@
                                 <input style="width: 100%;padding: 10px;margin: 15px 0" type="text" name="need" placeholder="Yêu cầu khác (không bắt buộc)">
                                 <div style="font-weight: bold;font-size: 15px">PHƯƠNG THỨC THANH TOÁN</div>
                                 <div style="padding: 10px 0">
-                                    <input style="transform: translateY(1px)" type="radio" name="pttt" value="1" checked>
+                                    <input class="pttt1" style="transform: translateY(1px)" type="radio" name="pttt" value="1" checked>
                                     <label >Thanh toán khi nhận hàng</label><br>
-                                    <input style="transform: translateY(1px)" type="radio" name="pttt" value="2">
+                                    <input class="pttt2" style="transform: translateY(1px)" type="radio" name="pttt" value="2">
                                     <label >Thanh toán online</label><br>
                                 </div>
 
@@ -280,10 +277,45 @@
                                             <div style="float: right;color: #dd0000;font-weight: bold">${currencyFormat.format(sessionScope.myCartTotal)}</div>
                                         </div>
                                     </div>
-                                    <div>
-                                        <input class="submit-order" type="submit" value="ĐẶT HÀNG">
-                                    </div>
+
+                                    <c:choose>
+                                        <c:when test="${sessionScope.customer == null}">
+                                            <input class="submit-order" type="submit" value="Đặt hàng">
+                                        </c:when>
+                                        <c:otherwise>
+                                            <input class="submit-order" type="submit" value="Đặt hàng">
+
+                                            <div style="display: none" id="myBtn">Đặt hàng</div>
+
+                                            <div id="myModal" class="modal">
+
+                                                <div class="modal-content">
+                                                    <span class="close">&times;</span>
+
+                                                    <div style="font-weight: bold;font-size: 15px;text-align: center">XÁC NHẬN THÔNG TIN</div>
+                                                    <div style="padding-top: 10px">
+
+                                                        <div style="font-weight: bold;font-size: 15px;">HỌ VÀ TÊN : ${sessionScope.customer.fullName}</div>
+                                                        <input name="password" type="password" placeholder="Nhập mật khẩu" style="width: 100%;padding: 15px;margin: 15px 0">
+                                                        <div class="row-total-price" style="padding-bottom: 15px">
+                                                            <div class="name-total">
+                                                                <div style="color: #333333;font-weight: bold">Thành tiền :</div>
+                                                            </div>
+                                                            <div class="price-total">
+                                                                <div style="float: right;color: #dd0000;font-weight: bold">${currencyFormat.format(sessionScope.myCartTotal)}</div>
+                                                            </div>
+                                                        </div>
+                                                        <input class="submit-order" type="submit" value="Xác nhận">
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </c:otherwise>
+                                    </c:choose>
+
                                 </div>
+
                             </form>
                         </div>
                     </c:otherwise>
@@ -348,5 +380,7 @@
         </div>
     </div>
     <script src="${pageContext.request.contextPath}/resources/js/jsinformation.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/nametitle.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jsmodalcart.js"></script>
 </body>
 </html>

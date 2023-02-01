@@ -14,6 +14,7 @@ import java.util.Map;
 
 @Service(value = "orderService")
 public class OrderServiceImpl implements OrderService{
+
     @Autowired
     private OrderRepository orderRepository;
     @Autowired
@@ -39,6 +40,7 @@ public class OrderServiceImpl implements OrderService{
         orders.setTotalProduct(cartItems.size());
         orders.setTotalPrice(totalPrice);
         orderRepository.save(orders);
+
 
         Payment payment = new Payment();
         if(pttt == 1){
@@ -73,22 +75,28 @@ public class OrderServiceImpl implements OrderService{
         List<Product> products = (List<Product>) productRepository.findAll();
         for(Product p:products) {
             for (Map.Entry<Integer,CartItem> list : cartItems.entrySet()){
-                if(p.getId()==list.getValue().getProduct().getId()){
+                if(p.getId() == list.getValue().getProduct().getId()){
                     OrderDetails orderDetails = new OrderDetails();
                     orderDetails.setOrders(orders);
                     orderDetails.setProduct(p);
                     orderDetails.setQuantity(list.getValue().getQuantity());
                     orderDetails.setUnitPrice(list.getValue().getUnitPrice());
+                    orderDetailRepository.save(orderDetails);
 
 //                    p.setQuantity(p.getQuantity() - list.getValue().getQuantity());
                     p.setProductSale(p.getProductSale() + list.getValue().getQuantity());
                     productRepository.save(p);
-                    orderDetailRepository.save(orderDetails);
 
                 }
 
             }
         }
+    }
+
+
+    @Override
+    public Payment getPaymentByOrderID(int orderID) {
+        return paymentRepository.getPaymentByOrderID(orderID) ;
     }
 
     @Override

@@ -8,8 +8,11 @@ import java.util.HashMap;
 import java.util.List;
 
 public interface OrderService {
+
     public void getOrder(int customerID, double totalPrice, HashMap<Integer, CartItem> cartItems,
                          String name,String phone,String city,String district,String ward,String address,int pttt);
+
+    public Payment getPaymentByOrderID(int orderID);
 
     public Page<Orders> getOrdersByCustomerID(int customerID, Pageable pageable);
 

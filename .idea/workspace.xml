@@ -19,11 +19,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="spring-beans.schema" />
+        <option value="Class" />
+        <option value="Interface" />
         <option value="Jsp File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="Class" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -55,7 +55,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="F:/intellij/J51_Employee" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
@@ -68,17 +68,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Tomcat 8.5.822" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" activateToolWindowBeforeRun="false" APPLICATION_SERVER_NAME="Tomcat 8.5.822" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/E_commerce_war_exploded/" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -319,7 +308,22 @@
       <workItem from="1674485453955" duration="638000" />
       <workItem from="1674493652172" duration="409000" />
       <workItem from="1674544235533" duration="202000" />
-      <workItem from="1674626994689" duration="4593000" />
+      <workItem from="1674626994689" duration="5573000" />
+      <workItem from="1674640146400" duration="950000" />
+      <workItem from="1674647603048" duration="3042000" />
+      <workItem from="1674654477682" duration="12802000" />
+      <workItem from="1674710997070" duration="4254000" />
+      <workItem from="1675061325445" duration="948000" />
+      <workItem from="1675075496415" duration="4860000" />
+      <workItem from="1675092059730" duration="90000" />
+      <workItem from="1675094522612" duration="3582000" />
+      <workItem from="1675141444104" duration="7080000" />
+      <workItem from="1675166285119" duration="2012000" />
+      <workItem from="1675172938740" duration="3458000" />
+      <workItem from="1675185466536" duration="1152000" />
+      <workItem from="1675191058559" duration="3549000" />
+      <workItem from="1675196874059" duration="259000" />
+      <workItem from="1675237328027" duration="649000" />
     </task>
     <servers />
   </component>
